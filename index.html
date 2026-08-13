@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
 <title>LinkHarbor — Your link is on the way</title>
 
@@ -898,7 +901,12 @@ const articles = [
    VARIABLES
 ========================================= */
 
-let page = 1;
+const urlParams = new URLSearchParams(window.location.search);
+const requestedPage = parseInt(urlParams.get("step") || "1", 10);
+
+let page = Number.isFinite(requestedPage)
+  ? Math.min(Math.max(requestedPage, 1), TOTAL_PAGES)
+  : 1;
 
 let secondsLeft =
   WAIT_SECONDS;
@@ -1008,8 +1016,14 @@ function loadSingleAd(
     document.createElement("script");
 
 
+  const separator = scriptURL.includes('?') ? '&' : '?';
+
   script.src =
-    scriptURL;
+    scriptURL +
+    separator +
+    'page=' + encodeURIComponent(page) +
+    '&slot=' + encodeURIComponent(containerId) +
+    '&r=' + Date.now();
 
 
   script.async = true;
@@ -1285,10 +1299,13 @@ function renderStandardPage(){
         }
 
 
-        page++;
+        const nextPage = Math.min(page + 1, TOTAL_PAGES);
 
-
-        renderPage();
+        // Real browser navigation: reloads the document so ad scripts
+        // are initialized again on every step.
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set('step', String(nextPage));
+        window.location.href = nextUrl.toString();
 
       }
     );
