@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js"></script>
+
+<!-- AD 1 — LOADS ON EVERY PAGE -->
+<script src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,159 +45,475 @@ body{
 a{ color:inherit; }
 
 @media(prefers-reduced-motion:reduce){
-  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  *{
+    animation-duration:0.001ms !important;
+    transition-duration:0.001ms !important;
+  }
 }
 
 /* PROGRESS */
-.progress-wrap{ display:flex; justify-content:center; padding:22px 18px 4px; }
-.progress{ display:flex; align-items:center; gap:6px; }
+
+.progress-wrap{
+  display:flex;
+  justify-content:center;
+  padding:22px 18px 4px;
+}
+
+.progress{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
 .progress .seg{
-  width:30px; height:4px; background:var(--line); border-radius:3px;
-  position:relative; overflow:hidden;
+  width:30px;
+  height:4px;
+  background:var(--line);
+  border-radius:3px;
+  position:relative;
+  overflow:hidden;
 }
-.progress .seg.done{ background:var(--indigo); }
+
+.progress .seg.done{
+  background:var(--indigo);
+}
+
 .progress .seg.current::after{
-  content:""; position:absolute; inset:0; background:var(--fuchsia);
-  width:var(--fill,0%); transition:width .2s linear;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--fuchsia);
+  width:var(--fill,0%);
+  transition:width .2s linear;
 }
-.progress .step-num{ font-size:11px; font-weight:700; color:var(--muted-soft); margin-left:8px; }
+
+.progress .step-num{
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted-soft);
+  margin-left:8px;
+}
 
 /* MAIN */
-main{ flex-grow:1; display:flex; justify-content:center; padding:20px 18px 40px; }
-.col{ width:100%; max-width:1000px; display:flex; flex-direction:column; gap:18px; }
+
+main{
+  flex-grow:1;
+  display:flex;
+  justify-content:center;
+  padding:20px 18px 40px;
+}
+
+.col{
+  width:100%;
+  max-width:1000px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
 
 .card{
-  background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px 28px;
-  box-shadow:0 1px 2px rgba(30,35,60,.04), 0 8px 24px rgba(30,35,60,.05);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:30px 28px;
+  box-shadow:
+    0 1px 2px rgba(30,35,60,.04),
+    0 8px 24px rgba(30,35,60,.05);
 }
 
 .eyebrow{
-  font-size:11.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--fuchsia); margin-bottom:8px;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--fuchsia);
+  margin-bottom:8px;
 }
-h1{ font-size:clamp(22px,3.6vw,28px); font-weight:800; margin:0 0 8px; }
-.sub{ color:var(--muted); font-size:14.5px; line-height:1.6; margin:0 0 26px; max-width:50ch; }
 
-/* ADS — 300x250 banner slots */
-.banners{ width:100%; margin-bottom:26px; }
+h1{
+  font-size:clamp(22px,3.6vw,28px);
+  font-weight:800;
+  margin:0 0 8px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.6;
+  margin:0 0 26px;
+  max-width:50ch;
+}
+
+/* ADS */
+
+.banners{
+  width:100%;
+  margin-bottom:26px;
+}
+
 .ad-row{
-  width:100%; display:flex; justify-content:center; align-items:flex-start;
-  gap:12px; flex-wrap:wrap;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.ad-box{
-  width:300px; min-width:300px; height:250px; min-height:250px;
-  display:flex; justify-content:center; align-items:center; overflow:hidden;
-  background:#fafbfe; border:1px dashed #d9ddea; border-radius:10px;
-}
-.ad-box iframe{ max-width:100%; border:0; }
 
-.ad-slot{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+.ad-box{
+  width:300px;
+  min-width:300px;
+  height:250px;
+  min-height:250px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background:#fafbfe;
+  border:1px dashed #d9ddea;
+  border-radius:10px;
+}
+
+.ad-box iframe{
+  max-width:100%;
+  border:0;
+}
+
+.ad-slot{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
 .ad-hint{
-  font-size:11.5px; font-weight:800; color:var(--indigo);
-  background:rgba(67,56,202,0.08); border-radius:999px;
-  padding:6px 12px; white-space:nowrap;
+  font-size:11.5px;
+  font-weight:800;
+  color:var(--indigo);
+  background:rgba(67,56,202,0.08);
+  border-radius:999px;
+  padding:6px 12px;
+  white-space:nowrap;
+}
+
+/* PAGE 6 — 320x50 AD */
+
+.final-banner{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0 auto 26px;
+  min-height:50px;
+}
+
+.final-banner iframe{
+  border:0;
+  max-width:100%;
 }
 
 /* TIMER */
+
 .gate-action{
-  padding-top:22px; border-top:1px solid var(--line);
-  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
 }
-.timer-wrap{ display:flex; align-items:center; gap:12px; }
-.ring{ width:42px; height:42px; transform:rotate(-90deg); }
-.ring circle{ fill:none; stroke-width:3.5; }
-.ring .bg{ stroke:var(--line); }
+
+.timer-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.ring{
+  width:42px;
+  height:42px;
+  transform:rotate(-90deg);
+}
+
+.ring circle{
+  fill:none;
+  stroke-width:3.5;
+}
+
+.ring .bg{
+  stroke:var(--line);
+}
+
 .ring .fg{
-  stroke:var(--fuchsia); stroke-linecap:round; stroke-dasharray:113; stroke-dashoffset:113;
+  stroke:var(--fuchsia);
+  stroke-linecap:round;
+  stroke-dasharray:113;
+  stroke-dashoffset:113;
   transition:stroke-dashoffset 1s linear;
 }
-.timer-text{ font-size:12px; color:var(--muted); line-height:1.4; }
-.timer-text b{ display:block; font-size:15px; color:var(--ink); }
 
-button.next, .cta-btn{
-  font-family:var(--font); font-size:13.5px; font-weight:800;
-  background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
-  color:#fff; border:none; padding:13px 26px; border-radius:999px;
-  cursor:not-allowed; opacity:.35; transition:opacity .25s, transform .15s;
+.timer-text{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.4;
 }
-button.next.ready, .cta-btn.ready{ cursor:pointer; opacity:1; }
-button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
+
+.timer-text b{
+  display:block;
+  font-size:15px;
+  color:var(--ink);
+}
+
+button.next,
+.cta-btn{
+  font-family:var(--font);
+  font-size:13.5px;
+  font-weight:800;
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  color:#fff;
+  border:none;
+  padding:13px 26px;
+  border-radius:999px;
+  cursor:not-allowed;
+  opacity:.35;
+  transition:opacity .25s,transform .15s;
+}
+
+button.next.ready,
+.cta-btn.ready{
+  cursor:pointer;
+  opacity:1;
+}
+
+button.next.ready:hover,
+.cta-btn.ready:hover{
+  transform:translateY(-1px);
+}
 
 /* ARTICLE */
+
 .divider-label{
-  font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--muted-soft); margin-bottom:14px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted-soft);
+  margin-bottom:14px;
 }
-.article h3{ font-size:19px; font-weight:800; margin:0 0 6px; }
-.article .byline{ font-size:12px; color:var(--muted-soft); font-weight:600; margin-bottom:12px; }
-.article p{ font-size:13.5px; line-height:1.75; color:var(--muted); margin:0; }
+
+.article h3{
+  font-size:19px;
+  font-weight:800;
+  margin:0 0 6px;
+}
+
+.article .byline{
+  font-size:12px;
+  color:var(--muted-soft);
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.article p{
+  font-size:13.5px;
+  line-height:1.75;
+  color:var(--muted);
+  margin:0;
+}
 
 /* FINAL PAGE */
-.final-card{ text-align:center; padding:36px 30px; }
-.final-card h1{ font-size:24px; }
-.final-card .sub{ margin-left:auto; margin-right:auto; }
+
+.final-card{
+  text-align:center;
+  padding:36px 30px;
+}
+
+.final-card h1{
+  font-size:24px;
+}
+
+.final-card .sub{
+  margin-left:auto;
+  margin-right:auto;
+}
 
 .get-link-btn{
-  font-family:var(--font); font-size:14px; font-weight:800;
-  background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
-  color:#fff; border:none; padding:15px 40px; border-radius:999px;
-  cursor:not-allowed; opacity:.35; margin:6px 0 4px; transition:opacity .25s, transform .15s;
+  font-family:var(--font);
+  font-size:14px;
+  font-weight:800;
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  color:#fff;
+  border:none;
+  padding:15px 40px;
+  border-radius:999px;
+  cursor:not-allowed;
+  opacity:.35;
+  margin:6px 0 4px;
+  transition:opacity .25s,transform .15s;
 }
-.get-link-btn.ready{ cursor:pointer; opacity:1; }
-.get-link-btn.ready:hover{ transform:translateY(-1px); }
+
+.get-link-btn.ready{
+  cursor:pointer;
+  opacity:1;
+}
+
+.get-link-btn.ready:hover{
+  transform:translateY(-1px);
+}
 
 /* SPONSOR */
-.sponsor-block{ text-align:center; padding:20px 0 0; }
-.sponsor-block .lbl{ font-size:12px; font-weight:800; letter-spacing:.04em; color:var(--muted); margin-bottom:12px; }
-.sponsor-pill{
-  display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line);
-  border-radius:999px; padding:9px 18px; font-weight:700; font-size:14px; color:var(--ink); background:#fff;
+
+.sponsor-block{
+  text-align:center;
+  padding:20px 0 0;
 }
-.sponsor-pill .dot{ width:20px; height:20px; border-radius:50%; background:var(--gold); display:inline-block; }
+
+.sponsor-block .lbl{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+.sponsor-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 18px;
+  font-weight:700;
+  font-size:14px;
+  color:var(--ink);
+  background:#fff;
+}
+
+.sponsor-pill .dot{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--gold);
+  display:inline-block;
+}
 
 .become-sponsor{
-  display:block; text-align:center; background:linear-gradient(100deg, var(--sky), var(--indigo));
-  color:#fff; font-weight:800; font-size:14px; padding:16px; border-radius:12px; text-decoration:none;
+  display:block;
+  text-align:center;
+  background:linear-gradient(100deg,var(--sky),var(--indigo));
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  padding:16px;
+  border-radius:12px;
+  text-decoration:none;
 }
 
 /* FINAL LINK */
+
 .final-link-box{
-  margin-top:22px; border:1px solid #c9f0d8; background:#f2fbf6; border-radius:12px;
-  padding:18px 20px; text-align:left;
+  margin-top:22px;
+  border:1px solid #c9f0d8;
+  background:#f2fbf6;
+  border-radius:12px;
+  padding:18px 20px;
+  text-align:left;
 }
+
 .final-link-box .tag2{
-  font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  color:#1a8a4c; margin-bottom:8px; display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#1a8a4c;
+  margin-bottom:8px;
+  display:block;
 }
-.link-row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+.link-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
 .link-field{
-  flex-grow:1; font-family:"SFMono-Regular", Menlo, Consolas, monospace; font-size:13px;
-  color:var(--ink); background:#fff; border:1px solid var(--line); padding:11px 13px;
-  border-radius:8px; word-break:break-all; min-width:180px;
+  flex-grow:1;
+  font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+  font-size:13px;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--line);
+  padding:11px 13px;
+  border-radius:8px;
+  word-break:break-all;
+  min-width:180px;
 }
+
 .copy-btn{
-  font-family:var(--font); font-size:12px; font-weight:700; background:#fff;
-  border:1px solid var(--indigo); color:var(--indigo); padding:10px 14px; border-radius:8px; cursor:pointer;
+  font-family:var(--font);
+  font-size:12px;
+  font-weight:700;
+  background:#fff;
+  border:1px solid var(--indigo);
+  color:var(--indigo);
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
 }
-.copy-btn:hover{ background:var(--indigo); color:#fff; }
+
+.copy-btn:hover{
+  background:var(--indigo);
+  color:#fff;
+}
+
 .go-link{
-  display:inline-block; margin-top:12px; font-weight:800; font-size:13.5px; color:#fff;
-  background:#1a8a4c; padding:11px 22px; border-radius:999px; text-decoration:none;
+  display:inline-block;
+  margin-top:12px;
+  font-weight:800;
+  font-size:13.5px;
+  color:#fff;
+  background:#1a8a4c;
+  padding:11px 22px;
+  border-radius:999px;
+  text-decoration:none;
 }
 
 /* MOBILE */
+
 @media(max-width:950px){
-  .col{ max-width:660px; }
+  .col{
+    max-width:660px;
+  }
 }
+
 @media(max-width:480px){
-  .card{ padding:22px 18px; }
-  .gate-action{ justify-content:center; text-align:center; }
-  .ad-box{ width:300px; min-width:300px; max-width:100%; }
+
+  .card{
+    padding:22px 18px;
+  }
+
+  .gate-action{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .ad-box{
+    width:300px;
+    min-width:300px;
+    max-width:100%;
+  }
+
+  .ad-hint{
+    white-space:normal;
+    text-align:center;
+  }
+
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -207,7 +525,6 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
   <div class="col" id="col"></div>
 </main>
 
-
 <script>
 (function(){
 
@@ -218,52 +535,65 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
 // CHANGE THIS TO YOUR REAL LINK
 const OFFICIAL_LINK = "https://example.com/your-destination";
 
-// TOTAL WAITING PAGES
+// TOTAL PAGES
 const TOTAL_PAGES = 6;
 
 // WAIT TIME
 const WAIT_SECONDS = 30;
 
-/*
-  300x250 banner ad — highperformanceformat.com (atOptions format).
-  Each ad box gets its own key below. Right now all three slots on
-  every page use the same key you gave me. If you have separate
-  zone keys for slot 1 / 2 / 3, just swap them into this array —
-  the code below already loops through it per slot.
-*/
-const BANNER_KEYS = [
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b", // ad1
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b", // ad2
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b"  // ad3
-];
 
 /* =========================================
    ARTICLES
 ========================================= */
 
 const articles = [
-  { title:"Why waiting rooms became the internet's last honest interface", byline:"Field Notes · 4 min read",
-    body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it." },
-  { title:"The thirty-second unit", byline:"Notes on Attention · 3 min read",
-    body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind." },
-  { title:"A short history of the link locker", byline:"Archive · 5 min read",
-    body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal." },
-  { title:"On the etiquette of the almost-there page", byline:"Field Notes · 3 min read",
-    body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration." },
-  { title:"What actually happens in the last thirty seconds", byline:"Notes on Attention · 4 min read",
-    body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one." }
+
+  {
+    title:"Why waiting rooms became the internet's last honest interface",
+    byline:"Field Notes · 4 min read",
+    body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+  },
+
+  {
+    title:"The thirty-second unit",
+    byline:"Notes on Attention · 3 min read",
+    body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
+  },
+
+  {
+    title:"A short history of the link locker",
+    byline:"Archive · 5 min read",
+    body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+  },
+
+  {
+    title:"On the etiquette of the almost-there page",
+    byline:"Field Notes · 3 min read",
+    body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+  },
+
+  {
+    title:"What actually happens in the last thirty seconds",
+    byline:"Notes on Attention · 4 min read",
+    body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+  }
+
 ];
+
 
 /* =========================================
    STATE
 ========================================= */
 
 const urlParams = new URLSearchParams(window.location.search);
-const requestedPage = parseInt(urlParams.get("step") || "1", 10);
 
-let page = Number.isFinite(requestedPage)
-  ? Math.min(Math.max(requestedPage, 1), TOTAL_PAGES)
-  : 1;
+const requestedPage =
+  parseInt(urlParams.get("step") || "1",10);
+
+let page =
+  Number.isFinite(requestedPage)
+    ? Math.min(Math.max(requestedPage,1),TOTAL_PAGES)
+    : 1;
 
 let secondsLeft = WAIT_SECONDS;
 let timerId = null;
@@ -272,264 +602,687 @@ let linkRevealed = false;
 const col = document.getElementById("col");
 const progress = document.getElementById("progress");
 
+
 /* =========================================
    PROGRESS BAR
 ========================================= */
 
 function renderProgress(){
+
   progress.innerHTML = "";
-  for(let i = 1; i <= TOTAL_PAGES; i++){
+
+  for(let i=1;i<=TOTAL_PAGES;i++){
+
     const seg = document.createElement("div");
-    seg.className = "seg" + (i < page ? " done" : (i === page ? " current" : ""));
+
+    seg.className =
+      "seg" +
+      (
+        i < page
+          ? " done"
+          : (i === page ? " current" : "")
+      );
+
     if(i === page){
-      seg.style.setProperty("--fill", "0%");
+
+      seg.style.setProperty(
+        "--fill",
+        "0%"
+      );
+
       seg.id = "segCurrent";
     }
+
     progress.appendChild(seg);
   }
+
   const num = document.createElement("div");
+
   num.className = "step-num";
-  num.textContent = "STEP " + page + " / " + TOTAL_PAGES;
+
+  num.textContent =
+    "STEP " + page + " / " + TOTAL_PAGES;
+
   progress.appendChild(num);
 }
 
+
 /* =========================================
-   LOAD ONE 300x250 BANNER (atOptions format)
+   PAGE 1–4 ADS
 ========================================= */
 
-function loadBanner(containerId, key){
-  const container = document.getElementById(containerId);
-  if(!container) return;
+function getStandardAdsHTML(){
 
-  container.innerHTML = "";
-
-  // The invoke.js from this ad network renders itself via document.write.
-  // document.write only behaves reliably during a document's own initial
-  // parse — calling it three times into the SAME page (our earlier
-  // approach) meant only the first call actually rendered and the other
-  // two silently did nothing. Giving each slot its own blank iframe gives
-  // each banner its own document to write into, so all three render.
-  const iframe = document.createElement("iframe");
-  iframe.style.width = "300px";
-  iframe.style.height = "250px";
-  iframe.style.border = "0";
-  iframe.setAttribute("scrolling", "no");
-  container.appendChild(iframe);
-
-  const doc = iframe.contentWindow.document;
-  doc.open();
-  doc.write(
-    "<!DOCTYPE html><html><head><style>*{margin:0;padding:0;}</style></head><body>" +
-    "<script>atOptions = {" +
-    "'key' : '" + key + "'," +
-    "'format' : 'iframe'," +
-    "'height' : 250," +
-    "'width' : 300," +
-    "'params' : {}" +
-    "};</" + "script>" +
-    "<script src=\"https://www.highperformanceformat.com/" + key + "/invoke.js\"></" + "script>" +
-    "</body></html>"
-  );
-  doc.close();
-}
-
-function loadAds(){
-  loadBanner("ad1", BANNER_KEYS[0]);
-  loadBanner("ad2", BANNER_KEYS[1]);
-  loadBanner("ad3", BANNER_KEYS[2]);
-}
-
-function getAdsHTML(){
   return `
     <div class="banners">
+
       <div class="ad-row">
+
         <div class="ad-slot">
-          <div class="ad-hint">Wait 30s, then click on ad then scroll down to unlock the link ↓</div>
-          <div class="ad-box" id="ad1"></div>
+
+          <div class="ad-hint">
+            Wait 30s, then click on ad then scroll down to unlock the link ↓
+          </div>
+
+          <div class="ad-box">
+            <script
+              src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js">
+            </script>
+          </div>
+
         </div>
-        <div class="ad-box" id="ad2"></div>
-        <div class="ad-box" id="ad3"></div>
+
       </div>
+
     </div>
   `;
 }
+
+
+/* =========================================
+   PAGE 5 ADS
+========================================= */
+
+function getPage5AdsHTML(){
+
+  return `
+    <div class="banners">
+
+      <div class="ad-row">
+
+        <div class="ad-slot">
+
+          <div class="ad-hint">
+            Wait 30s, then click on ad then scroll down to unlock the link ↓
+          </div>
+
+          <div class="ad-box">
+
+            <script
+              src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js">
+            </script>
+
+          </div>
+
+        </div>
+
+        <div class="ad-box">
+
+          <script
+            src="https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js">
+          </script>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+}
+
+
+/* =========================================
+   PAGE 6 — ONLY 320x50 BANNER
+========================================= */
+
+function getFinalAdHTML(){
+
+  return `
+    <div class="final-banner">
+
+      <script>
+        atOptions = {
+          'key' : 'eee5199c1ecc4b17f86952845c3e0047',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+
+      <script
+        src="https://www.highperformanceformat.com/eee5199c1ecc4b17f86952845c3e0047/invoke.js">
+      </script>
+
+    </div>
+  `;
+}
+
+
+/* =========================================
+   GET ADS FOR CURRENT PAGE
+========================================= */
+
+function getAdsHTML(){
+
+  // PAGE 6
+  if(page === TOTAL_PAGES){
+    return getFinalAdHTML();
+  }
+
+  // PAGE 5
+  if(page === 5){
+    return getPage5AdsHTML();
+  }
+
+  // PAGE 1–4
+  return getStandardAdsHTML();
+}
+
 
 /* =========================================
    STANDARD PAGE
 ========================================= */
 
 function renderStandardPage(){
+
   const article = articles[page - 1];
 
   col.innerHTML = `
+
     <div class="card">
-      <div class="eyebrow">Step ${page} of ${TOTAL_PAGES}</div>
-      <h1>Getting your link ready</h1>
-      <p class="sub">A short wait keeps this page free to run. Your link continues on the next step.</p>
+
+      <div class="eyebrow">
+        Step ${page} of ${TOTAL_PAGES}
+      </div>
+
+      <h1>
+        Getting your link ready
+      </h1>
+
+      <p class="sub">
+        A short wait keeps this page free to run.
+        Your link continues on the next step.
+      </p>
 
       ${getAdsHTML()}
 
       <div class="gate-action">
+
         <div class="timer-wrap">
+
           <svg class="ring" viewBox="0 0 42 42">
-            <circle class="bg" cx="21" cy="21" r="18"></circle>
-            <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
+
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18">
+            </circle>
+
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18">
+            </circle>
+
           </svg>
-          <div class="timer-text">Unlocks in <b id="secText">${WAIT_SECONDS}s</b></div>
+
+          <div class="timer-text">
+
+            Unlocks in
+
+            <b id="secText">
+              ${WAIT_SECONDS}s
+            </b>
+
+          </div>
+
         </div>
-        <button class="next" id="nextBtn">Continue →</button>
+
+        <button
+          class="next"
+          id="nextBtn">
+
+          Continue →
+
+        </button>
+
       </div>
+
     </div>
+
 
     <div class="card article-card">
-      <div class="divider-label">From the blog</div>
-      <div class="article">
-        <h3>${article.title}</h3>
-        <div class="byline">${article.byline}</div>
-        <p>${article.body}</p>
+
+      <div class="divider-label">
+        From the blog
       </div>
+
+      <div class="article">
+
+        <h3>
+          ${article.title}
+        </h3>
+
+        <div class="byline">
+          ${article.byline}
+        </div>
+
+        <p>
+          ${article.body}
+        </p>
+
+      </div>
+
     </div>
+
   `;
 
-  loadAds();
 
-  document.getElementById("nextBtn").addEventListener("click", function(){
-    if(secondsLeft > 0) return;
+  document
+    .getElementById("nextBtn")
+    .addEventListener("click",function(){
 
-    const nextPage = Math.min(page + 1, TOTAL_PAGES);
-    const nextUrl = new URL(window.location.href);
-    nextUrl.searchParams.set('step', String(nextPage));
-    window.location.href = nextUrl.toString();
-  });
+      if(secondsLeft > 0) return;
 
-  startCountdown(updateStandardTimerUI);
+      const nextPage =
+        Math.min(page + 1,TOTAL_PAGES);
+
+      const nextUrl =
+        new URL(window.location.href);
+
+      nextUrl.searchParams.set(
+        "step",
+        String(nextPage)
+      );
+
+      // Reload the page so the new page's ad script
+      // is loaded again.
+      window.location.href =
+        nextUrl.toString();
+
+    });
+
+
+  startCountdown(
+    updateStandardTimerUI
+  );
 }
+
 
 /* =========================================
    FINAL PAGE
 ========================================= */
 
 function renderFinalPage(){
+
   col.innerHTML = `
+
     <div class="card final-card">
-      <div class="eyebrow">Step ${TOTAL_PAGES} of ${TOTAL_PAGES}</div>
-      <h1>Almost there!</h1>
-      <p class="sub">Thanks for your patience — your link unlocks below.</p>
 
-      ${getAdsHTML()}
+      <div class="eyebrow">
+        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+      </div>
 
-      <button class="get-link-btn" id="getLinkBtn">Get Link</button>
+      <h1>
+        Almost there!
+      </h1>
+
+      <p class="sub">
+        Thanks for your patience — your link unlocks below.
+      </p>
+
+      <!-- ONLY ONE 320x50 AD ON PAGE 6 -->
+      ${getFinalAdHTML()}
+
+
+      <button
+        class="get-link-btn"
+        id="getLinkBtn">
+
+        Get Link
+
+      </button>
+
 
       <div style="margin-top:14px;">
-        <div class="timer-wrap" style="justify-content:center;">
-          <svg class="ring" viewBox="0 0 42 42">
-            <circle class="bg" cx="21" cy="21" r="18"></circle>
-            <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
+
+        <div
+          class="timer-wrap"
+          style="justify-content:center;">
+
+          <svg
+            class="ring"
+            viewBox="0 0 42 42">
+
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18">
+            </circle>
+
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18">
+            </circle>
+
           </svg>
-          <div class="timer-text">Unlocks in <b id="secText">${WAIT_SECONDS}s</b></div>
+
+          <div class="timer-text">
+
+            Unlocks in
+
+            <b id="secText">
+              ${WAIT_SECONDS}s
+            </b>
+
+          </div>
+
         </div>
+
       </div>
+
 
       <div class="sponsor-block">
-        <div class="lbl">SPONSORED BY</div>
-        <span class="sponsor-pill"><span class="dot"></span> Harborlight Studio</span>
+
+        <div class="lbl">
+          SPONSORED BY
+        </div>
+
+        <span class="sponsor-pill">
+
+          <span class="dot"></span>
+
+          Harborlight Studio
+
+        </span>
+
       </div>
+
 
       <div id="finalLinkArea"></div>
+
     </div>
+
 
     <div class="card">
-      <a class="become-sponsor" href="#">Become a Sponsor!</a>
+
+      <a
+        class="become-sponsor"
+        href="#">
+
+        Become a Sponsor!
+
+      </a>
+
     </div>
+
   `;
 
-  loadAds();
 
-  const getLinkBtn = document.getElementById("getLinkBtn");
-  getLinkBtn.addEventListener("click", function(){
-    if(secondsLeft > 0 || linkRevealed) return;
-    linkRevealed = true;
+  const getLinkBtn =
+    document.getElementById("getLinkBtn");
 
-    document.getElementById("finalLinkArea").innerHTML = `
-      <div class="final-link-box">
-        <span class="tag2">Official destination</span>
-        <div class="link-row">
-          <div class="link-field">${OFFICIAL_LINK}</div>
-          <button class="copy-btn" id="copyBtn">Copy</button>
+
+  getLinkBtn.addEventListener(
+    "click",
+    function(){
+
+      if(
+        secondsLeft > 0 ||
+        linkRevealed
+      ) return;
+
+      linkRevealed = true;
+
+
+      document.getElementById(
+        "finalLinkArea"
+      ).innerHTML = `
+
+        <div class="final-link-box">
+
+          <span class="tag2">
+            Official destination
+          </span>
+
+          <div class="link-row">
+
+            <div class="link-field">
+              ${OFFICIAL_LINK}
+            </div>
+
+            <button
+              class="copy-btn"
+              id="copyBtn">
+
+              Copy
+
+            </button>
+
+          </div>
+
+          <a
+            class="go-link"
+            href="${OFFICIAL_LINK}"
+            target="_blank"
+            rel="noopener">
+
+            Continue to link →
+
+          </a>
+
         </div>
-        <a class="go-link" href="${OFFICIAL_LINK}" target="_blank" rel="noopener">Continue to link →</a>
-      </div>
-    `;
 
-    const copyBtn = document.getElementById("copyBtn");
-    copyBtn.addEventListener("click", function(){
-      navigator.clipboard.writeText(OFFICIAL_LINK).then(function(){
-        copyBtn.textContent = "Copied";
-        setTimeout(function(){ copyBtn.textContent = "Copy"; }, 1400);
-      });
-    });
-  });
+      `;
 
-  startCountdown(updateFinalTimerUI);
+
+      const copyBtn =
+        document.getElementById("copyBtn");
+
+
+      copyBtn.addEventListener(
+        "click",
+        function(){
+
+          navigator.clipboard
+            .writeText(OFFICIAL_LINK)
+            .then(function(){
+
+              copyBtn.textContent =
+                "Copied";
+
+              setTimeout(
+                function(){
+
+                  copyBtn.textContent =
+                    "Copy";
+
+                },
+                1400
+              );
+
+            });
+
+        }
+      );
+
+    }
+  );
+
+
+  startCountdown(
+    updateFinalTimerUI
+  );
 }
 
+
 /* =========================================
-   RENDER / COUNTDOWN / TIMER UI
+   RENDER
 ========================================= */
 
 function renderPage(){
+
   renderProgress();
+
   linkRevealed = false;
+
   if(page === TOTAL_PAGES){
+
     renderFinalPage();
-  } else {
+
+  }else{
+
     renderStandardPage();
+
   }
+
 }
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
 
 function startCountdown(updateFn){
+
   clearInterval(timerId);
-  secondsLeft = WAIT_SECONDS;
+
+  secondsLeft =
+    WAIT_SECONDS;
+
   updateFn();
-  timerId = setInterval(function(){
-    secondsLeft--;
-    updateFn();
-    if(secondsLeft <= 0) clearInterval(timerId);
-  }, 1000);
+
+  timerId =
+    setInterval(
+      function(){
+
+        secondsLeft--;
+
+        updateFn();
+
+        if(secondsLeft <= 0){
+
+          clearInterval(timerId);
+
+        }
+
+      },
+      1000
+    );
 }
 
+
+/* =========================================
+   TIMER UI
+========================================= */
+
 function baseTimerUpdate(){
-  const clamped = Math.max(secondsLeft, 0);
-  const secText = document.getElementById("secText");
-  const ringFg = document.getElementById("ringFg");
-  const segCurrent = document.getElementById("segCurrent");
 
-  if(secText) secText.textContent = clamped > 0 ? clamped + "s" : "ready";
+  const clamped =
+    Math.max(secondsLeft,0);
 
-  const progressPct = 1 - (clamped / WAIT_SECONDS);
-  if(ringFg) ringFg.style.strokeDashoffset = (113 - 113 * progressPct).toFixed(1);
-  if(segCurrent) segCurrent.style.setProperty("--fill", (progressPct * 100).toFixed(0) + "%");
+  const secText =
+    document.getElementById("secText");
+
+  const ringFg =
+    document.getElementById("ringFg");
+
+  const segCurrent =
+    document.getElementById("segCurrent");
+
+
+  if(secText){
+
+    secText.textContent =
+      clamped > 0
+        ? clamped + "s"
+        : "ready";
+
+  }
+
+
+  const progressPct =
+    1 - (
+      clamped /
+      WAIT_SECONDS
+    );
+
+
+  if(ringFg){
+
+    ringFg.style.strokeDashoffset =
+      (
+        113 -
+        113 * progressPct
+      ).toFixed(1);
+
+  }
+
+
+  if(segCurrent){
+
+    segCurrent.style.setProperty(
+      "--fill",
+      (
+        progressPct * 100
+      ).toFixed(0) + "%"
+    );
+
+  }
+
 
   return clamped;
 }
 
+
 function updateStandardTimerUI(){
-  const clamped = baseTimerUpdate();
-  const nextBtn = document.getElementById("nextBtn");
-  if(clamped <= 0 && nextBtn) nextBtn.classList.add("ready");
+
+  const clamped =
+    baseTimerUpdate();
+
+  const nextBtn =
+    document.getElementById("nextBtn");
+
+
+  if(
+    clamped <= 0 &&
+    nextBtn
+  ){
+
+    nextBtn.classList.add("ready");
+
+  }
+
 }
 
+
 function updateFinalTimerUI(){
-  const clamped = baseTimerUpdate();
-  const getLinkBtn = document.getElementById("getLinkBtn");
-  if(clamped <= 0 && getLinkBtn) getLinkBtn.classList.add("ready");
+
+  const clamped =
+    baseTimerUpdate();
+
+  const getLinkBtn =
+    document.getElementById("getLinkBtn");
+
+
+  if(
+    clamped <= 0 &&
+    getLinkBtn
+  ){
+
+    getLinkBtn.classList.add("ready");
+
+  }
+
 }
+
+
+/* =========================================
+   START
+========================================= */
 
 renderPage();
 
 })();
 </script>
-
 
 </body>
 </html>
