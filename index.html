@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
 
-<!-- AD 1 — LOADS ON EVERY PAGE -->
+<!-- =========================================
+     AD 1 — LOADS ON EVERY PAGE
+========================================= -->
+
 <script src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js"></script>
+
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
 <title>LinkHarbor — Your link is on the way</title>
 
+
 <style>
+
+/* =========================================
+   ROOT
+========================================= */
 
 :root{
   --indigo:#4338ca;
@@ -27,50 +37,87 @@
   --muted:#6b7180;
   --muted-soft:#9aa0ae;
   --gold:#e2a53a;
-  --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+
+  --font:-apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
 }
 
-*{ box-sizing:border-box; }
-html, body{ margin:0; padding:0; }
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+}
 
 body{
   background:var(--bg);
   color:var(--ink);
   font-family:var(--font);
   min-height:100vh;
+
   display:flex;
   flex-direction:column;
 }
 
-a{ color:inherit; }
+a{
+  color:inherit;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media(prefers-reduced-motion:reduce){
+
   *{
     animation-duration:0.001ms !important;
     transition-duration:0.001ms !important;
   }
+
 }
 
-/* PROGRESS */
+
+/* =========================================
+   PROGRESS
+========================================= */
 
 .progress-wrap{
   display:flex;
   justify-content:center;
+
   padding:22px 18px 4px;
 }
 
 .progress{
   display:flex;
   align-items:center;
+
   gap:6px;
 }
 
 .progress .seg{
   width:30px;
   height:4px;
+
   background:var(--line);
+
   border-radius:3px;
+
   position:relative;
+
   overflow:hidden;
 }
 
@@ -79,464 +126,804 @@ a{ color:inherit; }
 }
 
 .progress .seg.current::after{
+
   content:"";
+
   position:absolute;
+
   inset:0;
+
   background:var(--fuchsia);
+
   width:var(--fill,0%);
+
   transition:width .2s linear;
 }
 
 .progress .step-num{
+
   font-size:11px;
+
   font-weight:700;
+
   color:var(--muted-soft);
+
   margin-left:8px;
 }
 
-/* MAIN */
+
+/* =========================================
+   MAIN
+========================================= */
 
 main{
+
   flex-grow:1;
+
   display:flex;
+
   justify-content:center;
+
   padding:20px 18px 40px;
 }
 
 .col{
+
   width:100%;
+
   max-width:1000px;
+
   display:flex;
+
   flex-direction:column;
+
   gap:18px;
 }
 
+
+/* =========================================
+   CARD
+========================================= */
+
 .card{
+
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:16px;
+
   padding:30px 28px;
+
   box-shadow:
     0 1px 2px rgba(30,35,60,.04),
     0 8px 24px rgba(30,35,60,.05);
 }
 
+
+/* =========================================
+   TEXT
+========================================= */
+
 .eyebrow{
+
   font-size:11.5px;
+
   font-weight:800;
+
   letter-spacing:.08em;
+
   text-transform:uppercase;
+
   color:var(--fuchsia);
+
   margin-bottom:8px;
 }
 
 h1{
+
   font-size:clamp(22px,3.6vw,28px);
+
   font-weight:800;
+
   margin:0 0 8px;
 }
 
 .sub{
+
   color:var(--muted);
+
   font-size:14.5px;
+
   line-height:1.6;
+
   margin:0 0 26px;
+
   max-width:50ch;
 }
 
-/* ADS */
+
+/* =========================================
+   ADS
+========================================= */
 
 .banners{
+
   width:100%;
+
   margin-bottom:26px;
 }
 
 .ad-row{
+
   width:100%;
+
   display:flex;
+
   justify-content:center;
+
   align-items:flex-start;
+
   gap:12px;
+
   flex-wrap:wrap;
 }
 
 .ad-box{
+
   width:300px;
+
   min-width:300px;
+
   height:250px;
+
   min-height:250px;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
   overflow:hidden;
+
   background:#fafbfe;
+
   border:1px dashed #d9ddea;
+
   border-radius:10px;
 }
 
 .ad-box iframe{
+
   max-width:100%;
+
   border:0;
 }
 
 .ad-slot{
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   gap:8px;
 }
 
 .ad-hint{
+
   font-size:11.5px;
+
   font-weight:800;
+
   color:var(--indigo);
+
   background:rgba(67,56,202,0.08);
+
   border-radius:999px;
+
   padding:6px 12px;
+
   white-space:nowrap;
+
+  text-align:center;
 }
 
-/* PAGE 6 — 320x50 AD */
+
+/* =========================================
+   PAGE 6 — 320x50 BANNER
+========================================= */
 
 .final-banner{
+
   width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:0 auto 26px;
+
   min-height:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  margin:0 auto 26px;
+
+  overflow:hidden;
 }
 
-.final-banner iframe{
-  border:0;
-  max-width:100%;
-}
 
-/* TIMER */
+/* =========================================
+   TIMER
+========================================= */
 
 .gate-action{
+
   padding-top:22px;
+
   border-top:1px solid var(--line);
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:16px;
+
   flex-wrap:wrap;
 }
 
 .timer-wrap{
+
   display:flex;
+
   align-items:center;
+
   gap:12px;
 }
 
 .ring{
+
   width:42px;
+
   height:42px;
+
   transform:rotate(-90deg);
 }
 
 .ring circle{
+
   fill:none;
+
   stroke-width:3.5;
 }
 
 .ring .bg{
+
   stroke:var(--line);
 }
 
 .ring .fg{
+
   stroke:var(--fuchsia);
+
   stroke-linecap:round;
+
   stroke-dasharray:113;
+
   stroke-dashoffset:113;
+
   transition:stroke-dashoffset 1s linear;
 }
 
 .timer-text{
+
   font-size:12px;
+
   color:var(--muted);
+
   line-height:1.4;
 }
 
 .timer-text b{
+
   display:block;
+
   font-size:15px;
+
   color:var(--ink);
 }
 
+
+/* =========================================
+   BUTTONS
+========================================= */
+
 button.next,
 .cta-btn{
+
   font-family:var(--font);
+
   font-size:13.5px;
+
   font-weight:800;
-  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--indigo),
+      var(--fuchsia)
+    );
+
   color:#fff;
+
   border:none;
+
   padding:13px 26px;
+
   border-radius:999px;
+
   cursor:not-allowed;
+
   opacity:.35;
-  transition:opacity .25s,transform .15s;
+
+  transition:
+    opacity .25s,
+    transform .15s;
 }
 
 button.next.ready,
 .cta-btn.ready{
+
   cursor:pointer;
+
   opacity:1;
 }
 
 button.next.ready:hover,
 .cta-btn.ready:hover{
+
   transform:translateY(-1px);
 }
 
-/* ARTICLE */
+
+/* =========================================
+   ARTICLE
+========================================= */
 
 .divider-label{
+
   font-size:11px;
+
   font-weight:800;
+
   letter-spacing:.1em;
+
   text-transform:uppercase;
+
   color:var(--muted-soft);
+
   margin-bottom:14px;
 }
 
 .article h3{
+
   font-size:19px;
+
   font-weight:800;
+
   margin:0 0 6px;
 }
 
 .article .byline{
+
   font-size:12px;
+
   color:var(--muted-soft);
+
   font-weight:600;
+
   margin-bottom:12px;
 }
 
 .article p{
+
   font-size:13.5px;
+
   line-height:1.75;
+
   color:var(--muted);
+
   margin:0;
 }
 
-/* FINAL PAGE */
+
+/* =========================================
+   FINAL PAGE
+========================================= */
 
 .final-card{
+
   text-align:center;
+
   padding:36px 30px;
 }
 
 .final-card h1{
+
   font-size:24px;
 }
 
 .final-card .sub{
+
   margin-left:auto;
+
   margin-right:auto;
 }
 
+
+/* =========================================
+   GET LINK
+========================================= */
+
 .get-link-btn{
+
   font-family:var(--font);
+
   font-size:14px;
+
   font-weight:800;
-  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--indigo),
+      var(--fuchsia)
+    );
+
   color:#fff;
+
   border:none;
+
   padding:15px 40px;
+
   border-radius:999px;
+
   cursor:not-allowed;
+
   opacity:.35;
+
   margin:6px 0 4px;
-  transition:opacity .25s,transform .15s;
+
+  transition:
+    opacity .25s,
+    transform .15s;
 }
 
 .get-link-btn.ready{
+
   cursor:pointer;
+
   opacity:1;
 }
 
 .get-link-btn.ready:hover{
+
   transform:translateY(-1px);
 }
 
-/* SPONSOR */
+
+/* =========================================
+   SPONSOR
+========================================= */
 
 .sponsor-block{
+
   text-align:center;
+
   padding:20px 0 0;
 }
 
 .sponsor-block .lbl{
+
   font-size:12px;
+
   font-weight:800;
+
   letter-spacing:.04em;
+
   color:var(--muted);
+
   margin-bottom:12px;
 }
 
 .sponsor-pill{
+
   display:inline-flex;
+
   align-items:center;
+
   gap:8px;
+
   border:1px solid var(--line);
+
   border-radius:999px;
+
   padding:9px 18px;
+
   font-weight:700;
+
   font-size:14px;
+
   color:var(--ink);
+
   background:#fff;
 }
 
 .sponsor-pill .dot{
+
   width:20px;
+
   height:20px;
+
   border-radius:50%;
+
   background:var(--gold);
+
   display:inline-block;
 }
 
 .become-sponsor{
+
   display:block;
+
   text-align:center;
-  background:linear-gradient(100deg,var(--sky),var(--indigo));
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--sky),
+      var(--indigo)
+    );
+
   color:#fff;
+
   font-weight:800;
+
   font-size:14px;
+
   padding:16px;
+
   border-radius:12px;
+
   text-decoration:none;
 }
 
-/* FINAL LINK */
+
+/* =========================================
+   FINAL LINK
+========================================= */
 
 .final-link-box{
+
   margin-top:22px;
+
   border:1px solid #c9f0d8;
+
   background:#f2fbf6;
+
   border-radius:12px;
+
   padding:18px 20px;
+
   text-align:left;
 }
 
 .final-link-box .tag2{
+
   font-size:11px;
+
   font-weight:800;
+
   letter-spacing:.08em;
+
   text-transform:uppercase;
+
   color:#1a8a4c;
+
   margin-bottom:8px;
+
   display:block;
 }
 
 .link-row{
+
   display:flex;
+
   gap:10px;
+
   align-items:center;
+
   flex-wrap:wrap;
 }
 
 .link-field{
+
   flex-grow:1;
-  font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+
+  font-family:
+    "SFMono-Regular",
+    Menlo,
+    Consolas,
+    monospace;
+
   font-size:13px;
+
   color:var(--ink);
+
   background:#fff;
+
   border:1px solid var(--line);
+
   padding:11px 13px;
+
   border-radius:8px;
+
   word-break:break-all;
+
   min-width:180px;
 }
 
 .copy-btn{
+
   font-family:var(--font);
+
   font-size:12px;
+
   font-weight:700;
+
   background:#fff;
+
   border:1px solid var(--indigo);
+
   color:var(--indigo);
+
   padding:10px 14px;
+
   border-radius:8px;
+
   cursor:pointer;
 }
 
 .copy-btn:hover{
+
   background:var(--indigo);
+
   color:#fff;
 }
 
 .go-link{
+
   display:inline-block;
+
   margin-top:12px;
+
   font-weight:800;
+
   font-size:13.5px;
+
   color:#fff;
+
   background:#1a8a4c;
+
   padding:11px 22px;
+
   border-radius:999px;
+
   text-decoration:none;
 }
 
-/* MOBILE */
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:950px){
+
   .col{
+
     max-width:660px;
   }
+
 }
 
 @media(max-width:480px){
 
   .card{
+
     padding:22px 18px;
   }
 
   .gate-action{
+
     justify-content:center;
+
     text-align:center;
   }
 
   .ad-box{
+
     width:300px;
+
     min-width:300px;
+
     max-width:100%;
   }
 
   .ad-hint{
+
     white-space:normal;
-    text-align:center;
+
+    max-width:100%;
   }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================================
+     PROGRESS
+========================================= -->
+
 <div class="progress-wrap">
-  <div class="progress" id="progress"></div>
+
+  <div
+    class="progress"
+    id="progress">
+  </div>
+
 </div>
 
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
 <main>
-  <div class="col" id="col"></div>
+
+  <div
+    class="col"
+    id="col">
+  </div>
+
 </main>
 
+
 <script>
+
 (function(){
+
 
 /* =========================================
    SETTINGS
 ========================================= */
 
 // CHANGE THIS TO YOUR REAL LINK
-const OFFICIAL_LINK = "https://example.com/your-destination";
+const OFFICIAL_LINK =
+  "https://example.com/your-destination";
+
 
 // TOTAL PAGES
 const TOTAL_PAGES = 6;
+
 
 // WAIT TIME
 const WAIT_SECONDS = 30;
@@ -549,33 +936,62 @@ const WAIT_SECONDS = 30;
 const articles = [
 
   {
-    title:"Why waiting rooms became the internet's last honest interface",
-    byline:"Field Notes · 4 min read",
-    body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+    title:
+      "Why waiting rooms became the internet's last honest interface",
+
+    byline:
+      "Field Notes · 4 min read",
+
+    body:
+      "Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
   },
 
-  {
-    title:"The thirty-second unit",
-    byline:"Notes on Attention · 3 min read",
-    body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
-  },
 
   {
-    title:"A short history of the link locker",
-    byline:"Archive · 5 min read",
-    body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+    title:
+      "The thirty-second unit",
+
+    byline:
+      "Notes on Attention · 3 min read",
+
+    body:
+      "Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
   },
 
-  {
-    title:"On the etiquette of the almost-there page",
-    byline:"Field Notes · 3 min read",
-    body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
-  },
 
   {
-    title:"What actually happens in the last thirty seconds",
-    byline:"Notes on Attention · 4 min read",
-    body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+    title:
+      "A short history of the link locker",
+
+    byline:
+      "Archive · 5 min read",
+
+    body:
+      "Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+  },
+
+
+  {
+    title:
+      "On the etiquette of the almost-there page",
+
+    byline:
+      "Field Notes · 3 min read",
+
+    body:
+      "The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+  },
+
+
+  {
+    title:
+      "What actually happens in the last thirty seconds",
+
+    byline:
+      "Notes on Attention · 4 min read",
+
+    body:
+      "This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
   }
 
 ];
@@ -585,22 +1001,51 @@ const articles = [
    STATE
 ========================================= */
 
-const urlParams = new URLSearchParams(window.location.search);
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
+
 
 const requestedPage =
-  parseInt(urlParams.get("step") || "1",10);
+  parseInt(
+    urlParams.get("step") || "1",
+    10
+  );
+
 
 let page =
   Number.isFinite(requestedPage)
-    ? Math.min(Math.max(requestedPage,1),TOTAL_PAGES)
+
+    ? Math.min(
+        Math.max(
+          requestedPage,
+          1
+        ),
+        TOTAL_PAGES
+      )
+
     : 1;
 
-let secondsLeft = WAIT_SECONDS;
-let timerId = null;
-let linkRevealed = false;
 
-const col = document.getElementById("col");
-const progress = document.getElementById("progress");
+let secondsLeft =
+  WAIT_SECONDS;
+
+
+let timerId =
+  null;
+
+
+let linkRevealed =
+  false;
+
+
+const col =
+  document.getElementById("col");
+
+
+const progress =
+  document.getElementById("progress");
 
 
 /* =========================================
@@ -611,17 +1056,32 @@ function renderProgress(){
 
   progress.innerHTML = "";
 
-  for(let i=1;i<=TOTAL_PAGES;i++){
 
-    const seg = document.createElement("div");
+  for(
+    let i = 1;
+    i <= TOTAL_PAGES;
+    i++
+  ){
+
+    const seg =
+      document.createElement("div");
+
 
     seg.className =
       "seg" +
+
       (
         i < page
+
           ? " done"
-          : (i === page ? " current" : "")
+
+          : (
+              i === page
+                ? " current"
+                : ""
+            )
       );
+
 
     if(i === page){
 
@@ -630,30 +1090,76 @@ function renderProgress(){
         "0%"
       );
 
-      seg.id = "segCurrent";
+      seg.id =
+        "segCurrent";
     }
+
 
     progress.appendChild(seg);
   }
 
-  const num = document.createElement("div");
 
-  num.className = "step-num";
+  const num =
+    document.createElement("div");
+
+
+  num.className =
+    "step-num";
+
 
   num.textContent =
-    "STEP " + page + " / " + TOTAL_PAGES;
+    "STEP " +
+    page +
+    " / " +
+    TOTAL_PAGES;
+
 
   progress.appendChild(num);
+
 }
 
 
 /* =========================================
-   PAGE 1–4 ADS
+   CREATE EXTERNAL SCRIPT
+========================================= */
+
+function addExternalScript(
+  container,
+  src
+){
+
+  if(!container){
+    return;
+  }
+
+
+  const script =
+    document.createElement("script");
+
+
+  script.src =
+    src;
+
+
+  script.async =
+    true;
+
+
+  container.appendChild(
+    script
+  );
+
+}
+
+
+/* =========================================
+   PAGE 1–4 AD HTML
 ========================================= */
 
 function getStandardAdsHTML(){
 
   return `
+
     <div class="banners">
 
       <div class="ad-row">
@@ -661,13 +1167,16 @@ function getStandardAdsHTML(){
         <div class="ad-slot">
 
           <div class="ad-hint">
-            Wait 30s, then click on ad then scroll down to unlock the link ↓
+
+            Wait 30s, then click on ad
+            then scroll down to unlock
+            the link ↓
+
           </div>
 
-          <div class="ad-box">
-            <script
-              src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js">
-            </script>
+          <div
+            class="ad-box"
+            id="mainAd">
           </div>
 
         </div>
@@ -675,77 +1184,236 @@ function getStandardAdsHTML(){
       </div>
 
     </div>
+
   `;
+
 }
 
 
 /* =========================================
-   PAGE 5 ADS
+   PAGE 5 AD HTML
 ========================================= */
 
 function getPage5AdsHTML(){
 
   return `
+
     <div class="banners">
 
       <div class="ad-row">
 
+
+        <!-- AD 1 -->
+
         <div class="ad-slot">
 
           <div class="ad-hint">
-            Wait 30s, then click on ad then scroll down to unlock the link ↓
+
+            Wait 30s, then click on ad
+            then scroll down to unlock
+            the link ↓
+
           </div>
 
-          <div class="ad-box">
-
-            <script
-              src="https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js">
-            </script>
-
+          <div
+            class="ad-box"
+            id="mainAd">
           </div>
 
         </div>
 
-        <div class="ad-box">
 
-          <script
-            src="https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js">
-          </script>
+        <!-- AD 2 -->
 
+        <div
+          class="ad-box"
+          id="page5Ad">
         </div>
+
 
       </div>
 
     </div>
+
   `;
+
 }
 
 
 /* =========================================
-   PAGE 6 — ONLY 320x50 BANNER
+   PAGE 6 AD HTML
 ========================================= */
 
 function getFinalAdHTML(){
 
   return `
-    <div class="final-banner">
 
-      <script>
-        atOptions = {
-          'key' : 'eee5199c1ecc4b17f86952845c3e0047',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-
-      <script
-        src="https://www.highperformanceformat.com/eee5199c1ecc4b17f86952845c3e0047/invoke.js">
-      </script>
-
+    <div
+      class="final-banner"
+      id="finalAd">
     </div>
+
   `;
+
+}
+
+
+/* =========================================
+   LOAD PAGE ADS
+========================================= */
+
+function loadCurrentPageAds(){
+
+
+  /* =======================================
+     PAGE 1–4
+  ======================================= */
+
+  if(
+    page >= 1 &&
+    page <= 4
+  ){
+
+    const ad =
+      document.getElementById(
+        "mainAd"
+      );
+
+
+    addExternalScript(
+
+      ad,
+
+      "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js"
+
+    );
+
+  }
+
+
+  /* =======================================
+     PAGE 5
+  ======================================= */
+
+  if(page === 5){
+
+
+    // FIRST AD
+
+    const ad1 =
+      document.getElementById(
+        "mainAd"
+      );
+
+
+    addExternalScript(
+
+      ad1,
+
+      "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js"
+
+    );
+
+
+    // SECOND AD
+
+    const ad2 =
+      document.getElementById(
+        "page5Ad"
+      );
+
+
+    addExternalScript(
+
+      ad2,
+
+      "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js"
+
+    );
+
+  }
+
+
+  /* =======================================
+     PAGE 6
+     
+     ONLY 320x50 BANNER
+  ======================================= */
+
+  if(page === 6){
+
+
+    const container =
+      document.getElementById(
+        "finalAd"
+      );
+
+
+    if(!container){
+      return;
+    }
+
+
+    /*
+      atOptions must exist before
+      invoke.js loads.
+    */
+
+    const optionsScript =
+      document.createElement(
+        "script"
+      );
+
+
+    optionsScript.textContent = `
+
+      atOptions = {
+
+        'key' :
+          'eee5199c1ecc4b17f86952845c3e0047',
+
+        'format' :
+          'iframe',
+
+        'height' :
+          50,
+
+        'width' :
+          320,
+
+        'params' :
+          {}
+
+      };
+
+    `;
+
+
+    container.appendChild(
+      optionsScript
+    );
+
+
+    const adScript =
+      document.createElement(
+        "script"
+      );
+
+
+    adScript.src =
+      "https://www.highperformanceformat.com/eee5199c1ecc4b17f86952845c3e0047/invoke.js";
+
+
+    adScript.async =
+      true;
+
+
+    container.appendChild(
+      adScript
+    );
+
+  }
+
 }
 
 
@@ -755,18 +1423,31 @@ function getFinalAdHTML(){
 
 function getAdsHTML(){
 
+
   // PAGE 6
-  if(page === TOTAL_PAGES){
+
+  if(
+    page === TOTAL_PAGES
+  ){
+
     return getFinalAdHTML();
+
   }
+
 
   // PAGE 5
+
   if(page === 5){
+
     return getPage5AdsHTML();
+
   }
 
+
   // PAGE 1–4
+
   return getStandardAdsHTML();
+
 }
 
 
@@ -776,130 +1457,214 @@ function getAdsHTML(){
 
 function renderStandardPage(){
 
-  const article = articles[page - 1];
+
+  const article =
+    articles[page - 1];
+
 
   col.innerHTML = `
 
     <div class="card">
 
+
       <div class="eyebrow">
-        Step ${page} of ${TOTAL_PAGES}
+
+        Step
+        ${page}
+        of
+        ${TOTAL_PAGES}
+
       </div>
 
+
       <h1>
+
         Getting your link ready
+
       </h1>
 
+
       <p class="sub">
-        A short wait keeps this page free to run.
-        Your link continues on the next step.
+
+        A short wait keeps this page
+        free to run. Your link
+        continues on the next step.
+
       </p>
+
 
       ${getAdsHTML()}
 
+
       <div class="gate-action">
+
 
         <div class="timer-wrap">
 
-          <svg class="ring" viewBox="0 0 42 42">
+
+          <svg
+            class="ring"
+            viewBox="0 0 42 42"
+          >
 
             <circle
               class="bg"
               cx="21"
               cy="21"
-              r="18">
-            </circle>
+              r="18"
+            ></circle>
+
 
             <circle
               class="fg"
               id="ringFg"
               cx="21"
               cy="21"
-              r="18">
-            </circle>
+              r="18"
+            ></circle>
 
           </svg>
+
 
           <div class="timer-text">
 
             Unlocks in
 
             <b id="secText">
+
               ${WAIT_SECONDS}s
+
             </b>
 
           </div>
 
+
         </div>
+
 
         <button
           class="next"
-          id="nextBtn">
+          id="nextBtn"
+        >
 
           Continue →
 
         </button>
 
+
       </div>
+
 
     </div>
 
 
     <div class="card article-card">
 
+
       <div class="divider-label">
+
         From the blog
+
       </div>
+
 
       <div class="article">
 
+
         <h3>
+
           ${article.title}
+
         </h3>
 
+
         <div class="byline">
+
           ${article.byline}
+
         </div>
 
+
         <p>
+
           ${article.body}
+
         </p>
 
+
       </div>
+
 
     </div>
 
   `;
 
 
+  /*
+    LOAD THE AD AFTER
+    THE HTML EXISTS.
+  */
+
+  loadCurrentPageAds();
+
+
+  /*
+    CONTINUE BUTTON
+  */
+
   document
     .getElementById("nextBtn")
-    .addEventListener("click",function(){
+    .addEventListener(
+      "click",
+      function(){
 
-      if(secondsLeft > 0) return;
+        if(secondsLeft > 0){
+          return;
+        }
 
-      const nextPage =
-        Math.min(page + 1,TOTAL_PAGES);
 
-      const nextUrl =
-        new URL(window.location.href);
+        const nextPage =
+          Math.min(
+            page + 1,
+            TOTAL_PAGES
+          );
 
-      nextUrl.searchParams.set(
-        "step",
-        String(nextPage)
-      );
 
-      // Reload the page so the new page's ad script
-      // is loaded again.
-      window.location.href =
-        nextUrl.toString();
+        const nextUrl =
+          new URL(
+            window.location.href
+          );
 
-    });
 
+        nextUrl.searchParams.set(
+          "step",
+          String(nextPage)
+        );
+
+
+        /*
+          Full page reload.
+
+          This ensures the
+          correct ad scripts
+          load on the next page.
+        */
+
+        window.location.href =
+          nextUrl.toString();
+
+      }
+    );
+
+
+  /*
+    START TIMER
+  */
 
   startCountdown(
     updateStandardTimerUI
   );
+
 }
 
 
@@ -909,82 +1674,118 @@ function renderStandardPage(){
 
 function renderFinalPage(){
 
+
   col.innerHTML = `
 
     <div class="card final-card">
 
+
       <div class="eyebrow">
-        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+
+        Step
+        ${TOTAL_PAGES}
+        of
+        ${TOTAL_PAGES}
+
       </div>
 
+
       <h1>
+
         Almost there!
+
       </h1>
 
+
       <p class="sub">
-        Thanks for your patience — your link unlocks below.
+
+        Thanks for your patience —
+        your link unlocks below.
+
       </p>
 
-      <!-- ONLY ONE 320x50 AD ON PAGE 6 -->
+
+      <!--
+        PAGE 6 ONLY HAS THE
+        320x50 BANNER HERE
+      -->
+
       ${getFinalAdHTML()}
 
 
       <button
         class="get-link-btn"
-        id="getLinkBtn">
+        id="getLinkBtn"
+      >
 
         Get Link
 
       </button>
 
 
-      <div style="margin-top:14px;">
+      <div
+        style="margin-top:14px;"
+      >
+
 
         <div
           class="timer-wrap"
-          style="justify-content:center;">
+          style="justify-content:center;"
+        >
+
 
           <svg
             class="ring"
-            viewBox="0 0 42 42">
+            viewBox="0 0 42 42"
+          >
 
             <circle
               class="bg"
               cx="21"
               cy="21"
-              r="18">
-            </circle>
+              r="18"
+            ></circle>
+
 
             <circle
               class="fg"
               id="ringFg"
               cx="21"
               cy="21"
-              r="18">
-            </circle>
+              r="18"
+            ></circle>
 
           </svg>
+
 
           <div class="timer-text">
 
             Unlocks in
 
             <b id="secText">
+
               ${WAIT_SECONDS}s
+
             </b>
 
           </div>
 
+
         </div>
+
 
       </div>
 
 
       <div class="sponsor-block">
 
+
         <div class="lbl">
+
           SPONSORED BY
+
         </div>
+
 
         <span class="sponsor-pill">
 
@@ -994,43 +1795,70 @@ function renderFinalPage(){
 
         </span>
 
+
       </div>
 
 
-      <div id="finalLinkArea"></div>
+      <div
+        id="finalLinkArea"
+      ></div>
+
 
     </div>
 
 
     <div class="card">
 
+
       <a
         class="become-sponsor"
-        href="#">
+        href="#"
+      >
 
         Become a Sponsor!
 
       </a>
+
 
     </div>
 
   `;
 
 
+  /*
+    LOAD PAGE 6 AD
+  */
+
+  loadCurrentPageAds();
+
+
+  /*
+    GET LINK BUTTON
+  */
+
   const getLinkBtn =
-    document.getElementById("getLinkBtn");
+    document.getElementById(
+      "getLinkBtn"
+    );
 
 
   getLinkBtn.addEventListener(
     "click",
     function(){
 
+
       if(
         secondsLeft > 0 ||
         linkRevealed
-      ) return;
+      ){
 
-      linkRevealed = true;
+        return;
+
+      }
+
+
+      linkRevealed =
+        true;
 
 
       document.getElementById(
@@ -1039,92 +1867,131 @@ function renderFinalPage(){
 
         <div class="final-link-box">
 
+
           <span class="tag2">
+
             Official destination
+
           </span>
+
 
           <div class="link-row">
 
+
             <div class="link-field">
+
               ${OFFICIAL_LINK}
+
             </div>
+
 
             <button
               class="copy-btn"
-              id="copyBtn">
+              id="copyBtn"
+            >
 
               Copy
 
             </button>
 
+
           </div>
+
 
           <a
             class="go-link"
             href="${OFFICIAL_LINK}"
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+          >
 
             Continue to link →
 
           </a>
+
 
         </div>
 
       `;
 
 
+      /*
+        COPY BUTTON
+      */
+
       const copyBtn =
-        document.getElementById("copyBtn");
+        document.getElementById(
+          "copyBtn"
+        );
 
 
       copyBtn.addEventListener(
         "click",
         function(){
 
+
           navigator.clipboard
-            .writeText(OFFICIAL_LINK)
-            .then(function(){
+            .writeText(
+              OFFICIAL_LINK
+            )
+            .then(
+              function(){
 
-              copyBtn.textContent =
-                "Copied";
 
-              setTimeout(
-                function(){
+                copyBtn.textContent =
+                  "Copied";
 
-                  copyBtn.textContent =
-                    "Copy";
 
-                },
-                1400
-              );
+                setTimeout(
+                  function(){
 
-            });
+                    copyBtn.textContent =
+                      "Copy";
+
+                  },
+                  1400
+                );
+
+
+              }
+            );
 
         }
       );
+
 
     }
   );
 
 
+  /*
+    START FINAL TIMER
+  */
+
   startCountdown(
     updateFinalTimerUI
   );
+
 }
 
 
 /* =========================================
-   RENDER
+   RENDER PAGE
 ========================================= */
 
 function renderPage(){
 
+
   renderProgress();
 
-  linkRevealed = false;
 
-  if(page === TOTAL_PAGES){
+  linkRevealed =
+    false;
+
+
+  if(
+    page === TOTAL_PAGES
+  ){
 
     renderFinalPage();
 
@@ -1141,66 +2008,106 @@ function renderPage(){
    COUNTDOWN
 ========================================= */
 
-function startCountdown(updateFn){
+function startCountdown(
+  updateFn
+){
 
-  clearInterval(timerId);
+  clearInterval(
+    timerId
+  );
+
 
   secondsLeft =
     WAIT_SECONDS;
 
+
   updateFn();
+
 
   timerId =
     setInterval(
       function(){
 
+
         secondsLeft--;
+
 
         updateFn();
 
-        if(secondsLeft <= 0){
 
-          clearInterval(timerId);
+        if(
+          secondsLeft <= 0
+        ){
+
+          clearInterval(
+            timerId
+          );
 
         }
+
 
       },
       1000
     );
+
 }
 
 
 /* =========================================
-   TIMER UI
+   BASE TIMER UI
 ========================================= */
 
 function baseTimerUpdate(){
 
+
   const clamped =
-    Math.max(secondsLeft,0);
+    Math.max(
+      secondsLeft,
+      0
+    );
+
 
   const secText =
-    document.getElementById("secText");
+    document.getElementById(
+      "secText"
+    );
+
 
   const ringFg =
-    document.getElementById("ringFg");
+    document.getElementById(
+      "ringFg"
+    );
+
 
   const segCurrent =
-    document.getElementById("segCurrent");
+    document.getElementById(
+      "segCurrent"
+    );
 
+
+  /*
+    TEXT
+  */
 
   if(secText){
 
     secText.textContent =
       clamped > 0
+
         ? clamped + "s"
+
         : "ready";
 
   }
 
 
+  /*
+    RING
+  */
+
   const progressPct =
-    1 - (
+    1 -
+    (
       clamped /
       WAIT_SECONDS
     );
@@ -1209,6 +2116,7 @@ function baseTimerUpdate(){
   if(ringFg){
 
     ringFg.style.strokeDashoffset =
+
       (
         113 -
         113 * progressPct
@@ -1217,29 +2125,45 @@ function baseTimerUpdate(){
   }
 
 
+  /*
+    TOP PROGRESS
+  */
+
   if(segCurrent){
 
     segCurrent.style.setProperty(
+
       "--fill",
+
       (
         progressPct * 100
       ).toFixed(0) + "%"
+
     );
 
   }
 
 
   return clamped;
+
 }
 
 
+/* =========================================
+   STANDARD TIMER
+========================================= */
+
 function updateStandardTimerUI(){
+
 
   const clamped =
     baseTimerUpdate();
 
+
   const nextBtn =
-    document.getElementById("nextBtn");
+    document.getElementById(
+      "nextBtn"
+    );
 
 
   if(
@@ -1247,20 +2171,30 @@ function updateStandardTimerUI(){
     nextBtn
   ){
 
-    nextBtn.classList.add("ready");
+    nextBtn.classList.add(
+      "ready"
+    );
 
   }
 
 }
 
 
+/* =========================================
+   FINAL TIMER
+========================================= */
+
 function updateFinalTimerUI(){
+
 
   const clamped =
     baseTimerUpdate();
 
+
   const getLinkBtn =
-    document.getElementById("getLinkBtn");
+    document.getElementById(
+      "getLinkBtn"
+    );
 
 
   if(
@@ -1268,7 +2202,9 @@ function updateFinalTimerUI(){
     getLinkBtn
   ){
 
-    getLinkBtn.classList.add("ready");
+    getLinkBtn.classList.add(
+      "ready"
+    );
 
   }
 
@@ -1281,8 +2217,11 @@ function updateFinalTimerUI(){
 
 renderPage();
 
+
 })();
+
 </script>
+
 
 </body>
 </html>
