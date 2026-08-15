@@ -237,24 +237,21 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
 
 /*
   Multiple destination links, selected by a ?id= URL parameter.
-  Example: yourpage.html?id=shadowfight → shows the Shadow Fight link
-           yourpage.html?id=aftermotionz    → shows the Other App link
+  Example: yourpage.html?id=shadowfight    → shows the Shadow Fight link
+           yourpage.html?id=aftermotionz   → shows the AfterMotion Z link
   Add as many entries as you want — the key on the left is what
   goes in the URL after ?id=
 */
 const LINKS = {
-  shadowfight: { name: "Shadow Fight", url: "your on worng page maybe" },
-  aftermotinz: { name: "After motion z",    url: "https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file" }
+  shadowfight:  { name: "Shadow Fight",  url: "https://example.com/shadow-fight" }, // ⚠️ placeholder — put your real Shadow Fight link here
+  aftermotionz: { name: "After Motion Z", url: "https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file" }
 };
-
-// Used when no ?id= is given, or an unknown id is given
-const DEFAULT_LINK_ID = "shadowfight";
 
 // Used when no ?id= is given, or an unknown id is given
 const DEFAULT_LINK_ID = "aftermotionz";
 
 // Your Telegram contact — shown on the "Become a Sponsor" button
-const TELEGRAM_CONTACT = "https://t.me/@I7XKAVI";
+const TELEGRAM_CONTACT = "https://t.me/I7XKAVI";
 
 // TOTAL WAITING PAGES
 const TOTAL_PAGES = 6;
@@ -360,12 +357,6 @@ function loadBanner(containerId, key, width, height){
 
   container.innerHTML = "";
 
-  // The invoke.js from this ad network renders itself via document.write.
-  // document.write only behaves reliably during a document's own initial
-  // parse — calling it three times into the SAME page (our earlier
-  // approach) meant only the first call actually rendered and the other
-  // two silently did nothing. Giving each slot its own blank iframe gives
-  // each banner its own document to write into, so all render correctly.
   const iframe = document.createElement("iframe");
   iframe.style.width = width + "px";
   iframe.style.height = height + "px";
@@ -421,7 +412,7 @@ function getAdsHTML(){
     <div class="banners">
       <div class="ad-row">
         <div class="ad-slot">
-          <div class="ad-hint">Wait 30s,then click on ad then scroll down ↓</div>
+          <div class="ad-hint">Wait 30s, then scroll down ↓</div>
           <div class="ad-box" id="ad1"></div>
         </div>
         <div class="ad-box" id="ad2"></div>
@@ -472,6 +463,7 @@ function renderStandardPage(){
   loadPageWideAds();
 
   document.getElementById("nextBtn").addEventListener("click", function(){
+    if(secondsLeft > 0) return;
 
     const nextPage = Math.min(page + 1, TOTAL_PAGES);
     const nextUrl = new URL(window.location.href);
@@ -522,6 +514,8 @@ function renderFinalPage(){
 
   loadFinalBanner();
   loadPageWideAds();
+
+  const getLinkBtn = document.getElementById("getLinkBtn");
   getLinkBtn.addEventListener("click", function(){
     if(secondsLeft > 0 || linkRevealed) return;
     linkRevealed = true;
