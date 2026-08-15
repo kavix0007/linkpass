@@ -106,6 +106,13 @@ h1{ font-size:clamp(22px,3.6vw,28px); font-weight:800; margin:0 0 8px; }
   background:rgba(67,56,202,0.08); border-radius:999px;
   padding:6px 12px; white-space:nowrap;
 }
+.ad-hint.pending{
+  color:#fff; background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
+  animation:pulseHint 1.4s ease-in-out infinite;
+}
+@keyframes pulseHint{
+  0%,100%{ opacity:1; } 50%{ opacity:.6; }
+}
 .ad-box-small{
   width:320px; min-width:320px; height:50px; min-height:50px;
   display:flex; justify-content:center; align-items:center; overflow:hidden;
@@ -128,6 +135,11 @@ h1{ font-size:clamp(22px,3.6vw,28px); font-weight:800; margin:0 0 8px; }
 }
 .timer-text{ font-size:12px; color:var(--muted); line-height:1.4; }
 .timer-text b{ display:block; font-size:15px; color:var(--ink); }
+
+.fallback-link{
+  font-size:11.5px; color:var(--indigo-deep); text-decoration:underline;
+  cursor:pointer; font-weight:700; margin-top:6px; display:inline-block;
+}
 
 button.next, .cta-btn{
   font-family:var(--font); font-size:13.5px; font-weight:800;
@@ -321,6 +333,10 @@ let secondsLeft = WAIT_SECONDS;
 let timerId = null;
 let linkRevealed = false;
 
+// NEW: has the user "clicked the ad" (i.e. triggered the unlock) on this page yet?
+let adClicked = false;
+let blurHandler = null;
+
 const col = document.getElementById("col");
 const progress = document.getElementById("progress");
 
@@ -413,7 +429,7 @@ function getAdsHTML(){
     <div class="banners">
       <div class="ad-row">
         <div class="ad-slot">
-          <div class="ad-hint">Wait 30s, then scroll down ↓</div>
+          <div class="ad-hint pending" id="adHint">👇 Click any ad above to start the 30s unlock timer</div>
           <div class="ad-box" id="ad1"></div>
         </div>
         <div class="ad-box" id="ad2"></div>
@@ -444,7 +460,11 @@ function renderStandardPage(){
             <circle class="bg" cx="21" cy="21" r="18"></circle>
             <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
           </svg>
-          <div class="timer-text">Unlocks in <b id="secText">${WAIT_SECONDS}s</b></div>
+          <div class="timer-text">
+            <b id="secText">Click ad</b>
+            <span id="timerLabel">to start the timer</span>
+        
+          </div>
         </div>
         <button class="next" id="nextBtn">Continue →</button>
       </div>
@@ -472,7 +492,7 @@ function renderStandardPage(){
     window.location.href = nextUrl.toString();
   });
 
-  startCountdown(updateStandardTimerUI);
+  waitForAdClick(updateStandardTimerUI);
 }
 
 /* =========================================
@@ -487,6 +507,7 @@ function renderFinalPage(){
       <p class="sub">Thanks for your patience.</p>
 
       <div class="ad-box-small" id="finalAd"></div>
+      <div class="ad-hint pending" id="adHint" style="margin-top:10px;">👆 Click the ad above to start the 30s unlock timer</div>
 
       <button class="get-link-btn" id="getLinkBtn">Get Link</button>
 
@@ -496,7 +517,11 @@ function renderFinalPage(){
             <circle class="bg" cx="21" cy="21" r="18"></circle>
             <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
           </svg>
-          <div class="timer-text">Unlocks in <b id="secText">${WAIT_SECONDS}s</b></div>
+          <div class="timer-text">
+            <b id="secText">Click ad</b>
+            <span id="timerLabel">to start the timer</span>
+            <a class="fallback-link" id="fallbackLink">Already clicked? Continue</a>
+          </div>
         </div>
       </div>
 
@@ -541,11 +566,11 @@ function renderFinalPage(){
     });
   });
 
-  startCountdown(updateFinalTimerUI);
+  waitForAdClick(updateFinalTimerUI);
 }
 
 /* =========================================
-   RENDER / COUNTDOWN / TIMER UI
+   RENDER
 ========================================= */
 
 function renderPage(){
@@ -557,6 +582,87 @@ function renderPage(){
     renderStandardPage();
   }
 }
+
+/* =========================================
+   WAIT-FOR-AD-CLICK GATE (NEW)
+
+   The ad itself renders inside a cross-origin iframe, so a real
+   "click inside the iframe" event can't be read by this page's
+   JS — browsers block that on purpose. The standard workaround
+   (used by basically every link-locker site) is to watch for the
+   window losing focus: clicking an ad almost always opens a new
+   tab/window, which fires a `blur` event on this window. We treat
+   the first blur after the page loads as "the ad was clicked" and
+   start the countdown at that point.
+
+   A small manual "Already clicked? Continue" fallback link is
+   included too, since blur detection isn't 100% reliable on every
+   mobile browser.
+========================================= */
+
+function waitForAdClick(updateFn){
+  clearInterval(timerId);
+  secondsLeft = WAIT_SECONDS;
+  adClicked = false;
+
+  showPendingState();
+
+  if(blurHandler){
+    window.removeEventListener("blur", blurHandler);
+  }
+
+  blurHandler = function(){
+    triggerAdClick(updateFn);
+  };
+  window.addEventListener("blur", blurHandler);
+
+  const fallback = document.getElementById("fallbackLink");
+  if(fallback){
+    fallback.addEventListener("click", function(){
+      triggerAdClick(updateFn);
+    });
+  }
+}
+
+function triggerAdClick(updateFn){
+  if(adClicked) return;
+  adClicked = true;
+
+  if(blurHandler){
+    window.removeEventListener("blur", blurHandler);
+    blurHandler = null;
+  }
+
+  const adHint = document.getElementById("adHint");
+  if(adHint){
+    adHint.classList.remove("pending");
+    adHint.textContent = "Thanks! Your link is unlocking below ↓";
+  }
+
+  const fallback = document.getElementById("fallbackLink");
+  if(fallback) fallback.style.display = "none";
+
+  const timerLabel = document.getElementById("timerLabel");
+  if(timerLabel) timerLabel.textContent = "";
+
+  startCountdown(updateFn);
+}
+
+function showPendingState(){
+  const secText = document.getElementById("secText");
+  const ringFg = document.getElementById("ringFg");
+  const segCurrent = document.getElementById("segCurrent");
+  const timerLabel = document.getElementById("timerLabel");
+
+  if(secText) secText.textContent = "Click ad";
+  if(timerLabel) timerLabel.textContent = "to start the timer";
+  if(ringFg) ringFg.style.strokeDashoffset = "113";
+  if(segCurrent) segCurrent.style.setProperty("--fill", "0%");
+}
+
+/* =========================================
+   COUNTDOWN / TIMER UI
+========================================= */
 
 function startCountdown(updateFn){
   clearInterval(timerId);
