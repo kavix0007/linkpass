@@ -431,7 +431,8 @@ function renderStandardPage(){
 
   loadAds();
   loadPageWideAds();
-    if(secondsLeft > 0) return;
+
+  document.getElementById("nextBtn").addEventListener("click", function(){
 
     const nextPage = Math.min(page + 1, TOTAL_PAGES);
     const nextUrl = new URL(window.location.href);
