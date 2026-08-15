@@ -58,6 +58,18 @@ a{ color:inherit; }
 }
 .progress .step-num{ font-size:11px; font-weight:700; color:var(--muted-soft); margin-left:8px; }
 
+/* SHARE */
+.share-bar{ display:flex; justify-content:center; padding:2px 18px 0; }
+.share-btn{
+  font-family:var(--font); font-size:12.5px; font-weight:800;
+  background:#fff; border:1px solid var(--indigo); color:var(--indigo);
+  padding:9px 18px; border-radius:999px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:6px;
+  transition:background .2s, color .2s;
+}
+.share-btn:hover{ background:var(--indigo); color:#fff; }
+.share-btn.copied{ background:#1a8a4c; border-color:#1a8a4c; color:#fff; }
+
 /* MAIN */
 main{ flex-grow:1; display:flex; justify-content:center; padding:20px 18px 40px; }
 .col{ width:100%; max-width:1000px; display:flex; flex-direction:column; gap:18px; }
@@ -207,6 +219,10 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
   <div class="progress" id="progress"></div>
 </div>
 
+<div class="share-bar">
+  <button class="share-btn" id="shareBtn">🔗 Share with a friend</button>
+</div>
+
 <main>
   <div class="col" id="col"></div>
 </main>
@@ -221,6 +237,9 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
 
 // CHANGE THIS TO YOUR REAL LINK
 const OFFICIAL_LINK = "https://example.com/your-destination";
+
+// Your Telegram contact — shown on the "Become a Sponsor" button
+const TELEGRAM_CONTACT = "https://t.me/yourusername";
 
 // TOTAL WAITING PAGES
 const TOTAL_PAGES = 6;
@@ -477,7 +496,7 @@ function renderFinalPage(){
     </div>
 
     <div class="card">
-      <a class="become-sponsor" href="#">Become a Sponsor!</a>
+      <a class="become-sponsor" href="${TELEGRAM_CONTACT}" target="_blank" rel="noopener">Become a Sponsor!</a>
     </div>
   `;
 
@@ -560,6 +579,40 @@ function updateFinalTimerUI(){
   const clamped = baseTimerUpdate();
   const getLinkBtn = document.getElementById("getLinkBtn");
   if(clamped <= 0 && getLinkBtn) getLinkBtn.classList.add("ready");
+}
+
+/* =========================================
+   SHARE WITH A FRIEND
+   Always points back to step 1, regardless of
+   which step the sharer is currently on.
+========================================= */
+
+function getShareUrl(){
+  const shareUrl = new URL(window.location.href);
+  shareUrl.searchParams.set("step", "1");
+  return shareUrl.toString();
+}
+
+const shareBtn = document.getElementById("shareBtn");
+if(shareBtn){
+  shareBtn.addEventListener("click", function(){
+    const shareUrl = getShareUrl();
+
+    if(navigator.share){
+      navigator.share({ title: document.title, url: shareUrl }).catch(function(){});
+      return;
+    }
+
+    navigator.clipboard.writeText(shareUrl).then(function(){
+      const original = shareBtn.textContent;
+      shareBtn.textContent = "✅ Link copied";
+      shareBtn.classList.add("copied");
+      setTimeout(function(){
+        shareBtn.textContent = original;
+        shareBtn.classList.remove("copied");
+      }, 1800);
+    });
+  });
 }
 
 renderPage();
