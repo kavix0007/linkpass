@@ -235,8 +235,20 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
    SETTINGS
 ========================================= */
 
-// CHANGE THIS TO YOUR REAL LINK
-const OFFICIAL_LINK = "https://example.com/your-destination";
+/*
+  Multiple destination links, selected by a ?id= URL parameter.
+  Example: yourpage.html?id=shadowfight → shows the Shadow Fight link
+           yourpage.html?id=otherapp    → shows the Other App link
+  Add as many entries as you want — the key on the left is what
+  goes in the URL after ?id=
+*/
+const LINKS = {
+  shadowfight: { name: "Shadow Fight", url: "https://example.com/shadow-fight" },
+  otherapp:    { name: "Other App",    url: "https://example.com/other-app" }
+};
+
+// Used when no ?id= is given, or an unknown id is given
+const DEFAULT_LINK_ID = "shadowfight";
 
 // Your Telegram contact — shown on the "Become a Sponsor" button
 const TELEGRAM_CONTACT = "https://t.me/yourusername";
@@ -245,7 +257,7 @@ const TELEGRAM_CONTACT = "https://t.me/yourusername";
 const TOTAL_PAGES = 6;
 
 // WAIT TIME
-const WAIT_SECONDS = 30;
+const WAIT_SECONDS = 3;
 
 /*
   300x250 banner ad — highperformanceformat.com (atOptions format).
@@ -294,6 +306,11 @@ const articles = [
 
 const urlParams = new URLSearchParams(window.location.search);
 const requestedPage = parseInt(urlParams.get("step") || "1", 10);
+
+const linkId = urlParams.get("id") || DEFAULT_LINK_ID;
+const currentLink = LINKS[linkId] || LINKS[DEFAULT_LINK_ID];
+const OFFICIAL_LINK = currentLink.url;
+const OFFICIAL_LINK_NAME = currentLink.name;
 
 let page = Number.isFinite(requestedPage)
   ? Math.min(Math.max(requestedPage, 1), TOTAL_PAGES)
@@ -471,7 +488,7 @@ function renderFinalPage(){
     <div class="card final-card">
       <div class="eyebrow">Step ${TOTAL_PAGES} of ${TOTAL_PAGES}</div>
       <h1>Almost there!</h1>
-      <p class="sub">Thanks for your patience — your link unlocks below.</p>
+      <p class="sub">Thanks for your patience — your ${OFFICIAL_LINK_NAME} link unlocks below.</p>
 
       <div class="ad-box-small" id="finalAd"></div>
 
