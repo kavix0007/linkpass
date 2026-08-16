@@ -3,18 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
 <title>LinkHarbor — Your link is on the way</title>
-
-<!-- Ad network script: loaded once per page -->
-<script
-  src="https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js"
-  async>
-</script>
 
 <style>
 :root{
@@ -23,7 +16,7 @@
   --sky:#38bdf8;
   --fuchsia:#d946ef;
   --bg:#f3f5fb;
-  --card:#ffffff;
+  --card:#fff;
   --line:#e6e9f2;
   --ink:#1f2430;
   --muted:#6b7180;
@@ -32,15 +25,8 @@
   --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 
 body{
   background:var(--bg);
@@ -51,9 +37,7 @@ body{
   flex-direction:column;
 }
 
-a{
-  color:inherit;
-}
+a{color:inherit}
 
 @media(prefers-reduced-motion:reduce){
   *{
@@ -63,7 +47,6 @@ a{
 }
 
 /* PROGRESS */
-
 .progress-wrap{
   display:flex;
   justify-content:center;
@@ -85,9 +68,7 @@ a{
   overflow:hidden;
 }
 
-.progress .seg.done{
-  background:var(--indigo);
-}
+.progress .seg.done{background:var(--indigo)}
 
 .progress .seg.current::after{
   content:"";
@@ -106,7 +87,6 @@ a{
 }
 
 /* SHARE */
-
 .share-bar{
   display:flex;
   justify-content:center;
@@ -141,7 +121,6 @@ a{
 }
 
 /* MAIN */
-
 main{
   flex-grow:1;
   display:flex;
@@ -191,7 +170,6 @@ h1{
 }
 
 /* ADS */
-
 .banners{
   width:100%;
   margin-bottom:26px;
@@ -242,6 +220,17 @@ h1{
   white-space:nowrap;
 }
 
+.ad-hint.pending{
+  color:#fff;
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  animation:pulseHint 1.4s ease-in-out infinite;
+}
+
+@keyframes pulseHint{
+  0%,100%{opacity:1}
+  50%{opacity:.6}
+}
+
 .native-ad-wrap{
   width:100%;
   display:flex;
@@ -276,7 +265,6 @@ h1{
 }
 
 /* TIMER */
-
 .gate-action{
   padding-top:22px;
   border-top:1px solid var(--line);
@@ -304,9 +292,7 @@ h1{
   stroke-width:3.5;
 }
 
-.ring .bg{
-  stroke:var(--line);
-}
+.ring .bg{stroke:var(--line)}
 
 .ring .fg{
   stroke:var(--fuchsia);
@@ -328,16 +314,22 @@ h1{
   color:var(--ink);
 }
 
+.fallback-link{
+  font-size:11.5px;
+  color:var(--indigo-deep);
+  text-decoration:underline;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:6px;
+  display:inline-block;
+}
+
 button.next,
-.get-link-btn{
+.cta-btn{
   font-family:var(--font);
   font-size:13.5px;
   font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
   color:#fff;
   border:none;
   padding:13px 26px;
@@ -348,18 +340,17 @@ button.next,
 }
 
 button.next.ready,
-.get-link-btn.ready{
+.cta-btn.ready{
   cursor:pointer;
   opacity:1;
 }
 
 button.next.ready:hover,
-.get-link-btn.ready:hover{
+.cta-btn.ready:hover{
   transform:translateY(-1px);
 }
 
 /* ARTICLE */
-
 .divider-label{
   font-size:11px;
   font-weight:800;
@@ -389,16 +380,13 @@ button.next.ready:hover,
   margin:0;
 }
 
-/* FINAL */
-
+/* FINAL PAGE */
 .final-card{
   text-align:center;
   padding:36px 30px;
 }
 
-.final-card h1{
-  font-size:24px;
-}
+.final-card h1{font-size:24px}
 
 .final-card .sub{
   margin-left:auto;
@@ -406,13 +394,30 @@ button.next.ready:hover,
 }
 
 .get-link-btn{
+  font-family:var(--font);
   font-size:14px;
+  font-weight:800;
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  color:#fff;
+  border:none;
   padding:15px 40px;
+  border-radius:999px;
+  cursor:not-allowed;
+  opacity:.35;
   margin:6px 0 4px;
+  transition:opacity .25s,transform .15s;
+}
+
+.get-link-btn.ready{
+  cursor:pointer;
+  opacity:1;
+}
+
+.get-link-btn.ready:hover{
+  transform:translateY(-1px);
 }
 
 /* SPONSOR */
-
 .sponsor-block{
   text-align:center;
   padding:20px 0 0;
@@ -450,11 +455,7 @@ button.next.ready:hover,
 .become-sponsor{
   display:block;
   text-align:center;
-  background:linear-gradient(
-    100deg,
-    var(--sky),
-    var(--indigo)
-  );
+  background:linear-gradient(100deg,var(--sky),var(--indigo));
   color:#fff;
   font-weight:800;
   font-size:14px;
@@ -464,7 +465,6 @@ button.next.ready:hover,
 }
 
 /* FINAL LINK */
-
 .final-link-box{
   margin-top:22px;
   border:1px solid #c9f0d8;
@@ -534,11 +534,8 @@ button.next.ready:hover,
 }
 
 /* MOBILE */
-
 @media(max-width:950px){
-  .col{
-    max-width:660px;
-  }
+  .col{max-width:660px}
 }
 
 @media(max-width:480px){
@@ -570,6 +567,7 @@ button.next.ready:hover,
   }
 
 }
+
 </style>
 </head>
 
@@ -621,19 +619,46 @@ const WAIT_SECONDS = 30;
 
 
 /* =========================================
-   BANNER AD SETTINGS
+   AD SETTINGS
 ========================================= */
+
+/*
+  300x250 HIGH PERFORMANCE FORMAT
+*/
 
 const BANNER_300_KEY =
   "9cdff28b0ec7fcdc1fe4edd36bd3054b";
+
+
+/*
+  320x50 HIGH PERFORMANCE FORMAT
+*/
 
 const BANNER_320_KEY =
   "eee5199c1ecc4b17f86952845c3e0047";
 
 
-/* =========================================
-   NATIVE AD
-========================================= */
+/*
+  POPUNDER / EFFECTIVE CPM SCRIPT
+
+  Loaded once on EVERY step.
+*/
+
+const POPUNDER_AD_SRC =
+  "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
+
+
+/*
+  SECOND EFFECTIVE CPM SCRIPT
+*/
+
+const EFFECTIVE_AD_2 =
+  "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
+
+
+/*
+  NATIVE / CONTAINER AD
+*/
 
 const NATIVE_AD_SRC =
   "https://pl30871453.effectivecpmnetwork.com/a549fb62393598b06f06295e77e8118b/invoke.js";
@@ -649,33 +674,33 @@ const NATIVE_AD_CONTAINER =
 const articles = [
 
 {
-  title:"Why waiting rooms became the internet's last honest interface",
-  byline:"Field Notes · 4 min read",
-  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through."
+title:"Why waiting rooms became the internet's last honest interface",
+byline:"Field Notes · 4 min read",
+body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
 },
 
 {
-  title:"The thirty-second unit",
-  byline:"Notes on Attention · 3 min read",
-  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing."
+title:"The thirty-second unit",
+byline:"Notes on Attention · 3 min read",
+body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
 },
 
 {
-  title:"A short history of the link locker",
-  byline:"Archive · 5 min read",
-  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots."
+title:"A short history of the link locker",
+byline:"Archive · 5 min read",
+body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
 },
 
 {
-  title:"On the etiquette of the almost-there page",
-  byline:"Field Notes · 3 min read",
-  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick."
+title:"On the etiquette of the almost-there page",
+byline:"Field Notes · 3 min read",
+body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
 },
 
 {
-  title:"What actually happens in the last thirty seconds",
-  byline:"Notes on Attention · 4 min read",
-  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page."
+title:"What actually happens in the last thirty seconds",
+byline:"Notes on Attention · 4 min read",
+body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
 }
 
 ];
@@ -714,6 +739,10 @@ let secondsLeft =
 let timerId = null;
 
 let linkRevealed = false;
+
+let adClicked = false;
+
+let blurHandler = null;
 
 const col =
   document.getElementById("col");
@@ -776,7 +805,7 @@ function renderProgress(){
 
 
 /* =========================================
-   300x250
+   LOAD 300x250
 ========================================= */
 
 function load300x250(containerId){
@@ -800,11 +829,6 @@ function load300x250(containerId){
     "no"
   );
 
-  iframe.setAttribute(
-    "frameborder",
-    "0"
-  );
-
   container.appendChild(iframe);
 
   const doc =
@@ -815,10 +839,7 @@ function load300x250(containerId){
   doc.write(
     "<!DOCTYPE html>" +
     "<html><head>" +
-    "<style>" +
-    "*{margin:0;padding:0}" +
-    "html,body{width:300px;height:250px;overflow:hidden}" +
-    "</style>" +
+    "<style>*{margin:0;padding:0}</style>" +
     "</head><body>" +
 
     "<script>" +
@@ -831,12 +852,12 @@ function load300x250(containerId){
     "'width':300," +
     "'params':{}" +
     "};" +
-    "</" + "script>" +
+    "</script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_300_KEY +
     "/invoke.js'>" +
-    "</" + "script>" +
+    "</script>" +
 
     "</body></html>"
   );
@@ -846,7 +867,7 @@ function load300x250(containerId){
 
 
 /* =========================================
-   320x50
+   LOAD 320x50
 ========================================= */
 
 function load320x50(){
@@ -870,11 +891,6 @@ function load320x50(){
     "no"
   );
 
-  iframe.setAttribute(
-    "frameborder",
-    "0"
-  );
-
   container.appendChild(iframe);
 
   const doc =
@@ -885,10 +901,7 @@ function load320x50(){
   doc.write(
     "<!DOCTYPE html>" +
     "<html><head>" +
-    "<style>" +
-    "*{margin:0;padding:0}" +
-    "html,body{width:320px;height:50px;overflow:hidden}" +
-    "</style>" +
+    "<style>*{margin:0;padding:0}</style>" +
     "</head><body>" +
 
     "<script>" +
@@ -901,12 +914,12 @@ function load320x50(){
     "'width':320," +
     "'params':{}" +
     "};" +
-    "</" + "script>" +
+    "</script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_320_KEY +
     "/invoke.js'>" +
-    "</" + "script>" +
+    "</script>" +
 
     "</body></html>"
   );
@@ -916,7 +929,59 @@ function load320x50(){
 
 
 /* =========================================
-   NATIVE AD
+   EXTERNAL SCRIPT
+========================================= */
+
+function loadExternalScript(src){
+
+  if(!src) return;
+
+  const script =
+    document.createElement("script");
+
+  script.src =
+    src;
+
+  script.async =
+    true;
+
+  script.setAttribute(
+    "data-cfasync",
+    "false"
+  );
+
+  document.body.appendChild(script);
+}
+
+
+/* =========================================
+   LOAD POPUNDER EVERY PAGE
+========================================= */
+
+function loadPopunder(){
+
+  loadExternalScript(
+    POPUNDER_AD_SRC
+  );
+
+}
+
+
+/* =========================================
+   LOAD SECOND EFFECTIVE CPM
+========================================= */
+
+function loadSecondAd(){
+
+  loadExternalScript(
+    EFFECTIVE_AD_2
+  );
+
+}
+
+
+/* =========================================
+   LOAD NATIVE AD
 ========================================= */
 
 function loadNativeAd(){
@@ -927,14 +992,6 @@ function loadNativeAd(){
     );
 
   if(!container) return;
-
-  if(
-    container.querySelector(
-      "script"
-    )
-  ){
-    return;
-  }
 
   const script =
     document.createElement("script");
@@ -954,20 +1011,53 @@ function loadNativeAd(){
 
 
 /* =========================================
-   ADS
+   LOAD ADS FOR STANDARD PAGES
 ========================================= */
 
-function loadAllAds(){
+function loadStandardAds(){
 
+  /*
+    Popunder loads once on this step.
+  */
+  loadPopunder();
+
+  /*
+    Second Effective CPM script.
+  */
+  loadSecondAd();
+
+  /*
+    3 banner slots.
+  */
   load300x250("ad1");
   load300x250("ad2");
   load300x250("ad3");
+
+  /*
+    Native/container ad.
+  */
   loadNativeAd();
 }
 
+
+/* =========================================
+   LOAD FINAL PAGE ADS
+========================================= */
+
 function loadFinalAds(){
 
+  /*
+    Popunder loads on final page too.
+  */
+  loadPopunder();
+
+  loadSecondAd();
+
+  /*
+    320x50 final banner.
+  */
   load320x50();
+
   loadNativeAd();
 }
 
@@ -978,52 +1068,56 @@ function loadFinalAds(){
 
 function getAdsHTML(){
 
-  return `
+return `
 
-    <div class="banners">
+<div class="banners">
 
-      <div class="ad-row">
+  <div class="ad-row">
 
-        <div class="ad-slot">
+    <div class="ad-slot">
 
-          <div class="ad-hint">
-            Advertisement
-          </div>
-
-          <div
-            class="ad-box"
-            id="ad1"
-          ></div>
-
-        </div>
-
-        <div
-          class="ad-box"
-          id="ad2"
-        ></div>
-
-        <div
-          class="ad-box"
-          id="ad3"
-        ></div>
-
+      <div
+        class="ad-hint pending"
+        id="adHint"
+      >
+        ⚠️👇 Click any ad above & stay 15s to start the 30s timer
       </div>
+
+      <div
+        class="ad-box"
+        id="ad1"
+      ></div>
 
     </div>
 
-    <div class="native-ad-wrap">
+    <div
+      class="ad-box"
+      id="ad2"
+    ></div>
 
-      <div class="native-ad">
+    <div
+      class="ad-box"
+      id="ad3"
+    ></div>
 
-        <div
-          id="${NATIVE_AD_CONTAINER}"
-        ></div>
+  </div>
 
-      </div>
+</div>
 
-    </div>
+<div class="native-ad-wrap">
 
-  `;
+  <div class="native-ad">
+
+    <div
+      id="${NATIVE_AD_CONTAINER}"
+    ></div>
+
+  </div>
+
+</div>
+
+`;
+
 }
 
 
@@ -1043,100 +1137,104 @@ function renderStandardPage(){
 
   col.innerHTML = `
 
-    <div class="card">
+  <div class="card">
 
-      <div class="eyebrow">
-        Step ${page} of ${TOTAL_PAGES}
+    <div class="eyebrow">
+      Step ${page} of ${TOTAL_PAGES}
+    </div>
+
+    <h1>
+      Getting your link ready
+    </h1>
+
+    <p class="sub">
+      A short wait keeps this page free to run.
+      Your link continues on the next step.
+    </p>
+
+    ${getAdsHTML()}
+
+    <div class="gate-action">
+
+      <div class="timer-wrap">
+
+        <svg
+          class="ring"
+          viewBox="0 0 42 42"
+        >
+
+          <circle
+            class="bg"
+            cx="21"
+            cy="21"
+            r="18"
+          ></circle>
+
+          <circle
+            class="fg"
+            id="ringFg"
+            cx="21"
+            cy="21"
+            r="18"
+          ></circle>
+
+        </svg>
+
+        <div class="timer-text">
+
+          <b id="secText">
+            Click ad
+          </b>
+
+          <span id="timerLabel">
+            to start the timer
+          </span>
+
+        </div>
+
       </div>
 
-      <h1>
-        Getting your link ready
-      </h1>
+      <button
+        class="next"
+        id="nextBtn"
+      >
+        Continue →
+      </button>
 
-      <p class="sub">
-        Please wait 30 seconds while your link is being prepared.
+    </div>
+
+  </div>
+
+
+  <div class="card article-card">
+
+    <div class="divider-label">
+      From the blog
+    </div>
+
+    <div class="article">
+
+      <h3>
+        ${article.title}
+      </h3>
+
+      <div class="byline">
+        ${article.byline}
+      </div>
+
+      <p>
+        ${article.body}
       </p>
 
-      ${getAdsHTML()}
-
-      <div class="gate-action">
-
-        <div class="timer-wrap">
-
-          <svg
-            class="ring"
-            viewBox="0 0 42 42"
-          >
-
-            <circle
-              class="bg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-            <circle
-              class="fg"
-              id="ringFg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-          </svg>
-
-          <div class="timer-text">
-
-            <b id="secText">
-              ${WAIT_SECONDS}s
-            </b>
-
-            <span>
-              Please wait
-            </span>
-
-          </div>
-
-        </div>
-
-        <button
-          class="next"
-          id="nextBtn"
-        >
-          Continue →
-        </button>
-
-      </div>
-
     </div>
 
-    <div class="card article-card">
-
-      <div class="divider-label">
-        From the blog
-      </div>
-
-      <div class="article">
-
-        <h3>
-          ${article.title}
-        </h3>
-
-        <div class="byline">
-          ${article.byline}
-        </div>
-
-        <p>
-          ${article.body}
-        </p>
-
-      </div>
-
-    </div>
+  </div>
 
   `;
 
-  loadAllAds();
+
+  loadStandardAds();
+
 
   document
     .getElementById("nextBtn")
@@ -1144,9 +1242,8 @@ function renderStandardPage(){
       "click",
       function(){
 
-        if(secondsLeft > 0){
+        if(secondsLeft > 0)
           return;
-        }
 
         const nextPage =
           Math.min(
@@ -1170,9 +1267,11 @@ function renderStandardPage(){
       }
     );
 
-  startCountdown(
+
+  waitForAdClick(
     updateStandardTimerUI
   );
+
 }
 
 
@@ -1184,275 +1283,428 @@ function renderFinalPage(){
 
   col.innerHTML = `
 
-    <div class="card final-card">
+  <div class="card final-card">
 
-      <div class="eyebrow">
-        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
-      </div>
+    <div class="eyebrow">
+      Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+    </div>
 
-      <h1>
-        Almost there!
-      </h1>
+    <h1>
+      Almost there!
+    </h1>
 
-      <p class="sub">
-        Thanks for your patience.
-      </p>
+    <p class="sub">
+      Thanks for your patience.
+    </p>
+
+    <div
+      class="ad-box-small"
+      id="finalAd"
+    ></div>
+
+    <div
+      class="ad-hint pending"
+      id="adHint"
+      style="margin-top:10px;"
+    >
+      👆 Click the ad above to start the 30s unlock timer
+    </div>
+
+    <button
+      class="get-link-btn"
+      id="getLinkBtn"
+    >
+      Get Link
+    </button>
+
+    <div style="margin-top:14px;">
 
       <div
-        class="ad-box-small"
-        id="finalAd"
-      ></div>
-
-      <div
-        class="ad-hint"
-        style="margin-top:10px;"
+        class="timer-wrap"
+        style="justify-content:center;"
       >
-        Advertisement
-      </div>
 
-      <button
-        class="get-link-btn"
-        id="getLinkBtn"
-      >
-        Get Link
-      </button>
-
-      <div style="margin-top:14px;">
-
-        <div
-          class="timer-wrap"
-          style="justify-content:center;"
+        <svg
+          class="ring"
+          viewBox="0 0 42 42"
         >
 
-          <svg
-            class="ring"
-            viewBox="0 0 42 42"
+          <circle
+            class="bg"
+            cx="21"
+            cy="21"
+            r="18"
+          ></circle>
+
+          <circle
+            class="fg"
+            id="ringFg"
+            cx="21"
+            cy="21"
+            r="18"
+          ></circle>
+
+        </svg>
+
+        <div class="timer-text">
+
+          <b id="secText">
+            Click ad
+          </b>
+
+          <span id="timerLabel">
+            to start the timer
+          </span>
+
+          <a
+            class="fallback-link"
+            id="fallbackLink"
           >
-
-            <circle
-              class="bg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-            <circle
-              class="fg"
-              id="ringFg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-          </svg>
-
-          <div class="timer-text">
-
-            <b id="secText">
-              ${WAIT_SECONDS}s
-            </b>
-
-            <span>
-              Please wait
-            </span>
-
-          </div>
+            Already clicked? Continue
+          </a>
 
         </div>
 
       </div>
-
-      <div class="sponsor-block">
-
-        <div class="lbl">
-          SPONSORED BY
-        </div>
-
-        <span class="sponsor-pill">
-
-          <span class="dot"></span>
-
-          show your brand like this
-
-        </span>
-
-      </div>
-
-      <div
-        class="native-ad-wrap"
-        style="margin-top:20px;"
-      >
-
-        <div class="native-ad">
-
-          <div
-            id="${NATIVE_AD_CONTAINER}"
-          ></div>
-
-        </div>
-
-      </div>
-
-      <div id="finalLinkArea"></div>
 
     </div>
 
-    <div class="card">
+    <div class="sponsor-block">
 
-      <a
-        class="become-sponsor"
-        href="${TELEGRAM_CONTACT}"
-        target="_blank"
-        rel="noopener"
-      >
-        Become a Sponsor!
-      </a>
+      <div class="lbl">
+        SPONSORED BY
+      </div>
+
+      <span class="sponsor-pill">
+
+        <span class="dot"></span>
+
+        show your brand like this
+
+      </span>
 
     </div>
+
+    <div
+      class="native-ad-wrap"
+      style="margin-top:20px;"
+    >
+
+      <div class="native-ad">
+
+        <div
+          id="${NATIVE_AD_CONTAINER}"
+        ></div>
+
+      </div>
+
+    </div>
+
+    <div id="finalLinkArea"></div>
+
+  </div>
+
+
+  <div class="card">
+
+    <a
+      class="become-sponsor"
+      href="${TELEGRAM_CONTACT}"
+      target="_blank"
+      rel="noopener"
+    >
+      Become a Sponsor!
+    </a>
+
+  </div>
 
   `;
 
+
   loadFinalAds();
 
-  document
-    .getElementById("getLinkBtn")
-    .addEventListener(
-      "click",
-      function(){
 
-        if(
-          secondsLeft > 0 ||
-          linkRevealed
-        ){
-          return;
-        }
-
-        linkRevealed = true;
-
-        document.getElementById(
-          "finalLinkArea"
-        ).innerHTML = `
-
-          <div class="final-link-box">
-
-            <span class="tag2">
-              Official destination
-            </span>
-
-            <div class="link-row">
-
-              <div class="link-field">
-                ${OFFICIAL_LINK}
-              </div>
-
-              <button
-                class="copy-btn"
-                id="copyBtn"
-              >
-                Copy
-              </button>
-
-            </div>
-
-            <a
-              class="go-link"
-              href="${OFFICIAL_LINK}"
-              target="_blank"
-              rel="noopener"
-            >
-              Continue to link →
-            </a>
-
-          </div>
-
-        `;
-
-        document
-          .getElementById("copyBtn")
-          .addEventListener(
-            "click",
-            function(){
-
-              navigator.clipboard
-                .writeText(OFFICIAL_LINK)
-                .then(function(){
-
-                  const btn =
-                    document.getElementById(
-                      "copyBtn"
-                    );
-
-                  btn.textContent =
-                    "Copied";
-
-                  setTimeout(
-                    function(){
-                      btn.textContent =
-                        "Copy";
-                    },
-                    1400
-                  );
-
-                });
-
-            }
-          );
-
-      }
+  const getLinkBtn =
+    document.getElementById(
+      "getLinkBtn"
     );
 
-  startCountdown(
+
+  getLinkBtn.addEventListener(
+    "click",
+    function(){
+
+      if(
+        secondsLeft > 0 ||
+        linkRevealed
+      ){
+        return;
+      }
+
+      linkRevealed = true;
+
+
+      document.getElementById(
+        "finalLinkArea"
+      ).innerHTML = `
+
+      <div class="final-link-box">
+
+        <span class="tag2">
+          Official destination
+        </span>
+
+        <div class="link-row">
+
+          <div class="link-field">
+            ${OFFICIAL_LINK}
+          </div>
+
+          <button
+            class="copy-btn"
+            id="copyBtn"
+          >
+            Copy
+          </button>
+
+        </div>
+
+        <a
+          class="go-link"
+          href="${OFFICIAL_LINK}"
+          target="_blank"
+          rel="noopener"
+        >
+          Continue to link →
+        </a>
+
+      </div>
+
+      `;
+
+
+      const copyBtn =
+        document.getElementById(
+          "copyBtn"
+        );
+
+
+      copyBtn.addEventListener(
+        "click",
+        function(){
+
+          navigator.clipboard
+            .writeText(
+              OFFICIAL_LINK
+            )
+            .then(
+              function(){
+
+                copyBtn.textContent =
+                  "Copied";
+
+                setTimeout(
+                  function(){
+
+                    copyBtn.textContent =
+                      "Copy";
+
+                  },
+                  1400
+                );
+
+              }
+            );
+
+        }
+      );
+
+    }
+  );
+
+
+  waitForAdClick(
     updateFinalTimerUI
   );
+
 }
 
 
 /* =========================================
-   COUNTDOWN
+   RENDER
 ========================================= */
 
-function startCountdown(updateFn){
+function renderPage(){
+
+  renderProgress();
+
+  linkRevealed =
+    false;
+
+  if(page === TOTAL_PAGES){
+
+    renderFinalPage();
+
+  }else{
+
+    renderStandardPage();
+
+  }
+
+}
+
+
+/* =========================================
+   WAIT FOR AD CLICK
+========================================= */
+
+function waitForAdClick(updateFn){
 
   clearInterval(timerId);
 
   secondsLeft =
     WAIT_SECONDS;
 
-  updateFn();
+  adClicked =
+    false;
 
-  timerId =
-    setInterval(
+  showPendingState();
+
+
+  if(blurHandler){
+
+    window.removeEventListener(
+      "blur",
+      blurHandler
+    );
+
+  }
+
+
+  blurHandler =
+    function(){
+
+      triggerAdClick(
+        updateFn
+      );
+
+    };
+
+
+  window.addEventListener(
+    "blur",
+    blurHandler
+  );
+
+
+  const fallback =
+    document.getElementById(
+      "fallbackLink"
+    );
+
+
+  if(fallback){
+
+    fallback.addEventListener(
+      "click",
       function(){
 
-        secondsLeft--;
+        triggerAdClick(
+          updateFn
+        );
 
-        updateFn();
-
-        if(secondsLeft <= 0){
-
-          secondsLeft = 0;
-
-          clearInterval(timerId);
-
-        }
-
-      },
-      1000
+      }
     );
+
+  }
+
 }
 
 
 /* =========================================
-   TIMER UI
+   TRIGGER AD CLICK
 ========================================= */
 
-function baseTimerUpdate(){
+function triggerAdClick(updateFn){
 
-  const clamped =
-    Math.max(
-      secondsLeft,
-      0
+  if(adClicked)
+    return;
+
+  adClicked =
+    true;
+
+
+  if(blurHandler){
+
+    window.removeEventListener(
+      "blur",
+      blurHandler
     );
+
+    blurHandler =
+      null;
+
+  }
+
+
+  const adHint =
+    document.getElementById(
+      "adHint"
+    );
+
+
+  if(adHint){
+
+    adHint.classList.remove(
+      "pending"
+    );
+
+    adHint.textContent =
+      "Thanks! Your link is unlocking below ↓";
+
+  }
+
+
+  const fallback =
+    document.getElementById(
+      "fallbackLink"
+    );
+
+
+  if(fallback){
+
+    fallback.style.display =
+      "none";
+
+  }
+
+
+  const timerLabel =
+    document.getElementById(
+      "timerLabel"
+    );
+
+
+  if(timerLabel){
+
+    timerLabel.textContent =
+      "";
+
+  }
+
+
+  startCountdown(
+    updateFn
+  );
+
+}
+
+
+/* =========================================
+   PENDING STATE
+========================================= */
+
+function showPendingState(){
 
   const secText =
     document.getElementById(
@@ -1469,14 +1721,112 @@ function baseTimerUpdate(){
       "segCurrent"
     );
 
+  const timerLabel =
+    document.getElementById(
+      "timerLabel"
+    );
+
+
+  if(secText)
+    secText.textContent =
+      "Click ad";
+
+
+  if(timerLabel)
+    timerLabel.textContent =
+      "to start the timer";
+
+
+  if(ringFg)
+    ringFg.style.strokeDashoffset =
+      "113";
+
+
+  if(segCurrent)
+    segCurrent.style.setProperty(
+      "--fill",
+      "0%"
+    );
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function startCountdown(updateFn){
+
+  clearInterval(timerId);
+
+  secondsLeft =
+    WAIT_SECONDS;
+
+  updateFn();
+
+
+  timerId =
+    setInterval(
+      function(){
+
+        secondsLeft--;
+
+        updateFn();
+
+
+        if(secondsLeft <= 0){
+
+          clearInterval(
+            timerId
+          );
+
+        }
+
+      },
+      1000
+    );
+
+}
+
+
+/* =========================================
+   TIMER UPDATE
+========================================= */
+
+function baseTimerUpdate(){
+
+  const clamped =
+    Math.max(
+      secondsLeft,
+      0
+    );
+
+
+  const secText =
+    document.getElementById(
+      "secText"
+    );
+
+  const ringFg =
+    document.getElementById(
+      "ringFg"
+    );
+
+  const segCurrent =
+    document.getElementById(
+      "segCurrent"
+    );
+
+
   if(secText){
 
     secText.textContent =
       clamped > 0
       ? clamped + "s"
-      : "Ready";
+      : "ready";
 
   }
+
 
   const progressPct =
     1 -
@@ -1484,6 +1834,7 @@ function baseTimerUpdate(){
       clamped /
       WAIT_SECONDS
     );
+
 
   if(ringFg){
 
@@ -1495,18 +1846,22 @@ function baseTimerUpdate(){
 
   }
 
+
   if(segCurrent){
 
     segCurrent.style.setProperty(
       "--fill",
       (
         progressPct * 100
-      ).toFixed(0) + "%"
+      ).toFixed(0) +
+      "%"
     );
 
   }
 
+
   return clamped;
+
 }
 
 
@@ -1530,6 +1885,7 @@ function updateStandardTimerUI(){
     );
 
   }
+
 }
 
 
@@ -1553,6 +1909,7 @@ function updateFinalTimerUI(){
     );
 
   }
+
 }
 
 
@@ -1560,10 +1917,28 @@ function updateFinalTimerUI(){
    SHARE
 ========================================= */
 
+function getShareUrl(){
+
+  const shareUrl =
+    new URL(
+      window.location.href
+    );
+
+  shareUrl.searchParams.set(
+    "step",
+    "1"
+  );
+
+  return shareUrl.toString();
+
+}
+
+
 const shareBtn =
   document.getElementById(
     "shareBtn"
   );
+
 
 if(shareBtn){
 
@@ -1572,36 +1947,29 @@ if(shareBtn){
     function(){
 
       const shareUrl =
-        new URL(
-          window.location.href
-        );
+        getShareUrl();
 
-      shareUrl.searchParams.set(
-        "step",
-        "1"
-      );
 
       if(navigator.share){
 
         navigator.share({
-
-          title:
-            document.title,
-
-          url:
-            shareUrl.toString()
-
+          title:document.title,
+          url:shareUrl
         }).catch(
           function(){}
         );
 
-      }else{
+        return;
 
-        navigator.clipboard
-          .writeText(
-            shareUrl.toString()
-          )
-          .then(function(){
+      }
+
+
+      navigator.clipboard
+        .writeText(
+          shareUrl
+        )
+        .then(
+          function(){
 
             const original =
               shareBtn.textContent;
@@ -1612,6 +1980,7 @@ if(shareBtn){
             shareBtn.classList.add(
               "copied"
             );
+
 
             setTimeout(
               function(){
@@ -1627,9 +1996,8 @@ if(shareBtn){
               1800
             );
 
-          });
-
-      }
+          }
+        );
 
     }
   );
@@ -1641,17 +2009,7 @@ if(shareBtn){
    START
 ========================================= */
 
-renderProgress();
-
-if(page === TOTAL_PAGES){
-
-  renderFinalPage();
-
-}else{
-
-  renderStandardPage();
-
-}
+renderPage();
 
 })();
 </script>
