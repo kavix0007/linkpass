@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
 <title>LinkHarbor — Your link is on the way</title>
 
-<style>
+<!-- Ad network script: loaded once per page -->
+<script
+  src="https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js"
+  async>
+</script>
 
+<style>
 :root{
   --indigo:#4338ca;
   --indigo-deep:#3730a3;
@@ -26,8 +32,15 @@
   --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+}
 
 body{
   background:var(--bg);
@@ -38,7 +51,9 @@ body{
   flex-direction:column;
 }
 
-a{color:inherit}
+a{
+  color:inherit;
+}
 
 @media(prefers-reduced-motion:reduce){
   *{
@@ -227,21 +242,6 @@ h1{
   white-space:nowrap;
 }
 
-.ad-hint.pending{
-  color:#fff;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
-  animation:pulseHint 1.4s ease-in-out infinite;
-}
-
-@keyframes pulseHint{
-  0%,100%{opacity:1}
-  50%{opacity:.6}
-}
-
 .native-ad-wrap{
   width:100%;
   display:flex;
@@ -328,18 +328,8 @@ h1{
   color:var(--ink);
 }
 
-.fallback-link{
-  font-size:11.5px;
-  color:var(--indigo-deep);
-  text-decoration:underline;
-  cursor:pointer;
-  font-weight:700;
-  margin-top:6px;
-  display:inline-block;
-}
-
 button.next,
-.cta-btn{
+.get-link-btn{
   font-family:var(--font);
   font-size:13.5px;
   font-weight:800;
@@ -358,13 +348,13 @@ button.next,
 }
 
 button.next.ready,
-.cta-btn.ready{
+.get-link-btn.ready{
   cursor:pointer;
   opacity:1;
 }
 
 button.next.ready:hover,
-.cta-btn.ready:hover{
+.get-link-btn.ready:hover{
   transform:translateY(-1px);
 }
 
@@ -399,7 +389,7 @@ button.next.ready:hover,
   margin:0;
 }
 
-/* FINAL PAGE */
+/* FINAL */
 
 .final-card{
   text-align:center;
@@ -416,31 +406,9 @@ button.next.ready:hover,
 }
 
 .get-link-btn{
-  font-family:var(--font);
   font-size:14px;
-  font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
-  color:#fff;
-  border:none;
   padding:15px 40px;
-  border-radius:999px;
-  cursor:not-allowed;
-  opacity:.35;
   margin:6px 0 4px;
-  transition:opacity .25s,transform .15s;
-}
-
-.get-link-btn.ready{
-  cursor:pointer;
-  opacity:1;
-}
-
-.get-link-btn.ready:hover{
-  transform:translateY(-1px);
 }
 
 /* SPONSOR */
@@ -602,7 +570,6 @@ button.next.ready:hover,
   }
 
 }
-
 </style>
 </head>
 
@@ -621,7 +588,6 @@ button.next.ready:hover,
 <main>
   <div class="col" id="col"></div>
 </main>
-
 
 <script>
 (function(){
@@ -655,43 +621,19 @@ const WAIT_SECONDS = 30;
 
 
 /* =========================================
-   AD SETTINGS
+   BANNER AD SETTINGS
 ========================================= */
-
-/*
-  HIGH PERFORMANCE FORMAT
-  300x250
-*/
 
 const BANNER_300_KEY =
   "9cdff28b0ec7fcdc1fe4edd36bd3054b";
-
-
-/*
-  HIGH PERFORMANCE FORMAT
-  320x50
-*/
 
 const BANNER_320_KEY =
   "eee5199c1ecc4b17f86952845c3e0047";
 
 
-/*
-  EFFECTIVE CPM NETWORK
-
-  These are script-based ads.
-*/
-
-const EFFECTIVE_AD_1 =
-  "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
-
-const EFFECTIVE_AD_2 =
-  "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
-
-
-/*
-  EFFECTIVE CPM NATIVE / CONTAINER AD
-*/
+/* =========================================
+   NATIVE AD
+========================================= */
 
 const NATIVE_AD_SRC =
   "https://pl30871453.effectivecpmnetwork.com/a549fb62393598b06f06295e77e8118b/invoke.js";
@@ -709,31 +651,31 @@ const articles = [
 {
   title:"Why waiting rooms became the internet's last honest interface",
   byline:"Field Notes · 4 min read",
-  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through."
 },
 
 {
   title:"The thirty-second unit",
   byline:"Notes on Attention · 3 min read",
-  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
+  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing."
 },
 
 {
   title:"A short history of the link locker",
   byline:"Archive · 5 min read",
-  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots."
 },
 
 {
   title:"On the etiquette of the almost-there page",
   byline:"Field Notes · 3 min read",
-  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick."
 },
 
 {
   title:"What actually happens in the last thirty seconds",
   byline:"Notes on Attention · 4 min read",
-  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page."
 }
 
 ];
@@ -758,9 +700,6 @@ const currentLink =
 const OFFICIAL_LINK =
   currentLink.url;
 
-const OFFICIAL_LINK_NAME =
-  currentLink.name;
-
 let page =
   Number.isFinite(requestedPage)
   ? Math.min(
@@ -776,10 +715,6 @@ let timerId = null;
 
 let linkRevealed = false;
 
-let adClicked = false;
-
-let blurHandler = null;
-
 const col =
   document.getElementById("col");
 
@@ -788,18 +723,14 @@ const progress =
 
 
 /* =========================================
-   PROGRESS BAR
+   PROGRESS
 ========================================= */
 
 function renderProgress(){
 
   progress.innerHTML = "";
 
-  for(
-    let i=1;
-    i<=TOTAL_PAGES;
-    i++
-  ){
+  for(let i=1;i<=TOTAL_PAGES;i++){
 
     const seg =
       document.createElement("div");
@@ -809,11 +740,9 @@ function renderProgress(){
       (
         i < page
         ? " done"
-        : (
-            i === page
-            ? " current"
-            : ""
-          )
+        : i === page
+        ? " current"
+        : ""
       );
 
     if(i === page){
@@ -847,7 +776,7 @@ function renderProgress(){
 
 
 /* =========================================
-   LOAD 300x250 AD
+   300x250
 ========================================= */
 
 function load300x250(containerId){
@@ -862,14 +791,9 @@ function load300x250(containerId){
   const iframe =
     document.createElement("iframe");
 
-  iframe.style.width =
-    "300px";
-
-  iframe.style.height =
-    "250px";
-
-  iframe.style.border =
-    "0";
+  iframe.style.width = "300px";
+  iframe.style.height = "250px";
+  iframe.style.border = "0";
 
   iframe.setAttribute(
     "scrolling",
@@ -898,31 +822,21 @@ function load300x250(containerId){
     "</head><body>" +
 
     "<script>" +
-
     "atOptions={" +
-
     "'key':'" +
     BANNER_300_KEY +
     "'," +
-
     "'format':'iframe'," +
-
     "'height':250," +
-
     "'width':300," +
-
     "'params':{}" +
-
     "};" +
-
-    "</" +
-    "script>" +
+    "</" + "script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_300_KEY +
     "/invoke.js'>" +
-    "</" +
-    "script>" +
+    "</" + "script>" +
 
     "</body></html>"
   );
@@ -932,7 +846,7 @@ function load300x250(containerId){
 
 
 /* =========================================
-   LOAD 320x50 AD
+   320x50
 ========================================= */
 
 function load320x50(){
@@ -947,14 +861,9 @@ function load320x50(){
   const iframe =
     document.createElement("iframe");
 
-  iframe.style.width =
-    "320px";
-
-  iframe.style.height =
-    "50px";
-
-  iframe.style.border =
-    "0";
+  iframe.style.width = "320px";
+  iframe.style.height = "50px";
+  iframe.style.border = "0";
 
   iframe.setAttribute(
     "scrolling",
@@ -983,31 +892,21 @@ function load320x50(){
     "</head><body>" +
 
     "<script>" +
-
     "atOptions={" +
-
     "'key':'" +
     BANNER_320_KEY +
     "'," +
-
     "'format':'iframe'," +
-
     "'height':50," +
-
     "'width':320," +
-
     "'params':{}" +
-
     "};" +
-
-    "</" +
-    "script>" +
+    "</" + "script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_320_KEY +
     "/invoke.js'>" +
-    "</" +
-    "script>" +
+    "</" + "script>" +
 
     "</body></html>"
   );
@@ -1017,45 +916,7 @@ function load320x50(){
 
 
 /* =========================================
-   LOAD EFFECTIVE CPM ADS
-========================================= */
-
-function loadExternalScript(src){
-
-  if(!src) return;
-
-  const script =
-    document.createElement("script");
-
-  script.src =
-    src;
-
-  script.async =
-    true;
-
-  script.setAttribute(
-    "data-cfasync",
-    "false"
-  );
-
-  document.body.appendChild(script);
-}
-
-
-function loadEffectiveAds(){
-
-  loadExternalScript(
-    EFFECTIVE_AD_1
-  );
-
-  loadExternalScript(
-    EFFECTIVE_AD_2
-  );
-}
-
-
-/* =========================================
-   LOAD NATIVE AD
+   NATIVE AD
 ========================================= */
 
 function loadNativeAd(){
@@ -1068,10 +929,8 @@ function loadNativeAd(){
   if(!container) return;
 
   if(
-    document.querySelector(
-      'script[src="' +
-      NATIVE_AD_SRC +
-      '"]'
+    container.querySelector(
+      "script"
     )
   ){
     return;
@@ -1080,8 +939,7 @@ function loadNativeAd(){
   const script =
     document.createElement("script");
 
-  script.async =
-    true;
+  script.async = true;
 
   script.setAttribute(
     "data-cfasync",
@@ -1096,33 +954,20 @@ function loadNativeAd(){
 
 
 /* =========================================
-   LOAD ALL ADS
+   ADS
 ========================================= */
 
 function loadAllAds(){
 
-  loadEffectiveAds();
-
-  loadNativeAd();
-
   load300x250("ad1");
-
   load300x250("ad2");
-
   load300x250("ad3");
+  loadNativeAd();
 }
-
-
-/* =========================================
-   LOAD FINAL ADS
-========================================= */
 
 function loadFinalAds(){
 
-  loadEffectiveAds();
-
   load320x50();
-
   loadNativeAd();
 }
 
@@ -1141,11 +986,8 @@ function getAdsHTML(){
 
         <div class="ad-slot">
 
-          <div
-            class="ad-hint pending"
-            id="adHint"
-          >
-            ⚠️👇 Click any ad above & stay 15s to start the 30s timer
+          <div class="ad-hint">
+            Advertisement
           </div>
 
           <div
@@ -1212,8 +1054,7 @@ function renderStandardPage(){
       </h1>
 
       <p class="sub">
-        A short wait keeps this page free to run.
-        Your link continues on the next step.
+        Please wait 30 seconds while your link is being prepared.
       </p>
 
       ${getAdsHTML()}
@@ -1247,11 +1088,11 @@ function renderStandardPage(){
           <div class="timer-text">
 
             <b id="secText">
-              Click ad
+              ${WAIT_SECONDS}s
             </b>
 
-            <span id="timerLabel">
-              to start the timer
+            <span>
+              Please wait
             </span>
 
           </div>
@@ -1268,7 +1109,6 @@ function renderStandardPage(){
       </div>
 
     </div>
-
 
     <div class="card article-card">
 
@@ -1296,9 +1136,7 @@ function renderStandardPage(){
 
   `;
 
-
   loadAllAds();
-
 
   document
     .getElementById("nextBtn")
@@ -1306,8 +1144,9 @@ function renderStandardPage(){
       "click",
       function(){
 
-        if(secondsLeft > 0)
+        if(secondsLeft > 0){
           return;
+        }
 
         const nextPage =
           Math.min(
@@ -1331,8 +1170,7 @@ function renderStandardPage(){
       }
     );
 
-
-  waitForAdClick(
+  startCountdown(
     updateStandardTimerUI
   );
 }
@@ -1360,21 +1198,17 @@ function renderFinalPage(){
         Thanks for your patience.
       </p>
 
-
       <div
         class="ad-box-small"
         id="finalAd"
       ></div>
 
-
       <div
-        class="ad-hint pending"
-        id="adHint"
+        class="ad-hint"
         style="margin-top:10px;"
       >
-        👆 Click the ad above to start the 30s unlock timer
+        Advertisement
       </div>
-
 
       <button
         class="get-link-btn"
@@ -1382,7 +1216,6 @@ function renderFinalPage(){
       >
         Get Link
       </button>
-
 
       <div style="margin-top:14px;">
 
@@ -1416,26 +1249,18 @@ function renderFinalPage(){
           <div class="timer-text">
 
             <b id="secText">
-              Click ad
+              ${WAIT_SECONDS}s
             </b>
 
-            <span id="timerLabel">
-              to start the timer
+            <span>
+              Please wait
             </span>
-
-            <a
-              class="fallback-link"
-              id="fallbackLink"
-            >
-              Already clicked? Continue
-            </a>
 
           </div>
 
         </div>
 
       </div>
-
 
       <div class="sponsor-block">
 
@@ -1453,7 +1278,6 @@ function renderFinalPage(){
 
       </div>
 
-
       <div
         class="native-ad-wrap"
         style="margin-top:20px;"
@@ -1469,11 +1293,9 @@ function renderFinalPage(){
 
       </div>
 
-
       <div id="finalLinkArea"></div>
 
     </div>
-
 
     <div class="card">
 
@@ -1490,348 +1312,98 @@ function renderFinalPage(){
 
   `;
 
-
   loadFinalAds();
 
-
-  const getLinkBtn =
-    document.getElementById(
-      "getLinkBtn"
-    );
-
-
-  getLinkBtn.addEventListener(
-    "click",
-    function(){
-
-      if(
-        secondsLeft > 0 ||
-        linkRevealed
-      ){
-        return;
-      }
-
-      linkRevealed = true;
-
-
-      document.getElementById(
-        "finalLinkArea"
-      ).innerHTML = `
-
-        <div class="final-link-box">
-
-          <span class="tag2">
-            Official destination
-          </span>
-
-          <div class="link-row">
-
-            <div class="link-field">
-              ${OFFICIAL_LINK}
-            </div>
-
-            <button
-              class="copy-btn"
-              id="copyBtn"
-            >
-              Copy
-            </button>
-
-          </div>
-
-          <a
-            class="go-link"
-            href="${OFFICIAL_LINK}"
-            target="_blank"
-            rel="noopener"
-          >
-            Continue to link →
-          </a>
-
-        </div>
-
-      `;
-
-
-      const copyBtn =
-        document.getElementById(
-          "copyBtn"
-        );
-
-
-      copyBtn.addEventListener(
-        "click",
-        function(){
-
-          navigator
-            .clipboard
-            .writeText(
-              OFFICIAL_LINK
-            )
-            .then(
-              function(){
-
-                copyBtn.textContent =
-                  "Copied";
-
-                setTimeout(
-                  function(){
-
-                    copyBtn.textContent =
-                      "Copy";
-
-                  },
-                  1400
-                );
-
-              }
-            );
-
-        }
-      );
-
-    }
-  );
-
-
-  waitForAdClick(
-    updateFinalTimerUI
-  );
-}
-
-
-/* =========================================
-   RENDER
-========================================= */
-
-function renderPage(){
-
-  renderProgress();
-
-  linkRevealed =
-    false;
-
-  if(
-    page === TOTAL_PAGES
-  ){
-
-    renderFinalPage();
-
-  }else{
-
-    renderStandardPage();
-
-  }
-
-}
-
-
-/* =========================================
-   AD CLICK GATE
-========================================= */
-
-function waitForAdClick(updateFn){
-
-  clearInterval(timerId);
-
-  secondsLeft =
-    WAIT_SECONDS;
-
-  adClicked =
-    false;
-
-  showPendingState();
-
-
-  if(blurHandler){
-
-    window.removeEventListener(
-      "blur",
-      blurHandler
-    );
-
-  }
-
-
-  blurHandler =
-    function(){
-
-      triggerAdClick(
-        updateFn
-      );
-
-    };
-
-
-  window.addEventListener(
-    "blur",
-    blurHandler
-  );
-
-
-  const fallback =
-    document.getElementById(
-      "fallbackLink"
-    );
-
-
-  if(fallback){
-
-    fallback.addEventListener(
+  document
+    .getElementById("getLinkBtn")
+    .addEventListener(
       "click",
       function(){
 
-        triggerAdClick(
-          updateFn
-        );
+        if(
+          secondsLeft > 0 ||
+          linkRevealed
+        ){
+          return;
+        }
+
+        linkRevealed = true;
+
+        document.getElementById(
+          "finalLinkArea"
+        ).innerHTML = `
+
+          <div class="final-link-box">
+
+            <span class="tag2">
+              Official destination
+            </span>
+
+            <div class="link-row">
+
+              <div class="link-field">
+                ${OFFICIAL_LINK}
+              </div>
+
+              <button
+                class="copy-btn"
+                id="copyBtn"
+              >
+                Copy
+              </button>
+
+            </div>
+
+            <a
+              class="go-link"
+              href="${OFFICIAL_LINK}"
+              target="_blank"
+              rel="noopener"
+            >
+              Continue to link →
+            </a>
+
+          </div>
+
+        `;
+
+        document
+          .getElementById("copyBtn")
+          .addEventListener(
+            "click",
+            function(){
+
+              navigator.clipboard
+                .writeText(OFFICIAL_LINK)
+                .then(function(){
+
+                  const btn =
+                    document.getElementById(
+                      "copyBtn"
+                    );
+
+                  btn.textContent =
+                    "Copied";
+
+                  setTimeout(
+                    function(){
+                      btn.textContent =
+                        "Copy";
+                    },
+                    1400
+                  );
+
+                });
+
+            }
+          );
 
       }
     );
 
-  }
-
-}
-
-
-/* =========================================
-   TRIGGER TIMER
-========================================= */
-
-function triggerAdClick(updateFn){
-
-  if(adClicked)
-    return;
-
-  adClicked =
-    true;
-
-
-  if(blurHandler){
-
-    window.removeEventListener(
-      "blur",
-      blurHandler
-    );
-
-    blurHandler =
-      null;
-
-  }
-
-
-  const adHint =
-    document.getElementById(
-      "adHint"
-    );
-
-
-  if(adHint){
-
-    adHint.classList.remove(
-      "pending"
-    );
-
-    adHint.textContent =
-      "Thanks! Your link is unlocking below ↓";
-
-  }
-
-
-  const fallback =
-    document.getElementById(
-      "fallbackLink"
-    );
-
-
-  if(fallback){
-
-    fallback.style.display =
-      "none";
-
-  }
-
-
-  const timerLabel =
-    document.getElementById(
-      "timerLabel"
-    );
-
-
-  if(timerLabel){
-
-    timerLabel.textContent =
-      "";
-
-  }
-
-
   startCountdown(
-    updateFn
+    updateFinalTimerUI
   );
-
-}
-
-
-/* =========================================
-   PENDING STATE
-========================================= */
-
-function showPendingState(){
-
-  const secText =
-    document.getElementById(
-      "secText"
-    );
-
-  const ringFg =
-    document.getElementById(
-      "ringFg"
-    );
-
-  const segCurrent =
-    document.getElementById(
-      "segCurrent"
-    );
-
-  const timerLabel =
-    document.getElementById(
-      "timerLabel"
-    );
-
-
-  if(secText){
-
-    secText.textContent =
-      "Click ad";
-
-  }
-
-
-  if(timerLabel){
-
-    timerLabel.textContent =
-      "to start the timer";
-
-  }
-
-
-  if(ringFg){
-
-    ringFg.style.strokeDashoffset =
-      "113";
-
-  }
-
-
-  if(segCurrent){
-
-    segCurrent.style.setProperty(
-      "--fill",
-      "0%"
-    );
-
-  }
-
 }
 
 
@@ -1848,7 +1420,6 @@ function startCountdown(updateFn){
 
   updateFn();
 
-
   timerId =
     setInterval(
       function(){
@@ -1857,21 +1428,17 @@ function startCountdown(updateFn){
 
         updateFn();
 
+        if(secondsLeft <= 0){
 
-        if(
-          secondsLeft <= 0
-        ){
+          secondsLeft = 0;
 
-          clearInterval(
-            timerId
-          );
+          clearInterval(timerId);
 
         }
 
       },
       1000
     );
-
 }
 
 
@@ -1886,7 +1453,6 @@ function baseTimerUpdate(){
       secondsLeft,
       0
     );
-
 
   const secText =
     document.getElementById(
@@ -1903,16 +1469,14 @@ function baseTimerUpdate(){
       "segCurrent"
     );
 
-
   if(secText){
 
     secText.textContent =
       clamped > 0
       ? clamped + "s"
-      : "ready";
+      : "Ready";
 
   }
-
 
   const progressPct =
     1 -
@@ -1920,7 +1484,6 @@ function baseTimerUpdate(){
       clamped /
       WAIT_SECONDS
     );
-
 
   if(ringFg){
 
@@ -1932,22 +1495,18 @@ function baseTimerUpdate(){
 
   }
 
-
   if(segCurrent){
 
     segCurrent.style.setProperty(
       "--fill",
       (
         progressPct * 100
-      ).toFixed(0) +
-      "%"
+      ).toFixed(0) + "%"
     );
 
   }
 
-
   return clamped;
-
 }
 
 
@@ -1956,12 +1515,10 @@ function updateStandardTimerUI(){
   const clamped =
     baseTimerUpdate();
 
-
   const nextBtn =
     document.getElementById(
       "nextBtn"
     );
-
 
   if(
     clamped <= 0 &&
@@ -1973,7 +1530,6 @@ function updateStandardTimerUI(){
     );
 
   }
-
 }
 
 
@@ -1982,12 +1538,10 @@ function updateFinalTimerUI(){
   const clamped =
     baseTimerUpdate();
 
-
   const getLinkBtn =
     document.getElementById(
       "getLinkBtn"
     );
-
 
   if(
     clamped <= 0 &&
@@ -1999,7 +1553,6 @@ function updateFinalTimerUI(){
     );
 
   }
-
 }
 
 
@@ -2007,28 +1560,10 @@ function updateFinalTimerUI(){
    SHARE
 ========================================= */
 
-function getShareUrl(){
-
-  const shareUrl =
-    new URL(
-      window.location.href
-    );
-
-  shareUrl.searchParams.set(
-    "step",
-    "1"
-  );
-
-  return shareUrl.toString();
-
-}
-
-
 const shareBtn =
   document.getElementById(
     "shareBtn"
   );
-
 
 if(shareBtn){
 
@@ -2037,8 +1572,14 @@ if(shareBtn){
     function(){
 
       const shareUrl =
-        getShareUrl();
+        new URL(
+          window.location.href
+        );
 
+      shareUrl.searchParams.set(
+        "step",
+        "1"
+      );
 
       if(navigator.share){
 
@@ -2048,24 +1589,19 @@ if(shareBtn){
             document.title,
 
           url:
-            shareUrl
+            shareUrl.toString()
 
         }).catch(
           function(){}
         );
 
-        return;
+      }else{
 
-      }
-
-
-      navigator
-        .clipboard
-        .writeText(
-          shareUrl
-        )
-        .then(
-          function(){
+        navigator.clipboard
+          .writeText(
+            shareUrl.toString()
+          )
+          .then(function(){
 
             const original =
               shareBtn.textContent;
@@ -2076,7 +1612,6 @@ if(shareBtn){
             shareBtn.classList.add(
               "copied"
             );
-
 
             setTimeout(
               function(){
@@ -2092,8 +1627,9 @@ if(shareBtn){
               1800
             );
 
-          }
-        );
+          });
+
+      }
 
     }
   );
@@ -2105,7 +1641,17 @@ if(shareBtn){
    START
 ========================================= */
 
-renderPage();
+renderProgress();
+
+if(page === TOTAL_PAGES){
+
+  renderFinalPage();
+
+}else{
+
+  renderStandardPage();
+
+}
 
 })();
 </script>
