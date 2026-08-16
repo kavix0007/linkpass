@@ -10,13 +10,14 @@
 <title>LinkHarbor — Your link is on the way</title>
 
 <style>
+
 :root{
   --indigo:#4338ca;
   --indigo-deep:#3730a3;
   --sky:#38bdf8;
   --fuchsia:#d946ef;
   --bg:#f3f5fb;
-  --card:#fff;
+  --card:#ffffff;
   --line:#e6e9f2;
   --ink:#1f2430;
   --muted:#6b7180;
@@ -47,6 +48,7 @@ a{color:inherit}
 }
 
 /* PROGRESS */
+
 .progress-wrap{
   display:flex;
   justify-content:center;
@@ -68,7 +70,9 @@ a{color:inherit}
   overflow:hidden;
 }
 
-.progress .seg.done{background:var(--indigo)}
+.progress .seg.done{
+  background:var(--indigo);
+}
 
 .progress .seg.current::after{
   content:"";
@@ -87,6 +91,7 @@ a{color:inherit}
 }
 
 /* SHARE */
+
 .share-bar{
   display:flex;
   justify-content:center;
@@ -121,6 +126,7 @@ a{color:inherit}
 }
 
 /* MAIN */
+
 main{
   flex-grow:1;
   display:flex;
@@ -170,6 +176,7 @@ h1{
 }
 
 /* ADS */
+
 .banners{
   width:100%;
   margin-bottom:26px;
@@ -222,7 +229,11 @@ h1{
 
 .ad-hint.pending{
   color:#fff;
-  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
   animation:pulseHint 1.4s ease-in-out infinite;
 }
 
@@ -265,6 +276,7 @@ h1{
 }
 
 /* TIMER */
+
 .gate-action{
   padding-top:22px;
   border-top:1px solid var(--line);
@@ -292,7 +304,9 @@ h1{
   stroke-width:3.5;
 }
 
-.ring .bg{stroke:var(--line)}
+.ring .bg{
+  stroke:var(--line);
+}
 
 .ring .fg{
   stroke:var(--fuchsia);
@@ -329,7 +343,11 @@ button.next,
   font-family:var(--font);
   font-size:13.5px;
   font-weight:800;
-  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
   color:#fff;
   border:none;
   padding:13px 26px;
@@ -351,6 +369,7 @@ button.next.ready:hover,
 }
 
 /* ARTICLE */
+
 .divider-label{
   font-size:11px;
   font-weight:800;
@@ -381,12 +400,15 @@ button.next.ready:hover,
 }
 
 /* FINAL PAGE */
+
 .final-card{
   text-align:center;
   padding:36px 30px;
 }
 
-.final-card h1{font-size:24px}
+.final-card h1{
+  font-size:24px;
+}
 
 .final-card .sub{
   margin-left:auto;
@@ -397,7 +419,11 @@ button.next.ready:hover,
   font-family:var(--font);
   font-size:14px;
   font-weight:800;
-  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
   color:#fff;
   border:none;
   padding:15px 40px;
@@ -418,6 +444,7 @@ button.next.ready:hover,
 }
 
 /* SPONSOR */
+
 .sponsor-block{
   text-align:center;
   padding:20px 0 0;
@@ -455,7 +482,11 @@ button.next.ready:hover,
 .become-sponsor{
   display:block;
   text-align:center;
-  background:linear-gradient(100deg,var(--sky),var(--indigo));
+  background:linear-gradient(
+    100deg,
+    var(--sky),
+    var(--indigo)
+  );
   color:#fff;
   font-weight:800;
   font-size:14px;
@@ -465,6 +496,7 @@ button.next.ready:hover,
 }
 
 /* FINAL LINK */
+
 .final-link-box{
   margin-top:22px;
   border:1px solid #c9f0d8;
@@ -534,8 +566,11 @@ button.next.ready:hover,
 }
 
 /* MOBILE */
+
 @media(max-width:950px){
-  .col{max-width:660px}
+  .col{
+    max-width:660px;
+  }
 }
 
 @media(max-width:480px){
@@ -587,6 +622,7 @@ button.next.ready:hover,
   <div class="col" id="col"></div>
 </main>
 
+
 <script>
 (function(){
 
@@ -623,7 +659,8 @@ const WAIT_SECONDS = 30;
 ========================================= */
 
 /*
-  300x250 HIGH PERFORMANCE FORMAT
+  HIGH PERFORMANCE FORMAT
+  300x250
 */
 
 const BANNER_300_KEY =
@@ -631,7 +668,8 @@ const BANNER_300_KEY =
 
 
 /*
-  320x50 HIGH PERFORMANCE FORMAT
+  HIGH PERFORMANCE FORMAT
+  320x50
 */
 
 const BANNER_320_KEY =
@@ -639,25 +677,20 @@ const BANNER_320_KEY =
 
 
 /*
-  POPUNDER / EFFECTIVE CPM SCRIPT
+  EFFECTIVE CPM NETWORK
 
-  Loaded once on EVERY step.
+  These are script-based ads.
 */
 
-const POPUNDER_AD_SRC =
+const EFFECTIVE_AD_1 =
   "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
-
-
-/*
-  SECOND EFFECTIVE CPM SCRIPT
-*/
 
 const EFFECTIVE_AD_2 =
   "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
 
 
 /*
-  NATIVE / CONTAINER AD
+  EFFECTIVE CPM NATIVE / CONTAINER AD
 */
 
 const NATIVE_AD_SRC =
@@ -674,33 +707,33 @@ const NATIVE_AD_CONTAINER =
 const articles = [
 
 {
-title:"Why waiting rooms became the internet's last honest interface",
-byline:"Field Notes · 4 min read",
-body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+  title:"Why waiting rooms became the internet's last honest interface",
+  byline:"Field Notes · 4 min read",
+  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
 },
 
 {
-title:"The thirty-second unit",
-byline:"Notes on Attention · 3 min read",
-body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
+  title:"The thirty-second unit",
+  byline:"Notes on Attention · 3 min read",
+  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
 },
 
 {
-title:"A short history of the link locker",
-byline:"Archive · 5 min read",
-body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+  title:"A short history of the link locker",
+  byline:"Archive · 5 min read",
+  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
 },
 
 {
-title:"On the etiquette of the almost-there page",
-byline:"Field Notes · 3 min read",
-body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+  title:"On the etiquette of the almost-there page",
+  byline:"Field Notes · 3 min read",
+  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
 },
 
 {
-title:"What actually happens in the last thirty seconds",
-byline:"Notes on Attention · 4 min read",
-body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+  title:"What actually happens in the last thirty seconds",
+  byline:"Notes on Attention · 4 min read",
+  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
 }
 
 ];
@@ -724,6 +757,9 @@ const currentLink =
 
 const OFFICIAL_LINK =
   currentLink.url;
+
+const OFFICIAL_LINK_NAME =
+  currentLink.name;
 
 let page =
   Number.isFinite(requestedPage)
@@ -752,14 +788,18 @@ const progress =
 
 
 /* =========================================
-   PROGRESS
+   PROGRESS BAR
 ========================================= */
 
 function renderProgress(){
 
   progress.innerHTML = "";
 
-  for(let i=1;i<=TOTAL_PAGES;i++){
+  for(
+    let i=1;
+    i<=TOTAL_PAGES;
+    i++
+  ){
 
     const seg =
       document.createElement("div");
@@ -769,9 +809,11 @@ function renderProgress(){
       (
         i < page
         ? " done"
-        : i === page
-        ? " current"
-        : ""
+        : (
+            i === page
+            ? " current"
+            : ""
+          )
       );
 
     if(i === page){
@@ -805,7 +847,7 @@ function renderProgress(){
 
 
 /* =========================================
-   LOAD 300x250
+   LOAD 300x250 AD
 ========================================= */
 
 function load300x250(containerId){
@@ -820,13 +862,23 @@ function load300x250(containerId){
   const iframe =
     document.createElement("iframe");
 
-  iframe.style.width = "300px";
-  iframe.style.height = "250px";
-  iframe.style.border = "0";
+  iframe.style.width =
+    "300px";
+
+  iframe.style.height =
+    "250px";
+
+  iframe.style.border =
+    "0";
 
   iframe.setAttribute(
     "scrolling",
     "no"
+  );
+
+  iframe.setAttribute(
+    "frameborder",
+    "0"
   );
 
   container.appendChild(iframe);
@@ -839,25 +891,38 @@ function load300x250(containerId){
   doc.write(
     "<!DOCTYPE html>" +
     "<html><head>" +
-    "<style>*{margin:0;padding:0}</style>" +
+    "<style>" +
+    "*{margin:0;padding:0}" +
+    "html,body{width:300px;height:250px;overflow:hidden}" +
+    "</style>" +
     "</head><body>" +
 
     "<script>" +
+
     "atOptions={" +
+
     "'key':'" +
     BANNER_300_KEY +
     "'," +
+
     "'format':'iframe'," +
+
     "'height':250," +
+
     "'width':300," +
+
     "'params':{}" +
+
     "};" +
-    "</script>" +
+
+    "</" +
+    "script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_300_KEY +
     "/invoke.js'>" +
-    "</script>" +
+    "</" +
+    "script>" +
 
     "</body></html>"
   );
@@ -867,7 +932,7 @@ function load300x250(containerId){
 
 
 /* =========================================
-   LOAD 320x50
+   LOAD 320x50 AD
 ========================================= */
 
 function load320x50(){
@@ -882,13 +947,23 @@ function load320x50(){
   const iframe =
     document.createElement("iframe");
 
-  iframe.style.width = "320px";
-  iframe.style.height = "50px";
-  iframe.style.border = "0";
+  iframe.style.width =
+    "320px";
+
+  iframe.style.height =
+    "50px";
+
+  iframe.style.border =
+    "0";
 
   iframe.setAttribute(
     "scrolling",
     "no"
+  );
+
+  iframe.setAttribute(
+    "frameborder",
+    "0"
   );
 
   container.appendChild(iframe);
@@ -901,25 +976,38 @@ function load320x50(){
   doc.write(
     "<!DOCTYPE html>" +
     "<html><head>" +
-    "<style>*{margin:0;padding:0}</style>" +
+    "<style>" +
+    "*{margin:0;padding:0}" +
+    "html,body{width:320px;height:50px;overflow:hidden}" +
+    "</style>" +
     "</head><body>" +
 
     "<script>" +
+
     "atOptions={" +
+
     "'key':'" +
     BANNER_320_KEY +
     "'," +
+
     "'format':'iframe'," +
+
     "'height':50," +
+
     "'width':320," +
+
     "'params':{}" +
+
     "};" +
-    "</script>" +
+
+    "</" +
+    "script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_320_KEY +
     "/invoke.js'>" +
-    "</script>" +
+    "</" +
+    "script>" +
 
     "</body></html>"
   );
@@ -929,7 +1017,7 @@ function load320x50(){
 
 
 /* =========================================
-   EXTERNAL SCRIPT
+   LOAD EFFECTIVE CPM ADS
 ========================================= */
 
 function loadExternalScript(src){
@@ -954,29 +1042,15 @@ function loadExternalScript(src){
 }
 
 
-/* =========================================
-   LOAD POPUNDER EVERY PAGE
-========================================= */
-
-function loadPopunder(){
+function loadEffectiveAds(){
 
   loadExternalScript(
-    POPUNDER_AD_SRC
+    EFFECTIVE_AD_1
   );
-
-}
-
-
-/* =========================================
-   LOAD SECOND EFFECTIVE CPM
-========================================= */
-
-function loadSecondAd(){
 
   loadExternalScript(
     EFFECTIVE_AD_2
   );
-
 }
 
 
@@ -993,10 +1067,21 @@ function loadNativeAd(){
 
   if(!container) return;
 
+  if(
+    document.querySelector(
+      'script[src="' +
+      NATIVE_AD_SRC +
+      '"]'
+    )
+  ){
+    return;
+  }
+
   const script =
     document.createElement("script");
 
-  script.async = true;
+  script.async =
+    true;
 
   script.setAttribute(
     "data-cfasync",
@@ -1011,51 +1096,31 @@ function loadNativeAd(){
 
 
 /* =========================================
-   LOAD ADS FOR STANDARD PAGES
+   LOAD ALL ADS
 ========================================= */
 
-function loadStandardAds(){
+function loadAllAds(){
 
-  /*
-    Popunder loads once on this step.
-  */
-  loadPopunder();
+  loadEffectiveAds();
 
-  /*
-    Second Effective CPM script.
-  */
-  loadSecondAd();
-
-  /*
-    3 banner slots.
-  */
-  load300x250("ad1");
-  load300x250("ad2");
-  load300x250("ad3");
-
-  /*
-    Native/container ad.
-  */
   loadNativeAd();
+
+  load300x250("ad1");
+
+  load300x250("ad2");
+
+  load300x250("ad3");
 }
 
 
 /* =========================================
-   LOAD FINAL PAGE ADS
+   LOAD FINAL ADS
 ========================================= */
 
 function loadFinalAds(){
 
-  /*
-    Popunder loads on final page too.
-  */
-  loadPopunder();
+  loadEffectiveAds();
 
-  loadSecondAd();
-
-  /*
-    320x50 final banner.
-  */
   load320x50();
 
   loadNativeAd();
@@ -1068,56 +1133,55 @@ function loadFinalAds(){
 
 function getAdsHTML(){
 
-return `
+  return `
 
-<div class="banners">
+    <div class="banners">
 
-  <div class="ad-row">
+      <div class="ad-row">
 
-    <div class="ad-slot">
+        <div class="ad-slot">
 
-      <div
-        class="ad-hint pending"
-        id="adHint"
-      >
-        ⚠️👇 Click any ad above & stay 15s to start the 30s timer
+          <div
+            class="ad-hint pending"
+            id="adHint"
+          >
+            ⚠️👇 Click any ad above & stay 15s to start the 30s timer
+          </div>
+
+          <div
+            class="ad-box"
+            id="ad1"
+          ></div>
+
+        </div>
+
+        <div
+          class="ad-box"
+          id="ad2"
+        ></div>
+
+        <div
+          class="ad-box"
+          id="ad3"
+        ></div>
+
       </div>
-
-      <div
-        class="ad-box"
-        id="ad1"
-      ></div>
 
     </div>
 
-    <div
-      class="ad-box"
-      id="ad2"
-    ></div>
+    <div class="native-ad-wrap">
 
-    <div
-      class="ad-box"
-      id="ad3"
-    ></div>
+      <div class="native-ad">
 
-  </div>
+        <div
+          id="${NATIVE_AD_CONTAINER}"
+        ></div>
 
-</div>
+      </div>
 
-<div class="native-ad-wrap">
+    </div>
 
-  <div class="native-ad">
-
-    <div
-      id="${NATIVE_AD_CONTAINER}"
-    ></div>
-
-  </div>
-
-</div>
-
-`;
-
+  `;
 }
 
 
@@ -1137,103 +1201,103 @@ function renderStandardPage(){
 
   col.innerHTML = `
 
-  <div class="card">
+    <div class="card">
 
-    <div class="eyebrow">
-      Step ${page} of ${TOTAL_PAGES}
-    </div>
+      <div class="eyebrow">
+        Step ${page} of ${TOTAL_PAGES}
+      </div>
 
-    <h1>
-      Getting your link ready
-    </h1>
+      <h1>
+        Getting your link ready
+      </h1>
 
-    <p class="sub">
-      A short wait keeps this page free to run.
-      Your link continues on the next step.
-    </p>
+      <p class="sub">
+        A short wait keeps this page free to run.
+        Your link continues on the next step.
+      </p>
 
-    ${getAdsHTML()}
+      ${getAdsHTML()}
 
-    <div class="gate-action">
+      <div class="gate-action">
 
-      <div class="timer-wrap">
+        <div class="timer-wrap">
 
-        <svg
-          class="ring"
-          viewBox="0 0 42 42"
-        >
+          <svg
+            class="ring"
+            viewBox="0 0 42 42"
+          >
 
-          <circle
-            class="bg"
-            cx="21"
-            cy="21"
-            r="18"
-          ></circle>
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
 
-          <circle
-            class="fg"
-            id="ringFg"
-            cx="21"
-            cy="21"
-            r="18"
-          ></circle>
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
 
-        </svg>
+          </svg>
 
-        <div class="timer-text">
+          <div class="timer-text">
 
-          <b id="secText">
-            Click ad
-          </b>
+            <b id="secText">
+              Click ad
+            </b>
 
-          <span id="timerLabel">
-            to start the timer
-          </span>
+            <span id="timerLabel">
+              to start the timer
+            </span>
+
+          </div>
 
         </div>
 
+        <button
+          class="next"
+          id="nextBtn"
+        >
+          Continue →
+        </button>
+
       </div>
 
-      <button
-        class="next"
-        id="nextBtn"
-      >
-        Continue →
-      </button>
-
     </div>
 
-  </div>
 
+    <div class="card article-card">
 
-  <div class="card article-card">
-
-    <div class="divider-label">
-      From the blog
-    </div>
-
-    <div class="article">
-
-      <h3>
-        ${article.title}
-      </h3>
-
-      <div class="byline">
-        ${article.byline}
+      <div class="divider-label">
+        From the blog
       </div>
 
-      <p>
-        ${article.body}
-      </p>
+      <div class="article">
+
+        <h3>
+          ${article.title}
+        </h3>
+
+        <div class="byline">
+          ${article.byline}
+        </div>
+
+        <p>
+          ${article.body}
+        </p>
+
+      </div>
 
     </div>
-
-  </div>
 
   `;
 
 
-  loadStandardAds();
+  loadAllAds();
 
 
   document
@@ -1271,7 +1335,6 @@ function renderStandardPage(){
   waitForAdClick(
     updateStandardTimerUI
   );
-
 }
 
 
@@ -1283,140 +1346,147 @@ function renderFinalPage(){
 
   col.innerHTML = `
 
-  <div class="card final-card">
+    <div class="card final-card">
 
-    <div class="eyebrow">
-      Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
-    </div>
+      <div class="eyebrow">
+        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+      </div>
 
-    <h1>
-      Almost there!
-    </h1>
+      <h1>
+        Almost there!
+      </h1>
 
-    <p class="sub">
-      Thanks for your patience.
-    </p>
+      <p class="sub">
+        Thanks for your patience.
+      </p>
 
-    <div
-      class="ad-box-small"
-      id="finalAd"
-    ></div>
-
-    <div
-      class="ad-hint pending"
-      id="adHint"
-      style="margin-top:10px;"
-    >
-      👆 Click the ad above to start the 30s unlock timer
-    </div>
-
-    <button
-      class="get-link-btn"
-      id="getLinkBtn"
-    >
-      Get Link
-    </button>
-
-    <div style="margin-top:14px;">
 
       <div
-        class="timer-wrap"
-        style="justify-content:center;"
-      >
+        class="ad-box-small"
+        id="finalAd"
+      ></div>
 
-        <svg
-          class="ring"
-          viewBox="0 0 42 42"
+
+      <div
+        class="ad-hint pending"
+        id="adHint"
+        style="margin-top:10px;"
+      >
+        👆 Click the ad above to start the 30s unlock timer
+      </div>
+
+
+      <button
+        class="get-link-btn"
+        id="getLinkBtn"
+      >
+        Get Link
+      </button>
+
+
+      <div style="margin-top:14px;">
+
+        <div
+          class="timer-wrap"
+          style="justify-content:center;"
         >
 
-          <circle
-            class="bg"
-            cx="21"
-            cy="21"
-            r="18"
-          ></circle>
-
-          <circle
-            class="fg"
-            id="ringFg"
-            cx="21"
-            cy="21"
-            r="18"
-          ></circle>
-
-        </svg>
-
-        <div class="timer-text">
-
-          <b id="secText">
-            Click ad
-          </b>
-
-          <span id="timerLabel">
-            to start the timer
-          </span>
-
-          <a
-            class="fallback-link"
-            id="fallbackLink"
+          <svg
+            class="ring"
+            viewBox="0 0 42 42"
           >
-            Already clicked? Continue
-          </a>
+
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
+          </svg>
+
+          <div class="timer-text">
+
+            <b id="secText">
+              Click ad
+            </b>
+
+            <span id="timerLabel">
+              to start the timer
+            </span>
+
+            <a
+              class="fallback-link"
+              id="fallbackLink"
+            >
+              Already clicked? Continue
+            </a>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
 
-    <div class="sponsor-block">
+      <div class="sponsor-block">
 
-      <div class="lbl">
-        SPONSORED BY
-      </div>
+        <div class="lbl">
+          SPONSORED BY
+        </div>
 
-      <span class="sponsor-pill">
+        <span class="sponsor-pill">
 
-        <span class="dot"></span>
+          <span class="dot"></span>
 
-        show your brand like this
+          show your brand like this
 
-      </span>
-
-    </div>
-
-    <div
-      class="native-ad-wrap"
-      style="margin-top:20px;"
-    >
-
-      <div class="native-ad">
-
-        <div
-          id="${NATIVE_AD_CONTAINER}"
-        ></div>
+        </span>
 
       </div>
 
+
+      <div
+        class="native-ad-wrap"
+        style="margin-top:20px;"
+      >
+
+        <div class="native-ad">
+
+          <div
+            id="${NATIVE_AD_CONTAINER}"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div id="finalLinkArea"></div>
+
     </div>
 
-    <div id="finalLinkArea"></div>
 
-  </div>
+    <div class="card">
 
+      <a
+        class="become-sponsor"
+        href="${TELEGRAM_CONTACT}"
+        target="_blank"
+        rel="noopener"
+      >
+        Become a Sponsor!
+      </a>
 
-  <div class="card">
-
-    <a
-      class="become-sponsor"
-      href="${TELEGRAM_CONTACT}"
-      target="_blank"
-      rel="noopener"
-    >
-      Become a Sponsor!
-    </a>
-
-  </div>
+    </div>
 
   `;
 
@@ -1448,37 +1518,37 @@ function renderFinalPage(){
         "finalLinkArea"
       ).innerHTML = `
 
-      <div class="final-link-box">
+        <div class="final-link-box">
 
-        <span class="tag2">
-          Official destination
-        </span>
+          <span class="tag2">
+            Official destination
+          </span>
 
-        <div class="link-row">
+          <div class="link-row">
 
-          <div class="link-field">
-            ${OFFICIAL_LINK}
+            <div class="link-field">
+              ${OFFICIAL_LINK}
+            </div>
+
+            <button
+              class="copy-btn"
+              id="copyBtn"
+            >
+              Copy
+            </button>
+
           </div>
 
-          <button
-            class="copy-btn"
-            id="copyBtn"
+          <a
+            class="go-link"
+            href="${OFFICIAL_LINK}"
+            target="_blank"
+            rel="noopener"
           >
-            Copy
-          </button>
+            Continue to link →
+          </a>
 
         </div>
-
-        <a
-          class="go-link"
-          href="${OFFICIAL_LINK}"
-          target="_blank"
-          rel="noopener"
-        >
-          Continue to link →
-        </a>
-
-      </div>
 
       `;
 
@@ -1493,7 +1563,8 @@ function renderFinalPage(){
         "click",
         function(){
 
-          navigator.clipboard
+          navigator
+            .clipboard
             .writeText(
               OFFICIAL_LINK
             )
@@ -1526,7 +1597,6 @@ function renderFinalPage(){
   waitForAdClick(
     updateFinalTimerUI
   );
-
 }
 
 
@@ -1541,7 +1611,9 @@ function renderPage(){
   linkRevealed =
     false;
 
-  if(page === TOTAL_PAGES){
+  if(
+    page === TOTAL_PAGES
+  ){
 
     renderFinalPage();
 
@@ -1555,7 +1627,7 @@ function renderPage(){
 
 
 /* =========================================
-   WAIT FOR AD CLICK
+   AD CLICK GATE
 ========================================= */
 
 function waitForAdClick(updateFn){
@@ -1622,7 +1694,7 @@ function waitForAdClick(updateFn){
 
 
 /* =========================================
-   TRIGGER AD CLICK
+   TRIGGER TIMER
 ========================================= */
 
 function triggerAdClick(updateFn){
@@ -1727,26 +1799,38 @@ function showPendingState(){
     );
 
 
-  if(secText)
+  if(secText){
+
     secText.textContent =
       "Click ad";
 
+  }
 
-  if(timerLabel)
+
+  if(timerLabel){
+
     timerLabel.textContent =
       "to start the timer";
 
+  }
 
-  if(ringFg)
+
+  if(ringFg){
+
     ringFg.style.strokeDashoffset =
       "113";
 
+  }
 
-  if(segCurrent)
+
+  if(segCurrent){
+
     segCurrent.style.setProperty(
       "--fill",
       "0%"
     );
+
+  }
 
 }
 
@@ -1774,7 +1858,9 @@ function startCountdown(updateFn){
         updateFn();
 
 
-        if(secondsLeft <= 0){
+        if(
+          secondsLeft <= 0
+        ){
 
           clearInterval(
             timerId
@@ -1790,7 +1876,7 @@ function startCountdown(updateFn){
 
 
 /* =========================================
-   TIMER UPDATE
+   TIMER UI
 ========================================= */
 
 function baseTimerUpdate(){
@@ -1870,10 +1956,12 @@ function updateStandardTimerUI(){
   const clamped =
     baseTimerUpdate();
 
+
   const nextBtn =
     document.getElementById(
       "nextBtn"
     );
+
 
   if(
     clamped <= 0 &&
@@ -1894,10 +1982,12 @@ function updateFinalTimerUI(){
   const clamped =
     baseTimerUpdate();
 
+
   const getLinkBtn =
     document.getElementById(
       "getLinkBtn"
     );
+
 
   if(
     clamped <= 0 &&
@@ -1953,8 +2043,13 @@ if(shareBtn){
       if(navigator.share){
 
         navigator.share({
-          title:document.title,
-          url:shareUrl
+
+          title:
+            document.title,
+
+          url:
+            shareUrl
+
         }).catch(
           function(){}
         );
@@ -1964,7 +2059,8 @@ if(shareBtn){
       }
 
 
-      navigator.clipboard
+      navigator
+        .clipboard
         .writeText(
           shareUrl
         )
