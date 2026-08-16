@@ -26,8 +26,8 @@
   --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-*{ box-sizing:border-box; }
-html, body{ margin:0; padding:0; }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 
 body{
   background:var(--bg);
@@ -38,192 +38,573 @@ body{
   flex-direction:column;
 }
 
-a{ color:inherit; }
+a{color:inherit}
 
 @media(prefers-reduced-motion:reduce){
-  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  *{
+    animation-duration:.001ms!important;
+    transition-duration:.001ms!important;
+  }
 }
 
 /* PROGRESS */
-.progress-wrap{ display:flex; justify-content:center; padding:22px 18px 4px; }
-.progress{ display:flex; align-items:center; gap:6px; }
+
+.progress-wrap{
+  display:flex;
+  justify-content:center;
+  padding:22px 18px 4px;
+}
+
+.progress{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
 .progress .seg{
-  width:30px; height:4px; background:var(--line); border-radius:3px;
-  position:relative; overflow:hidden;
+  width:30px;
+  height:4px;
+  background:var(--line);
+  border-radius:3px;
+  position:relative;
+  overflow:hidden;
 }
-.progress .seg.done{ background:var(--indigo); }
+
+.progress .seg.done{
+  background:var(--indigo);
+}
+
 .progress .seg.current::after{
-  content:""; position:absolute; inset:0; background:var(--fuchsia);
-  width:var(--fill,0%); transition:width .2s linear;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--fuchsia);
+  width:var(--fill,0%);
+  transition:width .2s linear;
 }
-.progress .step-num{ font-size:11px; font-weight:700; color:var(--muted-soft); margin-left:8px; }
+
+.progress .step-num{
+  font-size:11px;
+  font-weight:700;
+  color:var(--muted-soft);
+  margin-left:8px;
+}
 
 /* SHARE */
-.share-bar{ display:flex; justify-content:center; padding:2px 18px 0; }
-.share-btn{
-  font-family:var(--font); font-size:12.5px; font-weight:800;
-  background:#fff; border:1px solid var(--indigo); color:var(--indigo);
-  padding:9px 18px; border-radius:999px; cursor:pointer;
-  display:inline-flex; align-items:center; gap:6px;
-  transition:background .2s, color .2s;
+
+.share-bar{
+  display:flex;
+  justify-content:center;
+  padding:2px 18px 0;
 }
-.share-btn:hover{ background:var(--indigo); color:#fff; }
-.share-btn.copied{ background:#1a8a4c; border-color:#1a8a4c; color:#fff; }
+
+.share-btn{
+  font-family:var(--font);
+  font-size:12.5px;
+  font-weight:800;
+  background:#fff;
+  border:1px solid var(--indigo);
+  color:var(--indigo);
+  padding:9px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:background .2s,color .2s;
+}
+
+.share-btn:hover{
+  background:var(--indigo);
+  color:#fff;
+}
+
+.share-btn.copied{
+  background:#1a8a4c;
+  border-color:#1a8a4c;
+  color:#fff;
+}
 
 /* MAIN */
-main{ flex-grow:1; display:flex; justify-content:center; padding:20px 18px 40px; }
-.col{ width:100%; max-width:1000px; display:flex; flex-direction:column; gap:18px; }
+
+main{
+  flex-grow:1;
+  display:flex;
+  justify-content:center;
+  padding:20px 18px 40px;
+}
+
+.col{
+  width:100%;
+  max-width:1000px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
 
 .card{
-  background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px 28px;
-  box-shadow:0 1px 2px rgba(30,35,60,.04), 0 8px 24px rgba(30,35,60,.05);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:30px 28px;
+  box-shadow:
+    0 1px 2px rgba(30,35,60,.04),
+    0 8px 24px rgba(30,35,60,.05);
 }
 
 .eyebrow{
-  font-size:11.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--fuchsia); margin-bottom:8px;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--fuchsia);
+  margin-bottom:8px;
 }
-h1{ font-size:clamp(22px,3.6vw,28px); font-weight:800; margin:0 0 8px; }
-.sub{ color:var(--muted); font-size:14.5px; line-height:1.6; margin:0 0 26px; max-width:50ch; }
 
-/* ADS — 300x250 banner slots */
-.banners{ width:100%; margin-bottom:26px; }
+h1{
+  font-size:clamp(22px,3.6vw,28px);
+  font-weight:800;
+  margin:0 0 8px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.6;
+  margin:0 0 26px;
+  max-width:50ch;
+}
+
+/* ADS */
+
+.banners{
+  width:100%;
+  margin-bottom:26px;
+}
+
 .ad-row{
-  width:100%; display:flex; justify-content:center; align-items:flex-start;
-  gap:12px; flex-wrap:wrap;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.ad-box{
-  width:300px; min-width:300px; height:250px; min-height:250px;
-  display:flex; justify-content:center; align-items:center; overflow:hidden;
-  background:#fafbfe; border:1px dashed #d9ddea; border-radius:10px;
-}
-.ad-box iframe{ max-width:100%; border:0; }
 
-.ad-slot{ display:flex; flex-direction:column; align-items:center; gap:8px; }
-.ad-hint{
-  font-size:11.5px; font-weight:800; color:var(--indigo);
-  background:rgba(67,56,202,0.08); border-radius:999px;
-  padding:6px 12px; white-space:nowrap;
+.ad-slot{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
 }
+
+.ad-box{
+  width:300px;
+  min-width:300px;
+  height:250px;
+  min-height:250px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background:#fafbfe;
+  border:1px dashed #d9ddea;
+  border-radius:10px;
+}
+
+.ad-box iframe{
+  max-width:100%;
+  border:0;
+}
+
+.ad-hint{
+  font-size:11.5px;
+  font-weight:800;
+  color:var(--indigo);
+  background:rgba(67,56,202,.08);
+  border-radius:999px;
+  padding:6px 12px;
+  white-space:nowrap;
+}
+
 .ad-hint.pending{
-  color:#fff; background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
+  color:#fff;
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
   animation:pulseHint 1.4s ease-in-out infinite;
 }
+
 @keyframes pulseHint{
-  0%,100%{ opacity:1; } 50%{ opacity:.6; }
+  0%,100%{opacity:1}
+  50%{opacity:.6}
 }
+
+.native-ad-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:18px 0 4px;
+  overflow:hidden;
+}
+
+.native-ad{
+  width:100%;
+  max-width:640px;
+  min-height:100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
 .ad-box-small{
-  width:320px; min-width:320px; height:50px; min-height:50px;
-  display:flex; justify-content:center; align-items:center; overflow:hidden;
-  background:#fafbfe; border:1px dashed #d9ddea; border-radius:8px;
+  width:320px;
+  min-width:320px;
+  height:50px;
+  min-height:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background:#fafbfe;
+  border:1px dashed #d9ddea;
+  border-radius:8px;
   margin:0 auto;
 }
 
 /* TIMER */
+
 .gate-action{
-  padding-top:22px; border-top:1px solid var(--line);
-  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
 }
-.timer-wrap{ display:flex; align-items:center; gap:12px; }
-.ring{ width:42px; height:42px; transform:rotate(-90deg); }
-.ring circle{ fill:none; stroke-width:3.5; }
-.ring .bg{ stroke:var(--line); }
+
+.timer-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.ring{
+  width:42px;
+  height:42px;
+  transform:rotate(-90deg);
+}
+
+.ring circle{
+  fill:none;
+  stroke-width:3.5;
+}
+
+.ring .bg{
+  stroke:var(--line);
+}
+
 .ring .fg{
-  stroke:var(--fuchsia); stroke-linecap:round; stroke-dasharray:113; stroke-dashoffset:113;
+  stroke:var(--fuchsia);
+  stroke-linecap:round;
+  stroke-dasharray:113;
+  stroke-dashoffset:113;
   transition:stroke-dashoffset 1s linear;
 }
-.timer-text{ font-size:12px; color:var(--muted); line-height:1.4; }
-.timer-text b{ display:block; font-size:15px; color:var(--ink); }
+
+.timer-text{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.4;
+}
+
+.timer-text b{
+  display:block;
+  font-size:15px;
+  color:var(--ink);
+}
 
 .fallback-link{
-  font-size:11.5px; color:var(--indigo-deep); text-decoration:underline;
-  cursor:pointer; font-weight:700; margin-top:6px; display:inline-block;
+  font-size:11.5px;
+  color:var(--indigo-deep);
+  text-decoration:underline;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:6px;
+  display:inline-block;
 }
 
-button.next, .cta-btn{
-  font-family:var(--font); font-size:13.5px; font-weight:800;
-  background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
-  color:#fff; border:none; padding:13px 26px; border-radius:999px;
-  cursor:not-allowed; opacity:.35; transition:opacity .25s, transform .15s;
+button.next,
+.cta-btn{
+  font-family:var(--font);
+  font-size:13.5px;
+  font-weight:800;
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
+  color:#fff;
+  border:none;
+  padding:13px 26px;
+  border-radius:999px;
+  cursor:not-allowed;
+  opacity:.35;
+  transition:opacity .25s,transform .15s;
 }
-button.next.ready, .cta-btn.ready{ cursor:pointer; opacity:1; }
-button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
+
+button.next.ready,
+.cta-btn.ready{
+  cursor:pointer;
+  opacity:1;
+}
+
+button.next.ready:hover,
+.cta-btn.ready:hover{
+  transform:translateY(-1px);
+}
 
 /* ARTICLE */
+
 .divider-label{
-  font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--muted-soft); margin-bottom:14px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted-soft);
+  margin-bottom:14px;
 }
-.article h3{ font-size:19px; font-weight:800; margin:0 0 6px; }
-.article .byline{ font-size:12px; color:var(--muted-soft); font-weight:600; margin-bottom:12px; }
-.article p{ font-size:13.5px; line-height:1.75; color:var(--muted); margin:0; }
+
+.article h3{
+  font-size:19px;
+  font-weight:800;
+  margin:0 0 6px;
+}
+
+.article .byline{
+  font-size:12px;
+  color:var(--muted-soft);
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.article p{
+  font-size:13.5px;
+  line-height:1.75;
+  color:var(--muted);
+  margin:0;
+}
 
 /* FINAL PAGE */
-.final-card{ text-align:center; padding:36px 30px; }
-.final-card h1{ font-size:24px; }
-.final-card .sub{ margin-left:auto; margin-right:auto; }
+
+.final-card{
+  text-align:center;
+  padding:36px 30px;
+}
+
+.final-card h1{
+  font-size:24px;
+}
+
+.final-card .sub{
+  margin-left:auto;
+  margin-right:auto;
+}
 
 .get-link-btn{
-  font-family:var(--font); font-size:14px; font-weight:800;
-  background:linear-gradient(100deg, var(--indigo), var(--fuchsia));
-  color:#fff; border:none; padding:15px 40px; border-radius:999px;
-  cursor:not-allowed; opacity:.35; margin:6px 0 4px; transition:opacity .25s, transform .15s;
+  font-family:var(--font);
+  font-size:14px;
+  font-weight:800;
+  background:linear-gradient(
+    100deg,
+    var(--indigo),
+    var(--fuchsia)
+  );
+  color:#fff;
+  border:none;
+  padding:15px 40px;
+  border-radius:999px;
+  cursor:not-allowed;
+  opacity:.35;
+  margin:6px 0 4px;
+  transition:opacity .25s,transform .15s;
 }
-.get-link-btn.ready{ cursor:pointer; opacity:1; }
-.get-link-btn.ready:hover{ transform:translateY(-1px); }
+
+.get-link-btn.ready{
+  cursor:pointer;
+  opacity:1;
+}
+
+.get-link-btn.ready:hover{
+  transform:translateY(-1px);
+}
 
 /* SPONSOR */
-.sponsor-block{ text-align:center; padding:20px 0 0; }
-.sponsor-block .lbl{ font-size:12px; font-weight:800; letter-spacing:.04em; color:var(--muted); margin-bottom:12px; }
-.sponsor-pill{
-  display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line);
-  border-radius:999px; padding:9px 18px; font-weight:700; font-size:14px; color:var(--ink); background:#fff;
+
+.sponsor-block{
+  text-align:center;
+  padding:20px 0 0;
 }
-.sponsor-pill .dot{ width:20px; height:20px; border-radius:50%; background:var(--gold); display:inline-block; }
+
+.sponsor-block .lbl{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+.sponsor-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 18px;
+  font-weight:700;
+  font-size:14px;
+  color:var(--ink);
+  background:#fff;
+}
+
+.sponsor-pill .dot{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--gold);
+  display:inline-block;
+}
 
 .become-sponsor{
-  display:block; text-align:center; background:linear-gradient(100deg, var(--sky), var(--indigo));
-  color:#fff; font-weight:800; font-size:14px; padding:16px; border-radius:12px; text-decoration:none;
+  display:block;
+  text-align:center;
+  background:linear-gradient(
+    100deg,
+    var(--sky),
+    var(--indigo)
+  );
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  padding:16px;
+  border-radius:12px;
+  text-decoration:none;
 }
 
 /* FINAL LINK */
+
 .final-link-box{
-  margin-top:22px; border:1px solid #c9f0d8; background:#f2fbf6; border-radius:12px;
-  padding:18px 20px; text-align:left;
+  margin-top:22px;
+  border:1px solid #c9f0d8;
+  background:#f2fbf6;
+  border-radius:12px;
+  padding:18px 20px;
+  text-align:left;
 }
+
 .final-link-box .tag2{
-  font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  color:#1a8a4c; margin-bottom:8px; display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#1a8a4c;
+  margin-bottom:8px;
+  display:block;
 }
-.link-row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+.link-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
 .link-field{
-  flex-grow:1; font-family:"SFMono-Regular", Menlo, Consolas, monospace; font-size:13px;
-  color:var(--ink); background:#fff; border:1px solid var(--line); padding:11px 13px;
-  border-radius:8px; word-break:break-all; min-width:180px;
+  flex-grow:1;
+  font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+  font-size:13px;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid var(--line);
+  padding:11px 13px;
+  border-radius:8px;
+  word-break:break-all;
+  min-width:180px;
 }
+
 .copy-btn{
-  font-family:var(--font); font-size:12px; font-weight:700; background:#fff;
-  border:1px solid var(--indigo); color:var(--indigo); padding:10px 14px; border-radius:8px; cursor:pointer;
+  font-family:var(--font);
+  font-size:12px;
+  font-weight:700;
+  background:#fff;
+  border:1px solid var(--indigo);
+  color:var(--indigo);
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
 }
-.copy-btn:hover{ background:var(--indigo); color:#fff; }
+
+.copy-btn:hover{
+  background:var(--indigo);
+  color:#fff;
+}
+
 .go-link{
-  display:inline-block; margin-top:12px; font-weight:800; font-size:13.5px; color:#fff;
-  background:#1a8a4c; padding:11px 22px; border-radius:999px; text-decoration:none;
+  display:inline-block;
+  margin-top:12px;
+  font-weight:800;
+  font-size:13.5px;
+  color:#fff;
+  background:#1a8a4c;
+  padding:11px 22px;
+  border-radius:999px;
+  text-decoration:none;
 }
 
 /* MOBILE */
+
 @media(max-width:950px){
-  .col{ max-width:660px; }
+  .col{
+    max-width:660px;
+  }
 }
+
 @media(max-width:480px){
-  .card{ padding:22px 18px; }
-  .gate-action{ justify-content:center; text-align:center; }
-  .ad-box{ width:300px; min-width:300px; max-width:100%; }
+
+  .card{
+    padding:22px 18px;
+  }
+
+  .gate-action{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .ad-box{
+    width:300px;
+    min-width:300px;
+    max-width:100%;
+  }
+
+  .ad-hint{
+    white-space:normal;
+    text-align:center;
+  }
+
+  .ad-box-small{
+    width:320px;
+    max-width:100%;
+    min-width:0;
+  }
+
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -232,7 +613,9 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
 </div>
 
 <div class="share-bar">
-  <button class="share-btn" id="shareBtn">🔗 Share with a friend</button>
+  <button class="share-btn" id="shareBtn">
+    🔗 Share with a friend
+  </button>
 </div>
 
 <main>
@@ -247,493 +630,1480 @@ button.next.ready:hover, .cta-btn.ready:hover{ transform:translateY(-1px); }
    SETTINGS
 ========================================= */
 
-/*
-  Multiple destination links, selected by a ?id= URL parameter.
-  Example: yourpage.html?id=shadowfight    → shows the Shadow Fight link
-           yourpage.html?id=aftermotionz   → shows the AfterMotion Z link
-  Add as many entries as you want — the key on the left is what
-  goes in the URL after ?id=
-*/
 const LINKS = {
-  shadowfight:  { name: "Shadow Fight",  url: "https://www.mediafire.com/file/ssajsygpv3pyh8j/Shadow_fight_2_All_Sets_Unlocked.zip/file" }, // ⚠️ placeholder — put your real Shadow Fight link here
-  aftermotionz: { name: "After Motion Z", url: "https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file" }
+
+  shadowfight:{
+    name:"Shadow Fight",
+    url:"https://www.mediafire.com/file/ssajsygpv3pyh8j/Shadow_fight_2_All_Sets_Unlocked.zip/file"
+  },
+
+  aftermotionz:{
+    name:"After Motion Z",
+    url:"https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file"
+  }
+
 };
 
-// Used when no ?id= is given, or an unknown id is given
 const DEFAULT_LINK_ID = "aftermotionz";
 
-// Your Telegram contact — shown on the "Become a Sponsor" button
-const TELEGRAM_CONTACT = "https://t.me/I7XKAVI";
+const TELEGRAM_CONTACT =
+  "https://t.me/I7XKAVI";
 
-// TOTAL WAITING PAGES
 const TOTAL_PAGES = 6;
 
-// WAIT TIME
 const WAIT_SECONDS = 30;
 
+
+/* =========================================
+   AD SETTINGS
+========================================= */
+
 /*
-  300x250 banner ad — highperformanceformat.com (atOptions format).
-  Each ad box gets its own key below. Right now all three slots on
-  every page use the same key you gave me. If you have separate
-  zone keys for slot 1 / 2 / 3, just swap them into this array —
-  the code below already loops through it per slot.
+  HIGH PERFORMANCE FORMAT
+  300x250
 */
-const BANNER_KEYS = [
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b", // ad1
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b", // ad2
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b"  // ad3
-];
 
-// Script-tag ad — loaded once on every page (steps 1–6)
-const SITEWIDE_AD_SRC = "";
+const BANNER_300_KEY =
+  "9cdff28b0ec7fcdc1fe4edd36bd3054b";
 
-// Script-tag ad — loaded ONLY on step 5, in addition to the sitewide one above
-const PAGE5_AD_SRC = "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
 
-// Single 320x50 banner used on the final page (step 6) instead of the 3-box 300x250 grid
-const FINAL_BANNER_KEY = "eee5199c1ecc4b17f86952845c3e0047";
-const FINAL_BANNER_W = 320;
-const FINAL_BANNER_H = 50;
+/*
+  HIGH PERFORMANCE FORMAT
+  320x50
+*/
+
+const BANNER_320_KEY =
+  "eee5199c1ecc4b17f86952845c3e0047";
+
+
+/*
+  EFFECTIVE CPM NETWORK
+
+  These are script-based ads.
+*/
+
+const EFFECTIVE_AD_1 =
+  "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
+
+const EFFECTIVE_AD_2 =
+  "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
+
+
+/*
+  EFFECTIVE CPM NATIVE / CONTAINER AD
+*/
+
+const NATIVE_AD_SRC =
+  "https://pl30871453.effectivecpmnetwork.com/a549fb62393598b06f06295e77e8118b/invoke.js";
+
+const NATIVE_AD_CONTAINER =
+  "container-a549fb62393598b06f06295e77e8118b";
+
 
 /* =========================================
    ARTICLES
 ========================================= */
 
 const articles = [
-  { title:"Why waiting rooms became the internet's last honest interface", byline:"Field Notes · 4 min read",
-    body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it." },
-  { title:"The thirty-second unit", byline:"Notes on Attention · 3 min read",
-    body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind." },
-  { title:"A short history of the link locker", byline:"Archive · 5 min read",
-    body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal." },
-  { title:"On the etiquette of the almost-there page", byline:"Field Notes · 3 min read",
-    body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration." },
-  { title:"What actually happens in the last thirty seconds", byline:"Notes on Attention · 4 min read",
-    body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one." }
+
+{
+  title:"Why waiting rooms became the internet's last honest interface",
+  byline:"Field Notes · 4 min read",
+  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+},
+
+{
+  title:"The thirty-second unit",
+  byline:"Notes on Attention · 3 min read",
+  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
+},
+
+{
+  title:"A short history of the link locker",
+  byline:"Archive · 5 min read",
+  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+},
+
+{
+  title:"On the etiquette of the almost-there page",
+  byline:"Field Notes · 3 min read",
+  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+},
+
+{
+  title:"What actually happens in the last thirty seconds",
+  byline:"Notes on Attention · 4 min read",
+  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+}
+
 ];
+
 
 /* =========================================
    STATE
 ========================================= */
 
-const urlParams = new URLSearchParams(window.location.search);
-const requestedPage = parseInt(urlParams.get("step") || "1", 10);
+const urlParams =
+  new URLSearchParams(window.location.search);
 
-const linkId = urlParams.get("id") || DEFAULT_LINK_ID;
-const currentLink = LINKS[linkId] || LINKS[DEFAULT_LINK_ID];
-const OFFICIAL_LINK = currentLink.url;
-const OFFICIAL_LINK_NAME = currentLink.name;
+const requestedPage =
+  parseInt(urlParams.get("step") || "1",10);
 
-let page = Number.isFinite(requestedPage)
-  ? Math.min(Math.max(requestedPage, 1), TOTAL_PAGES)
+const linkId =
+  urlParams.get("id") || DEFAULT_LINK_ID;
+
+const currentLink =
+  LINKS[linkId] || LINKS[DEFAULT_LINK_ID];
+
+const OFFICIAL_LINK =
+  currentLink.url;
+
+const OFFICIAL_LINK_NAME =
+  currentLink.name;
+
+let page =
+  Number.isFinite(requestedPage)
+  ? Math.min(
+      Math.max(requestedPage,1),
+      TOTAL_PAGES
+    )
   : 1;
 
-let secondsLeft = WAIT_SECONDS;
+let secondsLeft =
+  WAIT_SECONDS;
+
 let timerId = null;
+
 let linkRevealed = false;
 
-// NEW: has the user "clicked the ad" (i.e. triggered the unlock) on this page yet?
 let adClicked = false;
+
 let blurHandler = null;
 
-const col = document.getElementById("col");
-const progress = document.getElementById("progress");
+const col =
+  document.getElementById("col");
+
+const progress =
+  document.getElementById("progress");
+
 
 /* =========================================
    PROGRESS BAR
 ========================================= */
 
 function renderProgress(){
+
   progress.innerHTML = "";
-  for(let i = 1; i <= TOTAL_PAGES; i++){
-    const seg = document.createElement("div");
-    seg.className = "seg" + (i < page ? " done" : (i === page ? " current" : ""));
+
+  for(
+    let i=1;
+    i<=TOTAL_PAGES;
+    i++
+  ){
+
+    const seg =
+      document.createElement("div");
+
+    seg.className =
+      "seg" +
+      (
+        i < page
+        ? " done"
+        : (
+            i === page
+            ? " current"
+            : ""
+          )
+      );
+
     if(i === page){
-      seg.style.setProperty("--fill", "0%");
-      seg.id = "segCurrent";
+
+      seg.style.setProperty(
+        "--fill",
+        "0%"
+      );
+
+      seg.id =
+        "segCurrent";
     }
+
     progress.appendChild(seg);
   }
-  const num = document.createElement("div");
-  num.className = "step-num";
-  num.textContent = "STEP " + page + " / " + TOTAL_PAGES;
+
+  const num =
+    document.createElement("div");
+
+  num.className =
+    "step-num";
+
+  num.textContent =
+    "STEP " +
+    page +
+    " / " +
+    TOTAL_PAGES;
+
   progress.appendChild(num);
 }
 
+
 /* =========================================
-   LOAD ONE 300x250 BANNER (atOptions format)
+   LOAD 300x250 AD
 ========================================= */
 
-function loadBanner(containerId, key, width, height){
-  const container = document.getElementById(containerId);
-  if(!container) return;
+function load300x250(containerId){
 
-  width = width || 300;
-  height = height || 250;
+  const container =
+    document.getElementById(containerId);
+
+  if(!container) return;
 
   container.innerHTML = "";
 
-  const iframe = document.createElement("iframe");
-  iframe.style.width = width + "px";
-  iframe.style.height = height + "px";
-  iframe.style.border = "0";
-  iframe.setAttribute("scrolling", "no");
+  const iframe =
+    document.createElement("iframe");
+
+  iframe.style.width =
+    "300px";
+
+  iframe.style.height =
+    "250px";
+
+  iframe.style.border =
+    "0";
+
+  iframe.setAttribute(
+    "scrolling",
+    "no"
+  );
+
+  iframe.setAttribute(
+    "frameborder",
+    "0"
+  );
+
   container.appendChild(iframe);
 
-  const doc = iframe.contentWindow.document;
+  const doc =
+    iframe.contentWindow.document;
+
   doc.open();
+
   doc.write(
-    "<!DOCTYPE html><html><head><style>*{margin:0;padding:0;}</style></head><body>" +
-    "<script>atOptions = {" +
-    "'key' : '" + key + "'," +
-    "'format' : 'iframe'," +
-    "'height' : " + height + "," +
-    "'width' : " + width + "," +
-    "'params' : {}" +
-    "};</" + "script>" +
-    "<script src=\"https://www.highperformanceformat.com/" + key + "/invoke.js\"></" + "script>" +
+    "<!DOCTYPE html>" +
+    "<html><head>" +
+    "<style>" +
+    "*{margin:0;padding:0}" +
+    "html,body{width:300px;height:250px;overflow:hidden}" +
+    "</style>" +
+    "</head><body>" +
+
+    "<script>" +
+
+    "atOptions={" +
+
+    "'key':'" +
+    BANNER_300_KEY +
+    "'," +
+
+    "'format':'iframe'," +
+
+    "'height':250," +
+
+    "'width':300," +
+
+    "'params':{}" +
+
+    "};" +
+
+    "</" +
+    "script>" +
+
+    "<script src='https://www.highperformanceformat.com/" +
+    BANNER_300_KEY +
+    "/invoke.js'>" +
+    "</" +
+    "script>" +
+
     "</body></html>"
   );
+
   doc.close();
 }
 
-function loadAds(){
-  loadBanner("ad1", BANNER_KEYS[0], 300, 250);
-  loadBanner("ad2", BANNER_KEYS[1], 300, 250);
-  loadBanner("ad3", BANNER_KEYS[2], 300, 250);
+
+/* =========================================
+   LOAD 320x50 AD
+========================================= */
+
+function load320x50(){
+
+  const container =
+    document.getElementById("finalAd");
+
+  if(!container) return;
+
+  container.innerHTML = "";
+
+  const iframe =
+    document.createElement("iframe");
+
+  iframe.style.width =
+    "320px";
+
+  iframe.style.height =
+    "50px";
+
+  iframe.style.border =
+    "0";
+
+  iframe.setAttribute(
+    "scrolling",
+    "no"
+  );
+
+  iframe.setAttribute(
+    "frameborder",
+    "0"
+  );
+
+  container.appendChild(iframe);
+
+  const doc =
+    iframe.contentWindow.document;
+
+  doc.open();
+
+  doc.write(
+    "<!DOCTYPE html>" +
+    "<html><head>" +
+    "<style>" +
+    "*{margin:0;padding:0}" +
+    "html,body{width:320px;height:50px;overflow:hidden}" +
+    "</style>" +
+    "</head><body>" +
+
+    "<script>" +
+
+    "atOptions={" +
+
+    "'key':'" +
+    BANNER_320_KEY +
+    "'," +
+
+    "'format':'iframe'," +
+
+    "'height':50," +
+
+    "'width':320," +
+
+    "'params':{}" +
+
+    "};" +
+
+    "</" +
+    "script>" +
+
+    "<script src='https://www.highperformanceformat.com/" +
+    BANNER_320_KEY +
+    "/invoke.js'>" +
+    "</" +
+    "script>" +
+
+    "</body></html>"
+  );
+
+  doc.close();
 }
 
-function loadFinalBanner(){
-  loadBanner("finalAd", FINAL_BANNER_KEY, FINAL_BANNER_W, FINAL_BANNER_H);
-}
 
-// Plain <script src="..."> ads that render themselves globally
-// (social bar / popunder style) rather than into a specific container.
+/* =========================================
+   LOAD EFFECTIVE CPM ADS
+========================================= */
+
 function loadExternalScript(src){
-  const s = document.createElement("script");
-  s.src = src;
-  s.async = true;
-  document.body.appendChild(s);
+
+  if(!src) return;
+
+  const script =
+    document.createElement("script");
+
+  script.src =
+    src;
+
+  script.async =
+    true;
+
+  script.setAttribute(
+    "data-cfasync",
+    "false"
+  );
+
+  document.body.appendChild(script);
 }
 
-function loadPageWideAds(){
-  loadExternalScript(SITEWIDE_AD_SRC);
-  if(page === 5){
-    loadExternalScript(PAGE5_AD_SRC);
-  }
+
+function loadEffectiveAds(){
+
+  loadExternalScript(
+    EFFECTIVE_AD_1
+  );
+
+  loadExternalScript(
+    EFFECTIVE_AD_2
+  );
 }
+
+
+/* =========================================
+   LOAD NATIVE AD
+========================================= */
+
+function loadNativeAd(){
+
+  const container =
+    document.getElementById(
+      NATIVE_AD_CONTAINER
+    );
+
+  if(!container) return;
+
+  if(
+    document.querySelector(
+      'script[src="' +
+      NATIVE_AD_SRC +
+      '"]'
+    )
+  ){
+    return;
+  }
+
+  const script =
+    document.createElement("script");
+
+  script.async =
+    true;
+
+  script.setAttribute(
+    "data-cfasync",
+    "false"
+  );
+
+  script.src =
+    NATIVE_AD_SRC;
+
+  container.appendChild(script);
+}
+
+
+/* =========================================
+   LOAD ALL ADS
+========================================= */
+
+function loadAllAds(){
+
+  loadEffectiveAds();
+
+  loadNativeAd();
+
+  load300x250("ad1");
+
+  load300x250("ad2");
+
+  load300x250("ad3");
+}
+
+
+/* =========================================
+   LOAD FINAL ADS
+========================================= */
+
+function loadFinalAds(){
+
+  loadEffectiveAds();
+
+  load320x50();
+
+  loadNativeAd();
+}
+
+
+/* =========================================
+   AD HTML
+========================================= */
 
 function getAdsHTML(){
+
   return `
+
     <div class="banners">
+
       <div class="ad-row">
+
         <div class="ad-slot">
-          <div class="ad-hint pending" id="adHint">⚠️👇 Click any ad above & stay 15s to start the 30s timer</div>
-          <div class="ad-box" id="ad1"></div>
+
+          <div
+            class="ad-hint pending"
+            id="adHint"
+          >
+            ⚠️👇 Click any ad above & stay 15s to start the 30s timer
+          </div>
+
+          <div
+            class="ad-box"
+            id="ad1"
+          ></div>
+
         </div>
-        <div class="ad-box" id="ad2"></div>
-        <div class="ad-box" id="ad3"></div>
+
+        <div
+          class="ad-box"
+          id="ad2"
+        ></div>
+
+        <div
+          class="ad-box"
+          id="ad3"
+        ></div>
+
       </div>
+
     </div>
+
+    <div class="native-ad-wrap">
+
+      <div class="native-ad">
+
+        <div
+          id="${NATIVE_AD_CONTAINER}"
+        ></div>
+
+      </div>
+
+    </div>
+
   `;
 }
+
 
 /* =========================================
    STANDARD PAGE
 ========================================= */
 
 function renderStandardPage(){
-  const article = articles[page - 1];
+
+  const article =
+    articles[
+      Math.min(
+        page - 1,
+        articles.length - 1
+      )
+    ];
 
   col.innerHTML = `
+
     <div class="card">
-      <div class="eyebrow">Step ${page} of ${TOTAL_PAGES}</div>
-      <h1>Getting your link ready</h1>
-      <p class="sub">A short wait keeps this page free to run. Your link continues on the next step.</p>
+
+      <div class="eyebrow">
+        Step ${page} of ${TOTAL_PAGES}
+      </div>
+
+      <h1>
+        Getting your link ready
+      </h1>
+
+      <p class="sub">
+        A short wait keeps this page free to run.
+        Your link continues on the next step.
+      </p>
 
       ${getAdsHTML()}
 
       <div class="gate-action">
+
         <div class="timer-wrap">
-          <svg class="ring" viewBox="0 0 42 42">
-            <circle class="bg" cx="21" cy="21" r="18"></circle>
-            <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
+
+          <svg
+            class="ring"
+            viewBox="0 0 42 42"
+          >
+
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
           </svg>
+
           <div class="timer-text">
-            <b id="secText">Click ad</b>
-            <span id="timerLabel">to start the timer</span>
-        
+
+            <b id="secText">
+              Click ad
+            </b>
+
+            <span id="timerLabel">
+              to start the timer
+            </span>
+
           </div>
+
         </div>
-        <button class="next" id="nextBtn">Continue →</button>
+
+        <button
+          class="next"
+          id="nextBtn"
+        >
+          Continue →
+        </button>
+
       </div>
+
     </div>
+
 
     <div class="card article-card">
-      <div class="divider-label">From the blog</div>
-      <div class="article">
-        <h3>${article.title}</h3>
-        <div class="byline">${article.byline}</div>
-        <p>${article.body}</p>
+
+      <div class="divider-label">
+        From the blog
       </div>
+
+      <div class="article">
+
+        <h3>
+          ${article.title}
+        </h3>
+
+        <div class="byline">
+          ${article.byline}
+        </div>
+
+        <p>
+          ${article.body}
+        </p>
+
+      </div>
+
     </div>
+
   `;
 
-  loadAds();
-  loadPageWideAds();
 
-  document.getElementById("nextBtn").addEventListener("click", function(){
-    if(secondsLeft > 0) return;
+  loadAllAds();
 
-    const nextPage = Math.min(page + 1, TOTAL_PAGES);
-    const nextUrl = new URL(window.location.href);
-    nextUrl.searchParams.set('step', String(nextPage));
-    window.location.href = nextUrl.toString();
-  });
 
-  waitForAdClick(updateStandardTimerUI);
+  document
+    .getElementById("nextBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        if(secondsLeft > 0)
+          return;
+
+        const nextPage =
+          Math.min(
+            page + 1,
+            TOTAL_PAGES
+          );
+
+        const nextUrl =
+          new URL(
+            window.location.href
+          );
+
+        nextUrl.searchParams.set(
+          "step",
+          String(nextPage)
+        );
+
+        window.location.href =
+          nextUrl.toString();
+
+      }
+    );
+
+
+  waitForAdClick(
+    updateStandardTimerUI
+  );
 }
+
 
 /* =========================================
    FINAL PAGE
 ========================================= */
 
 function renderFinalPage(){
+
   col.innerHTML = `
+
     <div class="card final-card">
-      <div class="eyebrow">Step ${TOTAL_PAGES} of ${TOTAL_PAGES}</div>
-      <h1>Almost there!</h1>
-      <p class="sub">Thanks for your patience.</p>
 
-      <div class="ad-box-small" id="finalAd"></div>
-      <div class="ad-hint pending" id="adHint" style="margin-top:10px;">👆 Click the ad above to start the 30s unlock timer</div>
+      <div class="eyebrow">
+        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+      </div>
 
-      <button class="get-link-btn" id="getLinkBtn">Get Link</button>
+      <h1>
+        Almost there!
+      </h1>
+
+      <p class="sub">
+        Thanks for your patience.
+      </p>
+
+
+      <div
+        class="ad-box-small"
+        id="finalAd"
+      ></div>
+
+
+      <div
+        class="ad-hint pending"
+        id="adHint"
+        style="margin-top:10px;"
+      >
+        👆 Click the ad above to start the 30s unlock timer
+      </div>
+
+
+      <button
+        class="get-link-btn"
+        id="getLinkBtn"
+      >
+        Get Link
+      </button>
+
 
       <div style="margin-top:14px;">
-        <div class="timer-wrap" style="justify-content:center;">
-          <svg class="ring" viewBox="0 0 42 42">
-            <circle class="bg" cx="21" cy="21" r="18"></circle>
-            <circle class="fg" id="ringFg" cx="21" cy="21" r="18"></circle>
+
+        <div
+          class="timer-wrap"
+          style="justify-content:center;"
+        >
+
+          <svg
+            class="ring"
+            viewBox="0 0 42 42"
+          >
+
+            <circle
+              class="bg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
+            <circle
+              class="fg"
+              id="ringFg"
+              cx="21"
+              cy="21"
+              r="18"
+            ></circle>
+
           </svg>
+
           <div class="timer-text">
-            <b id="secText">Click ad</b>
-            <span id="timerLabel">to start the timer</span>
-            <a class="fallback-link" id="fallbackLink">Already clicked? Continue</a>
+
+            <b id="secText">
+              Click ad
+            </b>
+
+            <span id="timerLabel">
+              to start the timer
+            </span>
+
+            <a
+              class="fallback-link"
+              id="fallbackLink"
+            >
+              Already clicked? Continue
+            </a>
+
           </div>
+
         </div>
+
       </div>
+
 
       <div class="sponsor-block">
-        <div class="lbl">SPONSORED BY</div>
-        <span class="sponsor-pill"><span class="dot"></span> show your brand like this </span>
+
+        <div class="lbl">
+          SPONSORED BY
+        </div>
+
+        <span class="sponsor-pill">
+
+          <span class="dot"></span>
+
+          show your brand like this
+
+        </span>
+
       </div>
+
+
+      <div
+        class="native-ad-wrap"
+        style="margin-top:20px;"
+      >
+
+        <div class="native-ad">
+
+          <div
+            id="${NATIVE_AD_CONTAINER}"
+          ></div>
+
+        </div>
+
+      </div>
+
 
       <div id="finalLinkArea"></div>
+
     </div>
+
 
     <div class="card">
-      <a class="become-sponsor" href="${TELEGRAM_CONTACT}" target="_blank" rel="noopener">Become a Sponsor!</a>
+
+      <a
+        class="become-sponsor"
+        href="${TELEGRAM_CONTACT}"
+        target="_blank"
+        rel="noopener"
+      >
+        Become a Sponsor!
+      </a>
+
     </div>
+
   `;
 
-  loadFinalBanner();
-  loadPageWideAds();
 
-  const getLinkBtn = document.getElementById("getLinkBtn");
-  getLinkBtn.addEventListener("click", function(){
-    if(secondsLeft > 0 || linkRevealed) return;
-    linkRevealed = true;
+  loadFinalAds();
 
-    document.getElementById("finalLinkArea").innerHTML = `
-      <div class="final-link-box">
-        <span class="tag2">Official destination</span>
-        <div class="link-row">
-          <div class="link-field">${OFFICIAL_LINK}</div>
-          <button class="copy-btn" id="copyBtn">Copy</button>
+
+  const getLinkBtn =
+    document.getElementById(
+      "getLinkBtn"
+    );
+
+
+  getLinkBtn.addEventListener(
+    "click",
+    function(){
+
+      if(
+        secondsLeft > 0 ||
+        linkRevealed
+      ){
+        return;
+      }
+
+      linkRevealed = true;
+
+
+      document.getElementById(
+        "finalLinkArea"
+      ).innerHTML = `
+
+        <div class="final-link-box">
+
+          <span class="tag2">
+            Official destination
+          </span>
+
+          <div class="link-row">
+
+            <div class="link-field">
+              ${OFFICIAL_LINK}
+            </div>
+
+            <button
+              class="copy-btn"
+              id="copyBtn"
+            >
+              Copy
+            </button>
+
+          </div>
+
+          <a
+            class="go-link"
+            href="${OFFICIAL_LINK}"
+            target="_blank"
+            rel="noopener"
+          >
+            Continue to link →
+          </a>
+
         </div>
-        <a class="go-link" href="${OFFICIAL_LINK}" target="_blank" rel="noopener">Continue to link →</a>
-      </div>
-    `;
 
-    const copyBtn = document.getElementById("copyBtn");
-    copyBtn.addEventListener("click", function(){
-      navigator.clipboard.writeText(OFFICIAL_LINK).then(function(){
-        copyBtn.textContent = "Copied";
-        setTimeout(function(){ copyBtn.textContent = "Copy"; }, 1400);
-      });
-    });
-  });
+      `;
 
-  waitForAdClick(updateFinalTimerUI);
+
+      const copyBtn =
+        document.getElementById(
+          "copyBtn"
+        );
+
+
+      copyBtn.addEventListener(
+        "click",
+        function(){
+
+          navigator
+            .clipboard
+            .writeText(
+              OFFICIAL_LINK
+            )
+            .then(
+              function(){
+
+                copyBtn.textContent =
+                  "Copied";
+
+                setTimeout(
+                  function(){
+
+                    copyBtn.textContent =
+                      "Copy";
+
+                  },
+                  1400
+                );
+
+              }
+            );
+
+        }
+      );
+
+    }
+  );
+
+
+  waitForAdClick(
+    updateFinalTimerUI
+  );
 }
+
 
 /* =========================================
    RENDER
 ========================================= */
 
 function renderPage(){
+
   renderProgress();
-  linkRevealed = false;
-  if(page === TOTAL_PAGES){
+
+  linkRevealed =
+    false;
+
+  if(
+    page === TOTAL_PAGES
+  ){
+
     renderFinalPage();
-  } else {
+
+  }else{
+
     renderStandardPage();
+
   }
+
 }
 
+
 /* =========================================
-   WAIT-FOR-AD-CLICK GATE (NEW)
-
-   The ad itself renders inside a cross-origin iframe, so a real
-   "click inside the iframe" event can't be read by this page's
-   JS — browsers block that on purpose. The standard workaround
-   (used by basically every link-locker site) is to watch for the
-   window losing focus: clicking an ad almost always opens a new
-   tab/window, which fires a `blur` event on this window. We treat
-   the first blur after the page loads as "the ad was clicked" and
-   start the countdown at that point.
-
-   A small manual "Already clicked? Continue" fallback link is
-   included too, since blur detection isn't 100% reliable on every
-   mobile browser.
+   AD CLICK GATE
 ========================================= */
 
 function waitForAdClick(updateFn){
+
   clearInterval(timerId);
-  secondsLeft = WAIT_SECONDS;
-  adClicked = false;
+
+  secondsLeft =
+    WAIT_SECONDS;
+
+  adClicked =
+    false;
 
   showPendingState();
 
+
   if(blurHandler){
-    window.removeEventListener("blur", blurHandler);
+
+    window.removeEventListener(
+      "blur",
+      blurHandler
+    );
+
   }
 
-  blurHandler = function(){
-    triggerAdClick(updateFn);
-  };
-  window.addEventListener("blur", blurHandler);
 
-  const fallback = document.getElementById("fallbackLink");
+  blurHandler =
+    function(){
+
+      triggerAdClick(
+        updateFn
+      );
+
+    };
+
+
+  window.addEventListener(
+    "blur",
+    blurHandler
+  );
+
+
+  const fallback =
+    document.getElementById(
+      "fallbackLink"
+    );
+
+
   if(fallback){
-    fallback.addEventListener("click", function(){
-      triggerAdClick(updateFn);
-    });
-  }
-}
 
-function triggerAdClick(updateFn){
-  if(adClicked) return;
-  adClicked = true;
+    fallback.addEventListener(
+      "click",
+      function(){
 
-  if(blurHandler){
-    window.removeEventListener("blur", blurHandler);
-    blurHandler = null;
-  }
+        triggerAdClick(
+          updateFn
+        );
 
-  const adHint = document.getElementById("adHint");
-  if(adHint){
-    adHint.classList.remove("pending");
-    adHint.textContent = "Thanks! Your link is unlocking below ↓";
+      }
+    );
+
   }
 
-  const fallback = document.getElementById("fallbackLink");
-  if(fallback) fallback.style.display = "none";
-
-  const timerLabel = document.getElementById("timerLabel");
-  if(timerLabel) timerLabel.textContent = "";
-
-  startCountdown(updateFn);
 }
 
-function showPendingState(){
-  const secText = document.getElementById("secText");
-  const ringFg = document.getElementById("ringFg");
-  const segCurrent = document.getElementById("segCurrent");
-  const timerLabel = document.getElementById("timerLabel");
-
-  if(secText) secText.textContent = "Click ad";
-  if(timerLabel) timerLabel.textContent = "to start the timer";
-  if(ringFg) ringFg.style.strokeDashoffset = "113";
-  if(segCurrent) segCurrent.style.setProperty("--fill", "0%");
-}
 
 /* =========================================
-   COUNTDOWN / TIMER UI
+   TRIGGER TIMER
+========================================= */
+
+function triggerAdClick(updateFn){
+
+  if(adClicked)
+    return;
+
+  adClicked =
+    true;
+
+
+  if(blurHandler){
+
+    window.removeEventListener(
+      "blur",
+      blurHandler
+    );
+
+    blurHandler =
+      null;
+
+  }
+
+
+  const adHint =
+    document.getElementById(
+      "adHint"
+    );
+
+
+  if(adHint){
+
+    adHint.classList.remove(
+      "pending"
+    );
+
+    adHint.textContent =
+      "Thanks! Your link is unlocking below ↓";
+
+  }
+
+
+  const fallback =
+    document.getElementById(
+      "fallbackLink"
+    );
+
+
+  if(fallback){
+
+    fallback.style.display =
+      "none";
+
+  }
+
+
+  const timerLabel =
+    document.getElementById(
+      "timerLabel"
+    );
+
+
+  if(timerLabel){
+
+    timerLabel.textContent =
+      "";
+
+  }
+
+
+  startCountdown(
+    updateFn
+  );
+
+}
+
+
+/* =========================================
+   PENDING STATE
+========================================= */
+
+function showPendingState(){
+
+  const secText =
+    document.getElementById(
+      "secText"
+    );
+
+  const ringFg =
+    document.getElementById(
+      "ringFg"
+    );
+
+  const segCurrent =
+    document.getElementById(
+      "segCurrent"
+    );
+
+  const timerLabel =
+    document.getElementById(
+      "timerLabel"
+    );
+
+
+  if(secText){
+
+    secText.textContent =
+      "Click ad";
+
+  }
+
+
+  if(timerLabel){
+
+    timerLabel.textContent =
+      "to start the timer";
+
+  }
+
+
+  if(ringFg){
+
+    ringFg.style.strokeDashoffset =
+      "113";
+
+  }
+
+
+  if(segCurrent){
+
+    segCurrent.style.setProperty(
+      "--fill",
+      "0%"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   COUNTDOWN
 ========================================= */
 
 function startCountdown(updateFn){
+
   clearInterval(timerId);
-  secondsLeft = WAIT_SECONDS;
+
+  secondsLeft =
+    WAIT_SECONDS;
+
   updateFn();
-  timerId = setInterval(function(){
-    secondsLeft--;
-    updateFn();
-    if(secondsLeft <= 0) clearInterval(timerId);
-  }, 1000);
+
+
+  timerId =
+    setInterval(
+      function(){
+
+        secondsLeft--;
+
+        updateFn();
+
+
+        if(
+          secondsLeft <= 0
+        ){
+
+          clearInterval(
+            timerId
+          );
+
+        }
+
+      },
+      1000
+    );
+
 }
 
-function baseTimerUpdate(){
-  const clamped = Math.max(secondsLeft, 0);
-  const secText = document.getElementById("secText");
-  const ringFg = document.getElementById("ringFg");
-  const segCurrent = document.getElementById("segCurrent");
-
-  if(secText) secText.textContent = clamped > 0 ? clamped + "s" : "ready";
-
-  const progressPct = 1 - (clamped / WAIT_SECONDS);
-  if(ringFg) ringFg.style.strokeDashoffset = (113 - 113 * progressPct).toFixed(1);
-  if(segCurrent) segCurrent.style.setProperty("--fill", (progressPct * 100).toFixed(0) + "%");
-
-  return clamped;
-}
-
-function updateStandardTimerUI(){
-  const clamped = baseTimerUpdate();
-  const nextBtn = document.getElementById("nextBtn");
-  if(clamped <= 0 && nextBtn) nextBtn.classList.add("ready");
-}
-
-function updateFinalTimerUI(){
-  const clamped = baseTimerUpdate();
-  const getLinkBtn = document.getElementById("getLinkBtn");
-  if(clamped <= 0 && getLinkBtn) getLinkBtn.classList.add("ready");
-}
 
 /* =========================================
-   SHARE WITH A FRIEND
-   Always points back to step 1, regardless of
-   which step the sharer is currently on.
+   TIMER UI
+========================================= */
+
+function baseTimerUpdate(){
+
+  const clamped =
+    Math.max(
+      secondsLeft,
+      0
+    );
+
+
+  const secText =
+    document.getElementById(
+      "secText"
+    );
+
+  const ringFg =
+    document.getElementById(
+      "ringFg"
+    );
+
+  const segCurrent =
+    document.getElementById(
+      "segCurrent"
+    );
+
+
+  if(secText){
+
+    secText.textContent =
+      clamped > 0
+      ? clamped + "s"
+      : "ready";
+
+  }
+
+
+  const progressPct =
+    1 -
+    (
+      clamped /
+      WAIT_SECONDS
+    );
+
+
+  if(ringFg){
+
+    ringFg.style.strokeDashoffset =
+      (
+        113 -
+        113 * progressPct
+      ).toFixed(1);
+
+  }
+
+
+  if(segCurrent){
+
+    segCurrent.style.setProperty(
+      "--fill",
+      (
+        progressPct * 100
+      ).toFixed(0) +
+      "%"
+    );
+
+  }
+
+
+  return clamped;
+
+}
+
+
+function updateStandardTimerUI(){
+
+  const clamped =
+    baseTimerUpdate();
+
+
+  const nextBtn =
+    document.getElementById(
+      "nextBtn"
+    );
+
+
+  if(
+    clamped <= 0 &&
+    nextBtn
+  ){
+
+    nextBtn.classList.add(
+      "ready"
+    );
+
+  }
+
+}
+
+
+function updateFinalTimerUI(){
+
+  const clamped =
+    baseTimerUpdate();
+
+
+  const getLinkBtn =
+    document.getElementById(
+      "getLinkBtn"
+    );
+
+
+  if(
+    clamped <= 0 &&
+    getLinkBtn
+  ){
+
+    getLinkBtn.classList.add(
+      "ready"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   SHARE
 ========================================= */
 
 function getShareUrl(){
-  const shareUrl = new URL(window.location.href);
-  shareUrl.searchParams.set("step", "1");
+
+  const shareUrl =
+    new URL(
+      window.location.href
+    );
+
+  shareUrl.searchParams.set(
+    "step",
+    "1"
+  );
+
   return shareUrl.toString();
+
 }
 
-const shareBtn = document.getElementById("shareBtn");
+
+const shareBtn =
+  document.getElementById(
+    "shareBtn"
+  );
+
+
 if(shareBtn){
-  shareBtn.addEventListener("click", function(){
-    const shareUrl = getShareUrl();
 
-    if(navigator.share){
-      navigator.share({ title: document.title, url: shareUrl }).catch(function(){});
-      return;
+  shareBtn.addEventListener(
+    "click",
+    function(){
+
+      const shareUrl =
+        getShareUrl();
+
+
+      if(navigator.share){
+
+        navigator.share({
+
+          title:
+            document.title,
+
+          url:
+            shareUrl
+
+        }).catch(
+          function(){}
+        );
+
+        return;
+
+      }
+
+
+      navigator
+        .clipboard
+        .writeText(
+          shareUrl
+        )
+        .then(
+          function(){
+
+            const original =
+              shareBtn.textContent;
+
+            shareBtn.textContent =
+              "✅ Link copied";
+
+            shareBtn.classList.add(
+              "copied"
+            );
+
+
+            setTimeout(
+              function(){
+
+                shareBtn.textContent =
+                  original;
+
+                shareBtn.classList.remove(
+                  "copied"
+                );
+
+              },
+              1800
+            );
+
+          }
+        );
+
     }
+  );
 
-    navigator.clipboard.writeText(shareUrl).then(function(){
-      const original = shareBtn.textContent;
-      shareBtn.textContent = "✅ Link copied";
-      shareBtn.classList.add("copied");
-      setTimeout(function(){
-        shareBtn.textContent = original;
-        shareBtn.classList.remove("copied");
-      }, 1800);
-    });
-  });
 }
+
+
+/* =========================================
+   START
+========================================= */
 
 renderPage();
 
