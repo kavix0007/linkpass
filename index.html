@@ -10,7 +10,6 @@
 <title>LinkHarbor — Your link is on the way</title>
 
 <style>
-
 :root{
   --indigo:#4338ca;
   --indigo-deep:#3730a3;
@@ -229,11 +228,7 @@ h1{
 
 .ad-hint.pending{
   color:#fff;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
   animation:pulseHint 1.4s ease-in-out infinite;
 }
 
@@ -343,11 +338,7 @@ button.next,
   font-family:var(--font);
   font-size:13.5px;
   font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
   color:#fff;
   border:none;
   padding:13px 26px;
@@ -419,11 +410,7 @@ button.next.ready:hover,
   font-family:var(--font);
   font-size:14px;
   font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
+  background:linear-gradient(100deg,var(--indigo),var(--fuchsia));
   color:#fff;
   border:none;
   padding:15px 40px;
@@ -482,11 +469,7 @@ button.next.ready:hover,
 .become-sponsor{
   display:block;
   text-align:center;
-  background:linear-gradient(
-    100deg,
-    var(--sky),
-    var(--indigo)
-  );
+  background:linear-gradient(100deg,var(--sky),var(--indigo));
   color:#fff;
   font-weight:800;
   font-size:14px;
@@ -602,7 +585,6 @@ button.next.ready:hover,
   }
 
 }
-
 </style>
 </head>
 
@@ -621,7 +603,6 @@ button.next.ready:hover,
 <main>
   <div class="col" id="col"></div>
 </main>
-
 
 <script>
 (function(){
@@ -655,44 +636,30 @@ const WAIT_SECONDS = 30;
 
 
 /* =========================================
-   AD SETTINGS
+   ADS
 ========================================= */
-
-/*
-  HIGH PERFORMANCE FORMAT
-  300x250
-*/
 
 const BANNER_300_KEY =
   "9cdff28b0ec7fcdc1fe4edd36bd3054b";
 
-
-/*
-  HIGH PERFORMANCE FORMAT
-  320x50
-*/
-
 const BANNER_320_KEY =
   "eee5199c1ecc4b17f86952845c3e0047";
 
-
 /*
-  EFFECTIVE CPM NETWORK
-
-  These are script-based ads.
+  Popunder / Effective CPM
 */
-
-const EFFECTIVE_AD_1 =
+const POPUNDER_AD_SRC =
   "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
 
+/*
+  Second Effective CPM script
+*/
 const EFFECTIVE_AD_2 =
   "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
 
-
 /*
-  EFFECTIVE CPM NATIVE / CONTAINER AD
+  Native/container ad
 */
-
 const NATIVE_AD_SRC =
   "https://pl30871453.effectivecpmnetwork.com/a549fb62393598b06f06295e77e8118b/invoke.js";
 
@@ -706,35 +673,35 @@ const NATIVE_AD_CONTAINER =
 
 const articles = [
 
-{
-  title:"Why waiting rooms became the internet's last honest interface",
-  byline:"Field Notes · 4 min read",
-  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
-},
+  {
+    title:"Why waiting rooms became the internet's last honest interface",
+    byline:"Field Notes · 4 min read",
+    body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
+  },
 
-{
-  title:"The thirty-second unit",
-  byline:"Notes on Attention · 3 min read",
-  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
-},
+  {
+    title:"The thirty-second unit",
+    byline:"Notes on Attention · 3 min read",
+    body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
+  },
 
-{
-  title:"A short history of the link locker",
-  byline:"Archive · 5 min read",
-  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
-},
+  {
+    title:"A short history of the link locker",
+    byline:"Archive · 5 min read",
+    body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
+  },
 
-{
-  title:"On the etiquette of the almost-there page",
-  byline:"Field Notes · 3 min read",
-  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
-},
+  {
+    title:"On the etiquette of the almost-there page",
+    byline:"Field Notes · 3 min read",
+    body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
+  },
 
-{
-  title:"What actually happens in the last thirty seconds",
-  byline:"Notes on Attention · 4 min read",
-  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
-}
+  {
+    title:"What actually happens in the last thirty seconds",
+    byline:"Notes on Attention · 4 min read",
+    body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
+  }
 
 ];
 
@@ -747,19 +714,21 @@ const urlParams =
   new URLSearchParams(window.location.search);
 
 const requestedPage =
-  parseInt(urlParams.get("step") || "1",10);
+  parseInt(
+    urlParams.get("step") || "1",
+    10
+  );
 
 const linkId =
-  urlParams.get("id") || DEFAULT_LINK_ID;
+  urlParams.get("id") ||
+  DEFAULT_LINK_ID;
 
 const currentLink =
-  LINKS[linkId] || LINKS[DEFAULT_LINK_ID];
+  LINKS[linkId] ||
+  LINKS[DEFAULT_LINK_ID];
 
 const OFFICIAL_LINK =
   currentLink.url;
-
-const OFFICIAL_LINK_NAME =
-  currentLink.name;
 
 let page =
   Number.isFinite(requestedPage)
@@ -772,13 +741,22 @@ let page =
 let secondsLeft =
   WAIT_SECONDS;
 
-let timerId = null;
+let timerId =
+  null;
 
-let linkRevealed = false;
+let linkRevealed =
+  false;
 
-let adClicked = false;
+let adClicked =
+  false;
 
-let blurHandler = null;
+let blurHandler =
+  null;
+
+
+/* =========================================
+   DOM
+========================================= */
 
 const col =
   document.getElementById("col");
@@ -788,18 +766,14 @@ const progress =
 
 
 /* =========================================
-   PROGRESS BAR
+   PROGRESS
 ========================================= */
 
 function renderProgress(){
 
   progress.innerHTML = "";
 
-  for(
-    let i=1;
-    i<=TOTAL_PAGES;
-    i++
-  ){
+  for(let i=1;i<=TOTAL_PAGES;i++){
 
     const seg =
       document.createElement("div");
@@ -809,11 +783,9 @@ function renderProgress(){
       (
         i < page
         ? " done"
-        : (
-            i === page
-            ? " current"
-            : ""
-          )
+        : i === page
+        ? " current"
+        : ""
       );
 
     if(i === page){
@@ -847,17 +819,165 @@ function renderProgress(){
 
 
 /* =========================================
-   LOAD 300x250 AD
+   EXTERNAL SCRIPT LOADER
+========================================= */
+
+function loadExternalScript(src,id){
+
+  if(!src){
+    return;
+  }
+
+  /*
+    Prevent duplicate insertion
+    during the same page load.
+  */
+  if(document.getElementById(id)){
+    return;
+  }
+
+  const script =
+    document.createElement("script");
+
+  script.id =
+    id;
+
+  script.src =
+    src;
+
+  script.async =
+    true;
+
+  script.setAttribute(
+    "data-cfasync",
+    "false"
+  );
+
+  document.body.appendChild(script);
+}
+
+
+/* =========================================
+   LOAD POPUNDER
+========================================= */
+
+function loadPopunder(){
+
+  loadExternalScript(
+    POPUNDER_AD_SRC,
+    "linkharbor-popunder"
+  );
+
+}
+
+
+/* =========================================
+   LOAD SECOND AD
+========================================= */
+
+function loadSecondAd(){
+
+  loadExternalScript(
+    EFFECTIVE_AD_2,
+    "linkharbor-effective-ad-2"
+  );
+
+}
+
+
+/* =========================================
+   LOAD NATIVE AD
+========================================= */
+
+function loadNativeAd(){
+
+  const container =
+    document.getElementById(
+      NATIVE_AD_CONTAINER
+    );
+
+  if(!container){
+    return;
+  }
+
+  /*
+    Prevent duplicate native scripts
+    inside the same container.
+  */
+  if(
+    container.querySelector(
+      "script[data-linkharbor-native]"
+    )
+  ){
+    return;
+  }
+
+  const script =
+    document.createElement("script");
+
+  script.async =
+    true;
+
+  script.setAttribute(
+    "data-cfasync",
+    "false"
+  );
+
+  script.setAttribute(
+    "data-linkharbor-native",
+    "true"
+  );
+
+  script.src =
+    NATIVE_AD_SRC;
+
+  container.appendChild(
+    script
+  );
+
+}
+
+
+/* =========================================
+   LOAD ALL PAGE-WIDE ADS
+========================================= */
+
+function loadPageAds(){
+
+  /*
+    These are initialized on every
+    LinkHarbor page load.
+
+    The network/browser still controls
+    actual popunder frequency.
+  */
+
+  loadPopunder();
+
+  loadSecondAd();
+
+  loadNativeAd();
+
+}
+
+
+/* =========================================
+   LOAD 300x250 BANNER
 ========================================= */
 
 function load300x250(containerId){
 
   const container =
-    document.getElementById(containerId);
+    document.getElementById(
+      containerId
+    );
 
-  if(!container) return;
+  if(!container){
+    return;
+  }
 
-  container.innerHTML = "";
+  container.innerHTML =
+    "";
 
   const iframe =
     document.createElement("iframe");
@@ -876,12 +996,9 @@ function load300x250(containerId){
     "no"
   );
 
-  iframe.setAttribute(
-    "frameborder",
-    "0"
+  container.appendChild(
+    iframe
   );
-
-  container.appendChild(iframe);
 
   const doc =
     iframe.contentWindow.document;
@@ -890,41 +1007,35 @@ function load300x250(containerId){
 
   doc.write(
     "<!DOCTYPE html>" +
-    "<html><head>" +
+    "<html>" +
+    "<head>" +
     "<style>" +
     "*{margin:0;padding:0}" +
-    "html,body{width:300px;height:250px;overflow:hidden}" +
     "</style>" +
-    "</head><body>" +
+    "</head>" +
+    "<body>" +
 
     "<script>" +
 
     "atOptions={" +
-
     "'key':'" +
     BANNER_300_KEY +
     "'," +
-
     "'format':'iframe'," +
-
     "'height':250," +
-
     "'width':300," +
-
     "'params':{}" +
-
     "};" +
 
-    "</" +
-    "script>" +
+    "</script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_300_KEY +
     "/invoke.js'>" +
-    "</" +
-    "script>" +
+    "</script>" +
 
-    "</body></html>"
+    "</body>" +
+    "</html>"
   );
 
   doc.close();
@@ -932,17 +1043,22 @@ function load300x250(containerId){
 
 
 /* =========================================
-   LOAD 320x50 AD
+   LOAD 320x50 BANNER
 ========================================= */
 
 function load320x50(){
 
   const container =
-    document.getElementById("finalAd");
+    document.getElementById(
+      "finalAd"
+    );
 
-  if(!container) return;
+  if(!container){
+    return;
+  }
 
-  container.innerHTML = "";
+  container.innerHTML =
+    "";
 
   const iframe =
     document.createElement("iframe");
@@ -961,12 +1077,9 @@ function load320x50(){
     "no"
   );
 
-  iframe.setAttribute(
-    "frameborder",
-    "0"
+  container.appendChild(
+    iframe
   );
-
-  container.appendChild(iframe);
 
   const doc =
     iframe.contentWindow.document;
@@ -975,155 +1088,38 @@ function load320x50(){
 
   doc.write(
     "<!DOCTYPE html>" +
-    "<html><head>" +
+    "<html>" +
+    "<head>" +
     "<style>" +
     "*{margin:0;padding:0}" +
-    "html,body{width:320px;height:50px;overflow:hidden}" +
     "</style>" +
-    "</head><body>" +
+    "</head>" +
+    "<body>" +
 
     "<script>" +
 
     "atOptions={" +
-
     "'key':'" +
     BANNER_320_KEY +
     "'," +
-
     "'format':'iframe'," +
-
     "'height':50," +
-
     "'width':320," +
-
     "'params':{}" +
-
     "};" +
 
-    "</" +
-    "script>" +
+    "</script>" +
 
     "<script src='https://www.highperformanceformat.com/" +
     BANNER_320_KEY +
     "/invoke.js'>" +
-    "</" +
-    "script>" +
+    "</script>" +
 
-    "</body></html>"
+    "</body>" +
+    "</html>"
   );
 
   doc.close();
-}
-
-
-/* =========================================
-   LOAD EFFECTIVE CPM ADS
-========================================= */
-
-function loadExternalScript(src){
-
-  if(!src) return;
-
-  const script =
-    document.createElement("script");
-
-  script.src =
-    src;
-
-  script.async =
-    true;
-
-  script.setAttribute(
-    "data-cfasync",
-    "false"
-  );
-
-  document.body.appendChild(script);
-}
-
-
-function loadEffectiveAds(){
-
-  loadExternalScript(
-    EFFECTIVE_AD_1
-  );
-
-  loadExternalScript(
-    EFFECTIVE_AD_2
-  );
-}
-
-
-/* =========================================
-   LOAD NATIVE AD
-========================================= */
-
-function loadNativeAd(){
-
-  const container =
-    document.getElementById(
-      NATIVE_AD_CONTAINER
-    );
-
-  if(!container) return;
-
-  if(
-    document.querySelector(
-      'script[src="' +
-      NATIVE_AD_SRC +
-      '"]'
-    )
-  ){
-    return;
-  }
-
-  const script =
-    document.createElement("script");
-
-  script.async =
-    true;
-
-  script.setAttribute(
-    "data-cfasync",
-    "false"
-  );
-
-  script.src =
-    NATIVE_AD_SRC;
-
-  container.appendChild(script);
-}
-
-
-/* =========================================
-   LOAD ALL ADS
-========================================= */
-
-function loadAllAds(){
-
-  loadEffectiveAds();
-
-  loadNativeAd();
-
-  load300x250("ad1");
-
-  load300x250("ad2");
-
-  load300x250("ad3");
-}
-
-
-/* =========================================
-   LOAD FINAL ADS
-========================================= */
-
-function loadFinalAds(){
-
-  loadEffectiveAds();
-
-  load320x50();
-
-  loadNativeAd();
 }
 
 
@@ -1135,53 +1131,54 @@ function getAdsHTML(){
 
   return `
 
-    <div class="banners">
+  <div class="banners">
 
-      <div class="ad-row">
+    <div class="ad-row">
 
-        <div class="ad-slot">
+      <div class="ad-slot">
 
-          <div
-            class="ad-hint pending"
-            id="adHint"
-          >
-            ⚠️👇 Click any ad above & stay 15s to start the 30s timer
-          </div>
-
-          <div
-            class="ad-box"
-            id="ad1"
-          ></div>
-
+        <div
+          class="ad-hint pending"
+          id="adHint"
+        >
+          ⚠️👇 Click any ad above & stay 15s to start the 30s timer
         </div>
 
         <div
           class="ad-box"
-          id="ad2"
-        ></div>
-
-        <div
-          class="ad-box"
-          id="ad3"
+          id="ad1"
         ></div>
 
       </div>
 
-    </div>
+      <div
+        class="ad-box"
+        id="ad2"
+      ></div>
 
-    <div class="native-ad-wrap">
-
-      <div class="native-ad">
-
-        <div
-          id="${NATIVE_AD_CONTAINER}"
-        ></div>
-
-      </div>
+      <div
+        class="ad-box"
+        id="ad3"
+      ></div>
 
     </div>
+
+  </div>
+
+  <div class="native-ad-wrap">
+
+    <div class="native-ad">
+
+      <div
+        id="${NATIVE_AD_CONTAINER}"
+      ></div>
+
+    </div>
+
+  </div>
 
   `;
+
 }
 
 
@@ -1269,7 +1266,6 @@ function renderStandardPage(){
 
     </div>
 
-
     <div class="card article-card">
 
       <div class="divider-label">
@@ -1297,7 +1293,16 @@ function renderStandardPage(){
   `;
 
 
-  loadAllAds();
+  /*
+    Containers now exist.
+    Load the ads.
+  */
+
+  load300x250("ad1");
+  load300x250("ad2");
+  load300x250("ad3");
+
+  loadPageAds();
 
 
   document
@@ -1306,8 +1311,9 @@ function renderStandardPage(){
       "click",
       function(){
 
-        if(secondsLeft > 0)
+        if(secondsLeft > 0){
           return;
+        }
 
         const nextPage =
           Math.min(
@@ -1335,6 +1341,7 @@ function renderStandardPage(){
   waitForAdClick(
     updateStandardTimerUI
   );
+
 }
 
 
@@ -1360,12 +1367,10 @@ function renderFinalPage(){
         Thanks for your patience.
       </p>
 
-
       <div
         class="ad-box-small"
         id="finalAd"
       ></div>
-
 
       <div
         class="ad-hint pending"
@@ -1375,14 +1380,12 @@ function renderFinalPage(){
         👆 Click the ad above to start the 30s unlock timer
       </div>
 
-
       <button
         class="get-link-btn"
         id="getLinkBtn"
       >
         Get Link
       </button>
-
 
       <div style="margin-top:14px;">
 
@@ -1436,7 +1439,6 @@ function renderFinalPage(){
 
       </div>
 
-
       <div class="sponsor-block">
 
         <div class="lbl">
@@ -1453,7 +1455,6 @@ function renderFinalPage(){
 
       </div>
 
-
       <div
         class="native-ad-wrap"
         style="margin-top:20px;"
@@ -1468,7 +1469,6 @@ function renderFinalPage(){
         </div>
 
       </div>
-
 
       <div id="finalLinkArea"></div>
 
@@ -1491,7 +1491,13 @@ function renderFinalPage(){
   `;
 
 
-  loadFinalAds();
+  /*
+    Final page ads.
+  */
+
+  load320x50();
+
+  loadPageAds();
 
 
   const getLinkBtn =
@@ -1511,7 +1517,8 @@ function renderFinalPage(){
         return;
       }
 
-      linkRevealed = true;
+      linkRevealed =
+        true;
 
 
       document.getElementById(
@@ -1563,8 +1570,7 @@ function renderFinalPage(){
         "click",
         function(){
 
-          navigator
-            .clipboard
+          navigator.clipboard
             .writeText(
               OFFICIAL_LINK
             )
@@ -1597,11 +1603,12 @@ function renderFinalPage(){
   waitForAdClick(
     updateFinalTimerUI
   );
+
 }
 
 
 /* =========================================
-   RENDER
+   RENDER PAGE
 ========================================= */
 
 function renderPage(){
@@ -1611,9 +1618,7 @@ function renderPage(){
   linkRevealed =
     false;
 
-  if(
-    page === TOTAL_PAGES
-  ){
+  if(page === TOTAL_PAGES){
 
     renderFinalPage();
 
@@ -1627,7 +1632,7 @@ function renderPage(){
 
 
 /* =========================================
-   AD CLICK GATE
+   AD CLICK / TIMER
 ========================================= */
 
 function waitForAdClick(updateFn){
@@ -1694,13 +1699,14 @@ function waitForAdClick(updateFn){
 
 
 /* =========================================
-   TRIGGER TIMER
+   TRIGGER
 ========================================= */
 
 function triggerAdClick(updateFn){
 
-  if(adClicked)
+  if(adClicked){
     return;
+  }
 
   adClicked =
     true;
@@ -1773,7 +1779,7 @@ function triggerAdClick(updateFn){
 
 
 /* =========================================
-   PENDING STATE
+   PENDING
 ========================================= */
 
 function showPendingState(){
@@ -1858,9 +1864,7 @@ function startCountdown(updateFn){
         updateFn();
 
 
-        if(
-          secondsLeft <= 0
-        ){
+        if(secondsLeft <= 0){
 
           clearInterval(
             timerId
@@ -1956,7 +1960,6 @@ function updateStandardTimerUI(){
   const clamped =
     baseTimerUpdate();
 
-
   const nextBtn =
     document.getElementById(
       "nextBtn"
@@ -1981,7 +1984,6 @@ function updateFinalTimerUI(){
 
   const clamped =
     baseTimerUpdate();
-
 
   const getLinkBtn =
     document.getElementById(
@@ -2059,8 +2061,7 @@ if(shareBtn){
       }
 
 
-      navigator
-        .clipboard
+      navigator.clipboard
         .writeText(
           shareUrl
         )
