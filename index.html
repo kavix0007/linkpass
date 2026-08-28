@@ -275,6 +275,15 @@ h1{
   margin:0 auto;
 }
 
+
+.ad-label{
+  font-size:10px;
+  color:var(--muted-soft);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:2px;
+}
+
 /* TIMER */
 
 .gate-action{
@@ -1140,12 +1149,13 @@ function getAdsHTML(){
       <div class="ad-row">
 
         <div class="ad-slot">
+          <div class="ad-label">Advertisement</div>
 
           <div
             class="ad-hint pending"
             id="adHint"
           >
-            ⚠️👇 Click any ad above & stay 15s to start the 30s timer
+            ⏳ Your link is unlocking — please wait 30 seconds
           </div>
 
           <div
@@ -1247,7 +1257,7 @@ function renderStandardPage(){
           <div class="timer-text">
 
             <b id="secText">
-              Click ad
+              30s
             </b>
 
             <span id="timerLabel">
@@ -1372,7 +1382,7 @@ function renderFinalPage(){
         id="adHint"
         style="margin-top:10px;"
       >
-        👆 Click the ad above to start the 30s unlock timer
+        ⏳ Please wait 30 seconds to unlock your link
       </div>
 
 
@@ -1416,7 +1426,7 @@ function renderFinalPage(){
           <div class="timer-text">
 
             <b id="secText">
-              Click ad
+              30s
             </b>
 
             <span id="timerLabel">
@@ -1512,6 +1522,7 @@ function renderFinalPage(){
       }
 
       linkRevealed = true;
+       recordMetric("link_reveal");
 
 
       document.getElementById(
@@ -1605,6 +1616,7 @@ function renderFinalPage(){
 ========================================= */
 
 function renderPage(){
+  recordMetric("page_view");
 
   renderProgress();
 
@@ -1634,62 +1646,26 @@ function waitForAdClick(updateFn){
 
   clearInterval(timerId);
 
-  secondsLeft =
-    WAIT_SECONDS;
+  secondsLeft = WAIT_SECONDS;
+  adClicked = true;
 
-  adClicked =
-    false;
-
-  showPendingState();
-
-
-  if(blurHandler){
-
-    window.removeEventListener(
-      "blur",
-      blurHandler
-    );
-
+  const adHint = document.getElementById("adHint");
+  if(adHint){
+    adHint.classList.remove("pending");
+    adHint.textContent = "⏳ Your link is unlocking — please wait";
   }
 
-
-  blurHandler =
-    function(){
-
-      triggerAdClick(
-        updateFn
-      );
-
-    };
-
-
-  window.addEventListener(
-    "blur",
-    blurHandler
-  );
-
-
-  const fallback =
-    document.getElementById(
-      "fallbackLink"
-    );
-
-
+  const fallback = document.getElementById("fallbackLink");
   if(fallback){
-
-    fallback.addEventListener(
-      "click",
-      function(){
-
-        triggerAdClick(
-          updateFn
-        );
-
-      }
-    );
-
+    fallback.style.display = "none";
   }
 
+  const timerLabel = document.getElementById("timerLabel");
+  if(timerLabel){
+    timerLabel.textContent = "Please wait while the link unlocks";
+  }
+
+  startCountdown(updateFn);
 }
 
 
@@ -1698,77 +1674,9 @@ function waitForAdClick(updateFn){
 ========================================= */
 
 function triggerAdClick(updateFn){
-
-  if(adClicked)
-    return;
-
-  adClicked =
-    true;
-
-
-  if(blurHandler){
-
-    window.removeEventListener(
-      "blur",
-      blurHandler
-    );
-
-    blurHandler =
-      null;
-
-  }
-
-
-  const adHint =
-    document.getElementById(
-      "adHint"
-    );
-
-
-  if(adHint){
-
-    adHint.classList.remove(
-      "pending"
-    );
-
-    adHint.textContent =
-      "Thanks! Your link is unlocking below ↓";
-
-  }
-
-
-  const fallback =
-    document.getElementById(
-      "fallbackLink"
-    );
-
-
-  if(fallback){
-
-    fallback.style.display =
-      "none";
-
-  }
-
-
-  const timerLabel =
-    document.getElementById(
-      "timerLabel"
-    );
-
-
-  if(timerLabel){
-
-    timerLabel.textContent =
-      "";
-
-  }
-
-
-  startCountdown(
-    updateFn
-  );
-
+  // Ads are never required to be clicked.
+  // Keep this function only for backward compatibility with older markup.
+  if(secondsLeft <= 0) return;
 }
 
 
@@ -1778,60 +1686,26 @@ function triggerAdClick(updateFn){
 
 function showPendingState(){
 
-  const secText =
-    document.getElementById(
-      "secText"
-    );
-
-  const ringFg =
-    document.getElementById(
-      "ringFg"
-    );
-
-  const segCurrent =
-    document.getElementById(
-      "segCurrent"
-    );
-
-  const timerLabel =
-    document.getElementById(
-      "timerLabel"
-    );
-
+  const secText = document.getElementById("secText");
+  const ringFg = document.getElementById("ringFg");
+  const segCurrent = document.getElementById("segCurrent");
+  const timerLabel = document.getElementById("timerLabel");
 
   if(secText){
-
-    secText.textContent =
-      "Click ad";
-
+    secText.textContent = WAIT_SECONDS + "s";
   }
-
 
   if(timerLabel){
-
-    timerLabel.textContent =
-      "to start the timer";
-
+    timerLabel.textContent = "Please wait while the link unlocks";
   }
-
 
   if(ringFg){
-
-    ringFg.style.strokeDashoffset =
-      "113";
-
+    ringFg.style.strokeDashoffset = "113";
   }
-
 
   if(segCurrent){
-
-    segCurrent.style.setProperty(
-      "--fill",
-      "0%"
-    );
-
+    segCurrent.style.setProperty("--fill","0%");
   }
-
 }
 
 
@@ -2100,6 +1974,17 @@ if(shareBtn){
 
 }
 
+
+
+/* =========================================
+   LOCAL SESSION METRICS
+   ========================================= */
+function recordMetric(name){
+  try{
+    const key = "linkharbor_" + name;
+    sessionStorage.setItem(key, String((parseInt(sessionStorage.getItem(key) || "0",10) + 1)));
+  }catch(e){}
+}
 
 /* =========================================
    START
