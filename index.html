@@ -1026,44 +1026,6 @@ function load320x50(){
 
 
 /* =========================================
-   LOAD EFFECTIVE CPM ADS
-========================================= */
-
-function loadExternalScript(src){
-
-  if(!src) return;
-
-  const script =
-    document.createElement("script");
-
-  script.src =
-    src;
-
-  script.async =
-    true;
-
-  script.setAttribute(
-    "data-cfasync",
-    "false"
-  );
-
-  document.body.appendChild(script);
-}
-
-
-function loadEffectiveAds(){
-
-  loadExternalScript(
-    EFFECTIVE_AD_1
-  );
-
-  loadExternalScript(
-    EFFECTIVE_AD_2
-  );
-}
-
-
-/* =========================================
    LOAD NATIVE AD
 ========================================= */
 
@@ -1110,8 +1072,6 @@ function loadNativeAd(){
 
 function loadAllAds(){
 
-  loadEffectiveAds();
-
   loadNativeAd();
 
   load300x250("ad1");
@@ -1127,8 +1087,6 @@ function loadAllAds(){
 ========================================= */
 
 function loadFinalAds(){
-
-  loadEffectiveAds();
 
   load320x50();
 
