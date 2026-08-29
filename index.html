@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Download APK - AFTER MOTION Z</title>
+<title>Download APK</title>
 
 <style>
-
 :root{
   --bg:#eef1f7;
-  --card-bg:#ffffff;
-  --text-primary:#1a1f36;
-  --text-secondary:#6b7280;
+  --card:#fff;
+  --text:#1a1f36;
+  --muted:#6b7280;
   --accent:#3457ff;
   --accent-dark:#2340d9;
-  --accent-light:#e8ecff;
   --border:#e5e8f0;
-  --radius-lg:16px;
-  --radius-md:12px;
-  --shadow:0 4px 20px rgba(20,30,70,0.08);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   background:var(--bg);
-  color:var(--text-primary);
-  line-height:1.6;
+  color:var(--text);
+  min-height:100vh;
+  padding:20px 16px;
 }
 
 .container{
   max-width:560px;
-  margin:0 auto;
-  padding:24px 16px 60px;
+  margin:auto;
 }
 
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:40px 24px;
+  text-align:center;
+  margin-top:20vh;
+  box-shadow:0 4px 20px rgba(20,30,70,.08);
+}
 
-/* ==================================================
-   POPUP AD
-================================================== */
+.icon{
+  width:90px;
+  height:90px;
+  margin:auto;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#3457ff,#2340d9);
+  color:#fff;
+  font-size:40px;
+  font-weight:700;
+}
+
+h1{
+  margin-top:20px;
+  font-size:25px;
+}
+
+p{
+  color:var(--muted);
+  margin-top:8px;
+  font-size:14px;
+}
+
+.unlock{
+  display:block;
+  width:100%;
+  margin-top:28px;
+  padding:16px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:700;
+}
+
+.unlock:hover{
+  background:var(--accent-dark);
+}
+
+/* POPUP */
 
 .popup-overlay{
   position:fixed;
@@ -68,9 +101,8 @@ body{
   max-width:340px;
   background:#fff;
   border-radius:16px;
-  padding:38px 20px 20px;
+  padding:40px 20px 20px;
   text-align:center;
-  box-shadow:0 15px 50px rgba(0,0,0,.3);
 }
 
 .popup-close{
@@ -79,412 +111,33 @@ body{
   right:10px;
   width:32px;
   height:32px;
-  border:none;
+  border:0;
   border-radius:50%;
   background:#eef1f7;
-  color:#333;
   font-size:20px;
   cursor:pointer;
 }
 
 .popup-label{
   font-size:11px;
-  letter-spacing:.08em;
   text-transform:uppercase;
-  color:var(--text-secondary);
+  letter-spacing:.08em;
+  color:var(--muted);
   margin-bottom:10px;
 }
-
-
-/* ==================================================
-   ADS
-================================================== */
-
-.ad{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:var(--radius-md);
-  padding:18px;
-  margin:20px 0;
-  text-align:center;
-  min-height:90px;
-}
-
-.ad-label{
-  font-size:11px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--text-secondary);
-  display:block;
-  margin-bottom:10px;
-}
-
-
-/* ==================================================
-   PAGE SECTIONS
-================================================== */
-
-.page{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:40px 0;
-}
-
-.page + .page{
-  border-top:1px solid transparent;
-}
-
-
-/* ==================================================
-   SCROLL BUTTON
-================================================== */
-
-.scroll-btn{
-  width:100%;
-  padding:15px;
-  margin-bottom:20px;
-  font-size:15px;
-  font-weight:600;
-  border:1px solid var(--border);
-  border-radius:var(--radius-md);
-  background:var(--card-bg);
-  color:var(--text-primary);
-  cursor:pointer;
-  transition:.2s;
-}
-
-.scroll-btn:hover{
-  background:#f8f9fc;
-  border-color:var(--accent);
-}
-
-
-/* ==================================================
-   MAIN APP CARD
-================================================== */
-
-.card{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:40px 24px;
-  text-align:center;
-  box-shadow:var(--shadow);
-}
-
-.icon{
-  width:100px;
-  height:100px;
-  background:linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-dark)
-  );
-  border-radius:24px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
-  color:#fff;
-  font-weight:700;
-  box-shadow:0 8px 20px rgba(52,87,255,.25);
-}
-
-h1{
-  margin-top:20px;
-  font-size:26px;
-  font-weight:700;
-}
-
-.meta{
-  color:var(--text-secondary);
-  margin-top:8px;
-  font-size:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-.dot{
-  width:3px;
-  height:3px;
-  border-radius:50%;
-  background:var(--text-secondary);
-}
-
-
-/* ==================================================
-   SECTION CARDS
-================================================== */
-
-.section-card{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:28px 22px;
-  margin:20px 0;
-  box-shadow:var(--shadow);
-}
-
-.section-title{
-  font-size:22px;
-  margin-bottom:12px;
-}
-
-.section-text{
-  color:var(--text-secondary);
-  font-size:15px;
-}
-
-
-/* ==================================================
-   FEATURES
-================================================== */
-
-.feature{
-  display:flex;
-  gap:14px;
-  padding:16px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.feature:last-child{
-  border-bottom:none;
-}
-
-.feature-icon{
-  width:42px;
-  height:42px;
-  flex-shrink:0;
-  border-radius:12px;
-  background:var(--accent-light);
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-weight:700;
-}
-
-.feature h3{
-  font-size:16px;
-  margin-bottom:3px;
-}
-
-.feature p{
-  color:var(--text-secondary);
-  font-size:13px;
-}
-
-
-/* ==================================================
-   INFO GRID
-================================================== */
-
-.info-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:18px;
-}
-
-.info-box{
-  background:#f8f9fc;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px;
-}
-
-.info-label{
-  font-size:11px;
-  color:var(--text-secondary);
-  text-transform:uppercase;
-  letter-spacing:.05em;
-}
-
-.info-value{
-  font-size:15px;
-  font-weight:700;
-  margin-top:4px;
-}
-
-
-/* ==================================================
-   INSTALLATION STEPS
-================================================== */
-
-.step{
-  display:flex;
-  gap:14px;
-  margin:18px 0;
-}
-
-.step-number{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:var(--accent);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  flex-shrink:0;
-}
-
-.step-content h3{
-  font-size:16px;
-}
-
-.step-content p{
-  color:var(--text-secondary);
-  font-size:14px;
-  margin-top:3px;
-}
-
-
-/* ==================================================
-   DOWNLOAD SECTION
-================================================== */
-
-.download-section{
-  margin-top:20px;
-}
-
-.download-btn{
-  width:100%;
-  padding:17px;
-  font-size:16px;
-  font-weight:700;
-  border:none;
-  border-radius:var(--radius-md);
-  background:var(--accent);
-  color:#fff;
-  opacity:.55;
-  cursor:not-allowed;
-  transition:.2s;
-}
-
-.download-btn.ready{
-  opacity:1;
-  cursor:pointer;
-}
-
-.download-btn.ready:hover{
-  background:var(--accent-dark);
-  transform:translateY(-1px);
-}
-
-.progress-track{
-  margin-top:16px;
-  height:6px;
-  border-radius:999px;
-  background:var(--accent-light);
-  overflow:hidden;
-}
-
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:var(--accent);
-  border-radius:999px;
-  transition:width 1s linear;
-}
-
-.status{
-  margin-top:12px;
-  font-size:14px;
-  color:var(--text-secondary);
-  text-align:center;
-}
-
-
-/* ==================================================
-   WARNING
-================================================== */
-
-.notice{
-  padding:16px;
-  border-radius:12px;
-  background:var(--accent-light);
-  color:var(--text-primary);
-  font-size:13px;
-  margin-top:18px;
-}
-
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-.footer{
-  text-align:center;
-  margin-top:35px;
-  font-size:12px;
-  color:var(--text-secondary);
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media(max-width:400px){
-
-  .container{
-    padding-left:12px;
-    padding-right:12px;
-  }
-
-  .card{
-    padding:32px 18px;
-  }
-
-  h1{
-    font-size:22px;
-  }
-
-  .section-title{
-    font-size:20px;
-  }
-
-  .info-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-
-<!-- ==================================================
-     POPUP AD
-================================================== -->
-
 <div id="popupAd" class="popup-overlay">
-
   <div class="popup-box">
 
-    <button
-      class="popup-close"
-      onclick="closePopupAd()"
-      aria-label="Close advertisement">
-
+    <button class="popup-close" onclick="closePopup()">
       ×
-
     </button>
 
-    <div class="popup-label">
-      Advertisement
-    </div>
+    <div class="popup-label">Advertisement</div>
 
     <script>
       atOptions = {
@@ -499,844 +152,33 @@ h1{
     <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
 
   </div>
-
 </div>
-
 
 <div class="container">
 
-
-<!-- ==================================================
-     PAGE 1 — APP OVERVIEW
-================================================== -->
-
-<section class="page" id="page1">
-
-  <button
-    class="scroll-btn"
-    onclick="scrollToPage('page2')">
-
-    ↓ Explore app information
-
-  </button>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
   <div class="card">
 
-    <div class="icon" id="appIcon">
-      A
-    </div>
+    <div class="icon">A</div>
 
-    <h1 id="appName">
-      AFTER MOTION Z
-    </h1>
+    <h1>AFTER MOTION Z</h1>
 
-    <div class="meta">
-
-      <span>
-        Version
-        <span id="version">
-          1.0
-        </span>
-      </span>
-
-      <span class="dot"></span>
-
-      <span id="size">
-        90 MB
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      About This APK
-    </h2>
-
-    <p class="section-text">
-
-      AFTER MOTION Z is available for Android devices.
-      Use the information below to learn more about the
-      application before downloading and installing it.
-
+    <p>
+      Your download is ready to begin.
     </p>
 
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+    <a href="page2.html" class="unlock">
+      Unlock Link →
+    </a>
 
   </div>
-
-</section>
-
-
-<!-- ==================================================
-     PAGE 2 — INFORMATION & FEATURES
-================================================== -->
-
-<section class="page" id="page2">
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      App Information
-    </h2>
-
-    <p class="section-text">
-      Check the basic package information before continuing
-      to the download section.
-    </p>
-
-
-    <div class="info-grid">
-
-      <div class="info-box">
-
-        <div class="info-label">
-          Application
-        </div>
-
-        <div class="info-value" id="infoName">
-          AFTER MOTION Z
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <div class="info-label">
-          Version
-        </div>
-
-        <div class="info-value" id="infoVersion">
-          -10-aug
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <div class="info-label">
-          File Size
-        </div>
-
-        <div class="info-value" id="infoSize">
-          90 MB
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <div class="info-label">
-          Format
-        </div>
-
-        <div class="info-value">
-          APK
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      Highlights
-    </h2>
-
-
-    <div class="feature">
-
-      <div class="feature-icon">
-        ✓
-      </div>
-
-      <div>
-
-        <h3>
-          Android APK
-        </h3>
-
-        <p>
-          Download the application in APK format for Android.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="feature-icon">
-        ✓
-      </div>
-
-      <div>
-
-        <h3>
-          Easy Installation
-        </h3>
-
-        <p>
-          Follow the installation instructions provided below.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="feature-icon">
-        ✓
-      </div>
-
-      <div>
-
-        <h3>
-          Direct Download
-        </h3>
-
-        <p>
-          The download button will become available after
-          the preparation timer finishes.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
-  <button
-    class="scroll-btn"
-    onclick="scrollToPage('page3')">
-
-    ↓ Continue to installation
-
-  </button>
-
-</section>
-
-
-<!-- ==================================================
-     PAGE 3 — INSTALLATION
-================================================== -->
-
-<section class="page" id="page3">
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      How To Install
-    </h2>
-
-    <p class="section-text">
-      Follow these steps after the APK has been downloaded.
-    </p>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        1
-      </div>
-
-      <div class="step-content">
-
-        <h3>
-          Download the APK
-        </h3>
-
-        <p>
-          Use the download button on the final section
-          to obtain the APK file.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        2
-      </div>
-
-      <div class="step-content">
-
-        <h3>
-          Open the APK
-        </h3>
-
-        <p>
-          Locate the downloaded APK file on your Android
-          device and open it.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        3
-      </div>
-
-      <div class="step-content">
-
-        <h3>
-          Allow Installation
-        </h3>
-
-        <p>
-          If Android asks for permission to install an APK
-          from your browser or file manager, allow it.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        4
-      </div>
-
-      <div class="step-content">
-
-        <h3>
-          Install
-        </h3>
-
-        <p>
-          Follow the Android installation screen until
-          the application has been installed.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      Before Installing
-    </h2>
-
-    <p class="section-text">
-
-      Make sure your device has enough available storage
-      and that the downloaded file is compatible with your
-      Android version.
-
-    </p>
-
-
-    <div class="notice">
-
-      Always download APK files from sources you trust and
-      review Android's security warnings before installing.
-
-    </div>
-
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
-  <button
-    class="scroll-btn"
-    onclick="scrollToPage('page4')">
-
-    ↓ Go to download
-
-  </button>
-
-</section>
-
-
-<!-- ==================================================
-     PAGE 4 — DOWNLOAD
-================================================== -->
-
-<section class="page" id="page4">
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      Download AFTER MOTION Z
-    </h2>
-
-    <p class="section-text">
-
-      Your download link is being prepared.
-      Please wait for the countdown to finish.
-
-    </p>
-
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
-  <div class="download-section">
-
-
-    <button
-      id="downloadBtn"
-      class="download-btn"
-      disabled>
-
-      Preparing link (30s)
-
-    </button>
-
-
-    <div class="progress-track">
-
-      <div
-        class="progress-fill"
-        id="progressFill">
-      </div>
-
-    </div>
-
-
-    <div
-      id="statusText"
-      class="status">
-
-      Please wait while your download link is generated…
-
-    </div>
-
-
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
-  <div class="section-card">
-
-    <h2 class="section-title">
-      Download Information
-    </h2>
-
-    <div class="info-grid">
-
-      <div class="info-box">
-
-        <div class="info-label">
-          File
-        </div>
-
-        <div class="info-value">
-          APK
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <div class="info-label">
-          Size
-        </div>
-
-        <div class="info-value">
-          90 MB
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="ad">
-
-    <span class="ad-label">
-      Advertisement
-    </span>
-
-    <script>
-      atOptions = {
-        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-
-    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
-
-  </div>
-
-
-  <div class="footer">
-
-    ✓ Verified download page
-
-  </div>
-
-</section>
-
 
 </div>
 
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
 <script>
-
-
-/* ==================================================
-   SETTINGS
-================================================== */
-
-const APP_NAME = "AFTER MOTION Z";
-
-const APP_VERSION = "-10-aug";
-
-const APP_SIZE = "90 MB";
-
-const APP_ICON_LETTER = "A";
-
-const DOWNLOAD_URL =
-"https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file";
-
-const WAIT_SECONDS = 30;
-
-
-/* ==================================================
-   APP INFORMATION
-================================================== */
-
-document.getElementById("appName").textContent =
-APP_NAME;
-
-document.getElementById("version").textContent =
-APP_VERSION;
-
-document.getElementById("size").textContent =
-APP_SIZE;
-
-document.getElementById("appIcon").textContent =
-APP_ICON_LETTER;
-
-document.getElementById("infoName").textContent =
-APP_NAME;
-
-document.getElementById("infoVersion").textContent =
-APP_VERSION;
-
-document.getElementById("infoSize").textContent =
-APP_SIZE;
-
-
-/* ==================================================
-   CLOSE POPUP
-================================================== */
-
-function closePopupAd(){
-
-  document.getElementById("popupAd").style.display =
-  "none";
-
+function closePopup(){
+  document.getElementById("popupAd").style.display="none";
 }
-
-
-/* ==================================================
-   PAGE NAVIGATION
-================================================== */
-
-function scrollToPage(id){
-
-  const page =
-  document.getElementById(id);
-
-  if(!page) return;
-
-  page.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-
-}
-
-
-/* ==================================================
-   COUNTDOWN
-================================================== */
-
-const btn =
-document.getElementById("downloadBtn");
-
-const statusText =
-document.getElementById("statusText");
-
-const progressFill =
-document.getElementById("progressFill");
-
-let secondsLeft =
-WAIT_SECONDS;
-
-
-/* ==================================================
-   UPDATE UI
-================================================== */
-
-function updateUI(){
-
-  const elapsed =
-  WAIT_SECONDS - secondsLeft;
-
-  const percent =
-  Math.min(
-    100,
-    Math.round(
-      (elapsed / WAIT_SECONDS) * 100
-    )
-  );
-
-  progressFill.style.width =
-  percent + "%";
-
-
-  if(secondsLeft > 0){
-
-    btn.textContent =
-    `Preparing link (${secondsLeft}s)`;
-
-    statusText.textContent =
-    `Please wait ${secondsLeft} second${secondsLeft === 1 ? "" : "s"}…`;
-
-  }
-
-  else{
-
-    btn.disabled = false;
-
-    btn.classList.add("ready");
-
-    btn.textContent =
-    "Download APK";
-
-    statusText.textContent =
-    "Your download link is ready.";
-
-  }
-
-}
-
-
-/* ==================================================
-   START COUNTDOWN
-================================================== */
-
-updateUI();
-
-const countdown =
-setInterval(() => {
-
-  secondsLeft--;
-
-  if(secondsLeft <= 0){
-
-    clearInterval(countdown);
-
-    secondsLeft = 0;
-
-  }
-
-  updateUI();
-
-},1000);
-
-
-/* ==================================================
-   DOWNLOAD ACTION
-================================================== */
-
-btn.addEventListener("click",() => {
-
-  if(btn.disabled){
-
-    return;
-
-  }
-
-  window.location.href =
-  DOWNLOAD_URL;
-
-});
-
-
 </script>
-
-
-<!-- ==================================================
-     BOTTOM 320x50 AD
-================================================== -->
-
-<script>
-
-atOptions = {
-  'key' : '911eb88520e336e8e1abf9ea2d0bfcbb',
-  'format' : 'iframe',
-  'height' : 50,
-  'width' : 320,
-  'params' : {}
-};
-
-</script>
-
-<script src="https://www.highrevenueformat.com/911eb88520e336e8e1abf9ea2d0bfcbb/invoke.js"></script>
-
 
 </body>
 </html>
