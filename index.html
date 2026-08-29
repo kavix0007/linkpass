@@ -1,1957 +1,1342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 
-<title>LinkHarbor — Your link is on the way</title>
+<title>Download APK - AFTER MOTION Z</title>
 
 <style>
 
 :root{
-  --indigo:#4338ca;
-  --indigo-deep:#3730a3;
-  --sky:#38bdf8;
-  --fuchsia:#d946ef;
-  --bg:#f3f5fb;
-  --card:#ffffff;
-  --line:#e6e9f2;
-  --ink:#1f2430;
-  --muted:#6b7180;
-  --muted-soft:#9aa0ae;
-  --gold:#e2a53a;
-  --font:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --bg:#eef1f7;
+  --card-bg:#ffffff;
+  --text-primary:#1a1f36;
+  --text-secondary:#6b7280;
+  --accent:#3457ff;
+  --accent-dark:#2340d9;
+  --accent-light:#e8ecff;
+  --border:#e5e8f0;
+  --radius-lg:16px;
+  --radius-md:12px;
+  --shadow:0 4px 20px rgba(20,30,70,0.08);
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   background:var(--bg);
-  color:var(--ink);
-  font-family:var(--font);
+  color:var(--text-primary);
+  line-height:1.6;
+}
+
+.container{
+  max-width:560px;
+  margin:0 auto;
+  padding:24px 16px 60px;
+}
+
+
+/* ==================================================
+   POPUP AD
+================================================== */
+
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:99999;
+}
+
+.popup-box{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  background:#fff;
+  border-radius:16px;
+  padding:38px 20px 20px;
+  text-align:center;
+  box-shadow:0 15px 50px rgba(0,0,0,.3);
+}
+
+.popup-close{
+  position:absolute;
+  top:8px;
+  right:10px;
+  width:32px;
+  height:32px;
+  border:none;
+  border-radius:50%;
+  background:#eef1f7;
+  color:#333;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.popup-label{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-bottom:10px;
+}
+
+
+/* ==================================================
+   ADS
+================================================== */
+
+.ad{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:18px;
+  margin:20px 0;
+  text-align:center;
+  min-height:90px;
+}
+
+.ad-label{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  display:block;
+  margin-bottom:10px;
+}
+
+
+/* ==================================================
+   PAGE SECTIONS
+================================================== */
+
+.page{
   min-height:100vh;
   display:flex;
   flex-direction:column;
-}
-
-a{color:inherit}
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    animation-duration:.001ms!important;
-    transition-duration:.001ms!important;
-  }
-}
-
-/* PROGRESS */
-
-.progress-wrap{
-  display:flex;
   justify-content:center;
-  padding:22px 18px 4px;
+  padding:40px 0;
 }
 
-.progress{
-  display:flex;
-  align-items:center;
-  gap:6px;
+.page + .page{
+  border-top:1px solid transparent;
 }
 
-.progress .seg{
-  width:30px;
-  height:4px;
-  background:var(--line);
-  border-radius:3px;
-  position:relative;
-  overflow:hidden;
-}
 
-.progress .seg.done{
-  background:var(--indigo);
-}
+/* ==================================================
+   SCROLL BUTTON
+================================================== */
 
-.progress .seg.current::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:var(--fuchsia);
-  width:var(--fill,0%);
-  transition:width .2s linear;
-}
-
-.progress .step-num{
-  font-size:11px;
-  font-weight:700;
-  color:var(--muted-soft);
-  margin-left:8px;
-}
-
-/* SHARE */
-
-.share-bar{
-  display:flex;
-  justify-content:center;
-  padding:2px 18px 0;
-}
-
-.share-btn{
-  font-family:var(--font);
-  font-size:12.5px;
-  font-weight:800;
-  background:#fff;
-  border:1px solid var(--indigo);
-  color:var(--indigo);
-  padding:9px 18px;
-  border-radius:999px;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  transition:background .2s,color .2s;
-}
-
-.share-btn:hover{
-  background:var(--indigo);
-  color:#fff;
-}
-
-.share-btn.copied{
-  background:#1a8a4c;
-  border-color:#1a8a4c;
-  color:#fff;
-}
-
-/* MAIN */
-
-main{
-  flex-grow:1;
-  display:flex;
-  justify-content:center;
-  padding:20px 18px 40px;
-}
-
-.col{
+.scroll-btn{
   width:100%;
-  max-width:1000px;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+  padding:15px;
+  margin-bottom:20px;
+  font-size:15px;
+  font-weight:600;
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  background:var(--card-bg);
+  color:var(--text-primary);
+  cursor:pointer;
+  transition:.2s;
 }
+
+.scroll-btn:hover{
+  background:#f8f9fc;
+  border-color:var(--accent);
+}
+
+
+/* ==================================================
+   MAIN APP CARD
+================================================== */
 
 .card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:30px 28px;
-  box-shadow:
-    0 1px 2px rgba(30,35,60,.04),
-    0 8px 24px rgba(30,35,60,.05);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:40px 24px;
+  text-align:center;
+  box-shadow:var(--shadow);
 }
 
-.eyebrow{
-  font-size:11.5px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--fuchsia);
-  margin-bottom:8px;
+.icon{
+  width:100px;
+  height:100px;
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  border-radius:24px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  color:#fff;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(52,87,255,.25);
 }
 
 h1{
-  font-size:clamp(22px,3.6vw,28px);
-  font-weight:800;
-  margin:0 0 8px;
+  margin-top:20px;
+  font-size:26px;
+  font-weight:700;
 }
 
-.sub{
-  color:var(--muted);
-  font-size:14.5px;
-  line-height:1.6;
-  margin:0 0 26px;
-  max-width:50ch;
-}
-
-/* ADS */
-
-.banners{
-  width:100%;
-  margin-bottom:26px;
-}
-
-.ad-row{
-  width:100%;
+.meta{
+  color:var(--text-secondary);
+  margin-top:8px;
+  font-size:14px;
   display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.ad-slot{
-  display:flex;
-  flex-direction:column;
   align-items:center;
+  justify-content:center;
   gap:8px;
 }
 
-.ad-box{
-  width:300px;
-  min-width:300px;
-  height:250px;
-  min-height:250px;
+.dot{
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--text-secondary);
+}
+
+
+/* ==================================================
+   SECTION CARDS
+================================================== */
+
+.section-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:28px 22px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+
+.section-title{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.section-text{
+  color:var(--text-secondary);
+  font-size:15px;
+}
+
+
+/* ==================================================
+   FEATURES
+================================================== */
+
+.feature{
   display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  background:#fafbfe;
-  border:1px dashed #d9ddea;
-  border-radius:10px;
+  gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
 }
 
-.ad-box iframe{
-  max-width:100%;
-  border:0;
+.feature:last-child{
+  border-bottom:none;
 }
 
-.ad-hint{
-  font-size:11.5px;
-  font-weight:800;
-  color:var(--indigo);
-  background:rgba(67,56,202,.08);
-  border-radius:999px;
-  padding:6px 12px;
-  white-space:nowrap;
-}
-
-.ad-hint.pending{
-  color:#fff;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
-  animation:pulseHint 1.4s ease-in-out infinite;
-}
-
-@keyframes pulseHint{
-  0%,100%{opacity:1}
-  50%{opacity:.6}
-}
-
-.native-ad-wrap{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:18px 0 4px;
-  overflow:hidden;
-}
-
-.native-ad{
-  width:100%;
-  max-width:640px;
-  min-height:100px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-}
-
-.ad-box-small{
-  width:320px;
-  min-width:320px;
-  height:50px;
-  min-height:50px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  background:#fafbfe;
-  border:1px dashed #d9ddea;
-  border-radius:8px;
-  margin:0 auto;
-}
-
-
-.ad-label{
-  font-size:10px;
-  color:var(--muted-soft);
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:2px;
-}
-
-/* TIMER */
-
-.gate-action{
-  padding-top:22px;
-  border-top:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
-
-.timer-wrap{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.ring{
+.feature-icon{
   width:42px;
   height:42px;
-  transform:rotate(-90deg);
-}
-
-.ring circle{
-  fill:none;
-  stroke-width:3.5;
-}
-
-.ring .bg{
-  stroke:var(--line);
-}
-
-.ring .fg{
-  stroke:var(--fuchsia);
-  stroke-linecap:round;
-  stroke-dasharray:113;
-  stroke-dashoffset:113;
-  transition:stroke-dashoffset 1s linear;
-}
-
-.timer-text{
-  font-size:12px;
-  color:var(--muted);
-  line-height:1.4;
-}
-
-.timer-text b{
-  display:block;
-  font-size:15px;
-  color:var(--ink);
-}
-
-.fallback-link{
-  font-size:11.5px;
-  color:var(--indigo-deep);
-  text-decoration:underline;
-  cursor:pointer;
-  font-weight:700;
-  margin-top:6px;
-  display:inline-block;
-}
-
-button.next,
-.cta-btn{
-  font-family:var(--font);
-  font-size:13.5px;
-  font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
-  color:#fff;
-  border:none;
-  padding:13px 26px;
-  border-radius:999px;
-  cursor:not-allowed;
-  opacity:.35;
-  transition:opacity .25s,transform .15s;
-}
-
-button.next.ready,
-.cta-btn.ready{
-  cursor:pointer;
-  opacity:1;
-}
-
-button.next.ready:hover,
-.cta-btn.ready:hover{
-  transform:translateY(-1px);
-}
-
-/* ARTICLE */
-
-.divider-label{
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--muted-soft);
-  margin-bottom:14px;
-}
-
-.article h3{
-  font-size:19px;
-  font-weight:800;
-  margin:0 0 6px;
-}
-
-.article .byline{
-  font-size:12px;
-  color:var(--muted-soft);
-  font-weight:600;
-  margin-bottom:12px;
-}
-
-.article p{
-  font-size:13.5px;
-  line-height:1.75;
-  color:var(--muted);
-  margin:0;
-}
-
-/* FINAL PAGE */
-
-.final-card{
-  text-align:center;
-  padding:36px 30px;
-}
-
-.final-card h1{
-  font-size:24px;
-}
-
-.final-card .sub{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.get-link-btn{
-  font-family:var(--font);
-  font-size:14px;
-  font-weight:800;
-  background:linear-gradient(
-    100deg,
-    var(--indigo),
-    var(--fuchsia)
-  );
-  color:#fff;
-  border:none;
-  padding:15px 40px;
-  border-radius:999px;
-  cursor:not-allowed;
-  opacity:.35;
-  margin:6px 0 4px;
-  transition:opacity .25s,transform .15s;
-}
-
-.get-link-btn.ready{
-  cursor:pointer;
-  opacity:1;
-}
-
-.get-link-btn.ready:hover{
-  transform:translateY(-1px);
-}
-
-/* SPONSOR */
-
-.sponsor-block{
-  text-align:center;
-  padding:20px 0 0;
-}
-
-.sponsor-block .lbl{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.04em;
-  color:var(--muted);
-  margin-bottom:12px;
-}
-
-.sponsor-pill{
-  display:inline-flex;
+  flex-shrink:0;
+  border-radius:12px;
+  background:var(--accent-light);
+  color:var(--accent);
+  display:flex;
   align-items:center;
-  gap:8px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:9px 18px;
+  justify-content:center;
+  font-size:20px;
   font-weight:700;
-  font-size:14px;
-  color:var(--ink);
-  background:#fff;
 }
 
-.sponsor-pill .dot{
-  width:20px;
-  height:20px;
+.feature h3{
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+.feature p{
+  color:var(--text-secondary);
+  font-size:13px;
+}
+
+
+/* ==================================================
+   INFO GRID
+================================================== */
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:18px;
+}
+
+.info-box{
+  background:#f8f9fc;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+}
+
+.info-label{
+  font-size:11px;
+  color:var(--text-secondary);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.info-value{
+  font-size:15px;
+  font-weight:700;
+  margin-top:4px;
+}
+
+
+/* ==================================================
+   INSTALLATION STEPS
+================================================== */
+
+.step{
+  display:flex;
+  gap:14px;
+  margin:18px 0;
+}
+
+.step-number{
+  width:36px;
+  height:36px;
   border-radius:50%;
-  background:var(--gold);
-  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  flex-shrink:0;
 }
 
-.become-sponsor{
-  display:block;
-  text-align:center;
-  background:linear-gradient(
-    100deg,
-    var(--sky),
-    var(--indigo)
-  );
-  color:#fff;
-  font-weight:800;
+.step-content h3{
+  font-size:16px;
+}
+
+.step-content p{
+  color:var(--text-secondary);
   font-size:14px;
+  margin-top:3px;
+}
+
+
+/* ==================================================
+   DOWNLOAD SECTION
+================================================== */
+
+.download-section{
+  margin-top:20px;
+}
+
+.download-btn{
+  width:100%;
+  padding:17px;
+  font-size:16px;
+  font-weight:700;
+  border:none;
+  border-radius:var(--radius-md);
+  background:var(--accent);
+  color:#fff;
+  opacity:.55;
+  cursor:not-allowed;
+  transition:.2s;
+}
+
+.download-btn.ready{
+  opacity:1;
+  cursor:pointer;
+}
+
+.download-btn.ready:hover{
+  background:var(--accent-dark);
+  transform:translateY(-1px);
+}
+
+.progress-track{
+  margin-top:16px;
+  height:6px;
+  border-radius:999px;
+  background:var(--accent-light);
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:var(--accent);
+  border-radius:999px;
+  transition:width 1s linear;
+}
+
+.status{
+  margin-top:12px;
+  font-size:14px;
+  color:var(--text-secondary);
+  text-align:center;
+}
+
+
+/* ==================================================
+   WARNING
+================================================== */
+
+.notice{
   padding:16px;
   border-radius:12px;
-  text-decoration:none;
-}
-
-/* FINAL LINK */
-
-.final-link-box{
-  margin-top:22px;
-  border:1px solid #c9f0d8;
-  background:#f2fbf6;
-  border-radius:12px;
-  padding:18px 20px;
-  text-align:left;
-}
-
-.final-link-box .tag2{
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#1a8a4c;
-  margin-bottom:8px;
-  display:block;
-}
-
-.link-row{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.link-field{
-  flex-grow:1;
-  font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+  background:var(--accent-light);
+  color:var(--text-primary);
   font-size:13px;
-  color:var(--ink);
-  background:#fff;
-  border:1px solid var(--line);
-  padding:11px 13px;
-  border-radius:8px;
-  word-break:break-all;
-  min-width:180px;
+  margin-top:18px;
 }
 
-.copy-btn{
-  font-family:var(--font);
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer{
+  text-align:center;
+  margin-top:35px;
   font-size:12px;
-  font-weight:700;
-  background:#fff;
-  border:1px solid var(--indigo);
-  color:var(--indigo);
-  padding:10px 14px;
-  border-radius:8px;
-  cursor:pointer;
+  color:var(--text-secondary);
 }
 
-.copy-btn:hover{
-  background:var(--indigo);
-  color:#fff;
-}
 
-.go-link{
-  display:inline-block;
-  margin-top:12px;
-  font-weight:800;
-  font-size:13.5px;
-  color:#fff;
-  background:#1a8a4c;
-  padding:11px 22px;
-  border-radius:999px;
-  text-decoration:none;
-}
+/* ==================================================
+   MOBILE
+================================================== */
 
-/* MOBILE */
+@media(max-width:400px){
 
-@media(max-width:950px){
-  .col{
-    max-width:660px;
+  .container{
+    padding-left:12px;
+    padding-right:12px;
   }
-}
-
-@media(max-width:480px){
 
   .card{
-    padding:22px 18px;
+    padding:32px 18px;
   }
 
-  .gate-action{
-    justify-content:center;
-    text-align:center;
+  h1{
+    font-size:22px;
   }
 
-  .ad-box{
-    width:300px;
-    min-width:300px;
-    max-width:100%;
+  .section-title{
+    font-size:20px;
   }
 
-  .ad-hint{
-    white-space:normal;
-    text-align:center;
-  }
-
-  .ad-box-small{
-    width:320px;
-    max-width:100%;
-    min-width:0;
+  .info-grid{
+    grid-template-columns:1fr;
   }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="progress-wrap">
-  <div class="progress" id="progress"></div>
+
+<!-- ==================================================
+     POPUP AD
+================================================== -->
+
+<div id="popupAd" class="popup-overlay">
+
+  <div class="popup-box">
+
+    <button
+      class="popup-close"
+      onclick="closePopupAd()"
+      aria-label="Close advertisement">
+
+      ×
+
+    </button>
+
+    <div class="popup-label">
+      Advertisement
+    </div>
+
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+
+  </div>
+
 </div>
 
-<div class="share-bar">
-  <button class="share-btn" id="shareBtn">
-    🔗 Share with a friend
+
+<div class="container">
+
+
+<!-- ==================================================
+     PAGE 1 — APP OVERVIEW
+================================================== -->
+
+<section class="page" id="page1">
+
+  <button
+    class="scroll-btn"
+    onclick="scrollToPage('page2')">
+
+    ↓ Explore app information
+
   </button>
-</div>
 
-<main>
-  <div class="col" id="col"></div>
-</main>
 
+  <div class="ad">
 
-<script>
-(function(){
+    <span class="ad-label">
+      Advertisement
+    </span>
 
-/* =========================================
-   SETTINGS
-========================================= */
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
 
-const LINKS = {
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
 
-  shadowfight:{
-    name:"Shadow Fight",
-    url:"https://www.mediafire.com/file/ssajsygpv3pyh8j/Shadow_fight_2_All_Sets_Unlocked.zip/file"
-  },
+  </div>
 
-  aftermotionz:{
-    name:"After Motion Z",
-    url:"https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file"
-  }
 
-};
+  <div class="card">
 
-const DEFAULT_LINK_ID = "aftermotionz";
+    <div class="icon" id="appIcon">
+      A
+    </div>
 
-const TELEGRAM_CONTACT =
-  "https://t.me/I7XKAVI";
+    <h1 id="appName">
+      AFTER MOTION Z
+    </h1>
 
-const TOTAL_PAGES = 6;
+    <div class="meta">
 
-const WAIT_SECONDS = 30;
+      <span>
+        Version
+        <span id="version">
+          1.0
+        </span>
+      </span>
 
+      <span class="dot"></span>
 
-/* =========================================
-   AD SETTINGS
-========================================= */
+      <span id="size">
+        90 MB
+      </span>
 
-/*
-  HIGH PERFORMANCE FORMAT
-  300x250
-*/
+    </div>
 
-const BANNER_300_KEY =
-  "9cdff28b0ec7fcdc1fe4edd36bd3054b";
+  </div>
 
 
-/*
-  HIGH PERFORMANCE FORMAT
-  320x50
-*/
+  <div class="section-card">
 
-const BANNER_320_KEY =
-  "eee5199c1ecc4b17f86952845c3e0047";
+    <h2 class="section-title">
+      About This APK
+    </h2>
 
+    <p class="section-text">
 
-/*
-  EFFECTIVE CPM NETWORK
+      AFTER MOTION Z is available for Android devices.
+      Use the information below to learn more about the
+      application before downloading and installing it.
 
-  These are script-based ads.
-*/
+    </p>
 
-const EFFECTIVE_AD_1 =
-  "https://pl30831904.effectivecpmnetwork.com/3f/18/1f/3f181fbc97af489eb8d633435f071dea.js";
+  </div>
 
-const EFFECTIVE_AD_2 =
-  "https://pl30832087.effectivecpmnetwork.com/42/63/d3/4263d332b865afacfb5d6b51c56a47cd.js";
 
+  <div class="ad">
 
-/*
-  EFFECTIVE CPM NATIVE / CONTAINER AD
-*/
+    <span class="ad-label">
+      Advertisement
+    </span>
 
-const NATIVE_AD_SRC =
-  "https://pl30871453.effectivecpmnetwork.com/a549fb62393598b06f06295e77e8118b/invoke.js";
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
 
-const NATIVE_AD_CONTAINER =
-  "container-a549fb62393598b06f06295e77e8118b";
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
 
+  </div>
 
-/* =========================================
-   ARTICLES
-========================================= */
+</section>
 
-const articles = [
 
-{
-  title:"Why waiting rooms became the internet's last honest interface",
-  byline:"Field Notes · 4 min read",
-  body:"Somewhere between the pop-up and the paywall, a quieter pattern took hold: the gate. Not a lock exactly — more a turnstile, asking for a moment of attention before letting you through. The gate makes that trade explicit instead of hiding it."
-},
+<!-- ==================================================
+     PAGE 2 — INFORMATION & FEATURES
+================================================== -->
 
-{
-  title:"The thirty-second unit",
-  byline:"Notes on Attention · 3 min read",
-  body:"Thirty seconds is short enough to not feel like a toll, and long enough for a glance to become a read. It's roughly the time it takes a kettle to start singing — long enough to matter, short enough to not mind."
-},
+<section class="page" id="page2">
 
-{
-  title:"A short history of the link locker",
-  byline:"Archive · 5 min read",
-  body:"Long before shortened URLs were common, forum users traded direct download links behind simple gates — partly to fund server costs, partly to slow down bots. The format barely changed in twenty years: a countdown, a banner, a reveal."
-},
+  <div class="section-card">
 
-{
-  title:"On the etiquette of the almost-there page",
-  byline:"Field Notes · 3 min read",
-  body:"The best gate pages share one habit: they tell you exactly what's coming and how long it takes. A visible timer, a visible step count, and a visible end point are the whole trick — everything else is decoration."
-},
+    <h2 class="section-title">
+      App Information
+    </h2>
 
-{
-  title:"What actually happens in the last thirty seconds",
-  byline:"Notes on Attention · 4 min read",
-  body:"This is the step where the countdown stops being a formality and starts being an ending. Once it runs out, the flow moves to the final unlock page — no further ad steps after this one."
-}
+    <p class="section-text">
+      Check the basic package information before continuing
+      to the download section.
+    </p>
 
-];
 
+    <div class="info-grid">
 
-/* =========================================
-   STATE
-========================================= */
+      <div class="info-box">
 
-const urlParams =
-  new URLSearchParams(window.location.search);
-
-const requestedPage =
-  parseInt(urlParams.get("step") || "1",10);
-
-const linkId =
-  urlParams.get("id") || DEFAULT_LINK_ID;
-
-const currentLink =
-  LINKS[linkId] || LINKS[DEFAULT_LINK_ID];
-
-const OFFICIAL_LINK =
-  currentLink.url;
-
-const OFFICIAL_LINK_NAME =
-  currentLink.name;
-
-let page =
-  Number.isFinite(requestedPage)
-  ? Math.min(
-      Math.max(requestedPage,1),
-      TOTAL_PAGES
-    )
-  : 1;
-
-let secondsLeft =
-  WAIT_SECONDS;
-
-let timerId = null;
-
-let linkRevealed = false;
-
-let adClicked = false;
-
-let blurHandler = null;
-
-const col =
-  document.getElementById("col");
-
-const progress =
-  document.getElementById("progress");
-
-
-/* =========================================
-   PROGRESS BAR
-========================================= */
-
-function renderProgress(){
-
-  progress.innerHTML = "";
-
-  for(
-    let i=1;
-    i<=TOTAL_PAGES;
-    i++
-  ){
-
-    const seg =
-      document.createElement("div");
-
-    seg.className =
-      "seg" +
-      (
-        i < page
-        ? " done"
-        : (
-            i === page
-            ? " current"
-            : ""
-          )
-      );
-
-    if(i === page){
-
-      seg.style.setProperty(
-        "--fill",
-        "0%"
-      );
-
-      seg.id =
-        "segCurrent";
-    }
-
-    progress.appendChild(seg);
-  }
-
-  const num =
-    document.createElement("div");
-
-  num.className =
-    "step-num";
-
-  num.textContent =
-    "STEP " +
-    page +
-    " / " +
-    TOTAL_PAGES;
-
-  progress.appendChild(num);
-}
-
-
-/* =========================================
-   LOAD 300x250 AD
-========================================= */
-
-function load300x250(containerId){
-
-  const container =
-    document.getElementById(containerId);
-
-  if(!container) return;
-
-  container.innerHTML = "";
-
-  const iframe =
-    document.createElement("iframe");
-
-  iframe.style.width =
-    "300px";
-
-  iframe.style.height =
-    "250px";
-
-  iframe.style.border =
-    "0";
-
-  iframe.setAttribute(
-    "scrolling",
-    "no"
-  );
-
-  iframe.setAttribute(
-    "frameborder",
-    "0"
-  );
-
-  container.appendChild(iframe);
-
-  const doc =
-    iframe.contentWindow.document;
-
-  doc.open();
-
-  doc.write(
-    "<!DOCTYPE html>" +
-    "<html><head>" +
-    "<style>" +
-    "*{margin:0;padding:0}" +
-    "html,body{width:300px;height:250px;overflow:hidden}" +
-    "</style>" +
-    "</head><body>" +
-
-    "<script>" +
-
-    "atOptions={" +
-
-    "'key':'" +
-    BANNER_300_KEY +
-    "'," +
-
-    "'format':'iframe'," +
-
-    "'height':250," +
-
-    "'width':300," +
-
-    "'params':{}" +
-
-    "};" +
-
-    "</" +
-    "script>" +
-
-    "<script src='https://www.highperformanceformat.com/" +
-    BANNER_300_KEY +
-    "/invoke.js'>" +
-    "</" +
-    "script>" +
-
-    "</body></html>"
-  );
-
-  doc.close();
-}
-
-
-/* =========================================
-   LOAD 320x50 AD
-========================================= */
-
-function load320x50(){
-
-  const container =
-    document.getElementById("finalAd");
-
-  if(!container) return;
-
-  container.innerHTML = "";
-
-  const iframe =
-    document.createElement("iframe");
-
-  iframe.style.width =
-    "320px";
-
-  iframe.style.height =
-    "50px";
-
-  iframe.style.border =
-    "0";
-
-  iframe.setAttribute(
-    "scrolling",
-    "no"
-  );
-
-  iframe.setAttribute(
-    "frameborder",
-    "0"
-  );
-
-  container.appendChild(iframe);
-
-  const doc =
-    iframe.contentWindow.document;
-
-  doc.open();
-
-  doc.write(
-    "<!DOCTYPE html>" +
-    "<html><head>" +
-    "<style>" +
-    "*{margin:0;padding:0}" +
-    "html,body{width:320px;height:50px;overflow:hidden}" +
-    "</style>" +
-    "</head><body>" +
-
-    "<script>" +
-
-    "atOptions={" +
-
-    "'key':'" +
-    BANNER_320_KEY +
-    "'," +
-
-    "'format':'iframe'," +
-
-    "'height':50," +
-
-    "'width':320," +
-
-    "'params':{}" +
-
-    "};" +
-
-    "</" +
-    "script>" +
-
-    "<script src='https://www.highperformanceformat.com/" +
-    BANNER_320_KEY +
-    "/invoke.js'>" +
-    "</" +
-    "script>" +
-
-    "</body></html>"
-  );
-
-  doc.close();
-}
-
-
-/* =========================================
-   LOAD NATIVE AD
-========================================= */
-
-function loadNativeAd(){
-
-  const container =
-    document.getElementById(
-      NATIVE_AD_CONTAINER
-    );
-
-  if(!container) return;
-
-  if(
-    document.querySelector(
-      'script[src="' +
-      NATIVE_AD_SRC +
-      '"]'
-    )
-  ){
-    return;
-  }
-
-  const script =
-    document.createElement("script");
-
-  script.async =
-    true;
-
-  script.setAttribute(
-    "data-cfasync",
-    "false"
-  );
-
-  script.src =
-    NATIVE_AD_SRC;
-
-  container.appendChild(script);
-}
-
-
-/* =========================================
-   LOAD ALL ADS
-========================================= */
-
-function loadAllAds(){
-
-  loadNativeAd();
-
-  load300x250("ad1");
-
-  load300x250("ad2");
-
-  load300x250("ad3");
-}
-
-
-/* =========================================
-   LOAD FINAL ADS
-========================================= */
-
-function loadFinalAds(){
-
-  load320x50();
-
-  loadNativeAd();
-}
-
-
-/* =========================================
-   AD HTML
-========================================= */
-
-function getAdsHTML(){
-
-  return `
-
-    <div class="banners">
-
-      <div class="ad-row">
-
-        <div class="ad-slot">
-          <div class="ad-label">Advertisement</div>
-
-          <div
-            class="ad-hint pending"
-            id="adHint"
-          >
-            ⏳ Your link is unlocking — please wait 30 seconds
-          </div>
-
-          <div
-            class="ad-box"
-            id="ad1"
-          ></div>
-
+        <div class="info-label">
+          Application
         </div>
 
-        <div
-          class="ad-box"
-          id="ad2"
-        ></div>
-
-        <div
-          class="ad-box"
-          id="ad3"
-        ></div>
-
-      </div>
-
-    </div>
-
-    <div class="native-ad-wrap">
-
-      <div class="native-ad">
-
-        <div
-          id="${NATIVE_AD_CONTAINER}"
-        ></div>
-
-      </div>
-
-    </div>
-
-  `;
-}
-
-
-/* =========================================
-   STANDARD PAGE
-========================================= */
-
-function renderStandardPage(){
-
-  const article =
-    articles[
-      Math.min(
-        page - 1,
-        articles.length - 1
-      )
-    ];
-
-  col.innerHTML = `
-
-    <div class="card">
-
-      <div class="eyebrow">
-        Step ${page} of ${TOTAL_PAGES}
-      </div>
-
-      <h1>
-        Getting your link ready
-      </h1>
-
-      <p class="sub">
-        A short wait keeps this page free to run.
-        Your link continues on the next step.
-      </p>
-
-      ${getAdsHTML()}
-
-      <div class="gate-action">
-
-        <div class="timer-wrap">
-
-          <svg
-            class="ring"
-            viewBox="0 0 42 42"
-          >
-
-            <circle
-              class="bg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-            <circle
-              class="fg"
-              id="ringFg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-          </svg>
-
-          <div class="timer-text">
-
-            <b id="secText">
-              30s
-            </b>
-
-            <span id="timerLabel">
-              to start the timer
-            </span>
-
-          </div>
-
+        <div class="info-value" id="infoName">
+          AFTER MOTION Z
         </div>
 
-        <button
-          class="next"
-          id="nextBtn"
-        >
-          Continue →
-        </button>
+      </div>
+
+
+      <div class="info-box">
+
+        <div class="info-label">
+          Version
+        </div>
+
+        <div class="info-value" id="infoVersion">
+          -10-aug
+        </div>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <div class="info-label">
+          File Size
+        </div>
+
+        <div class="info-value" id="infoSize">
+          90 MB
+        </div>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <div class="info-label">
+          Format
+        </div>
+
+        <div class="info-value">
+          APK
+        </div>
 
       </div>
 
     </div>
 
+  </div>
 
-    <div class="card article-card">
 
-      <div class="divider-label">
-        From the blog
+  <div class="section-card">
+
+    <h2 class="section-title">
+      Highlights
+    </h2>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        ✓
       </div>
 
-      <div class="article">
+      <div>
 
         <h3>
-          ${article.title}
+          Android APK
         </h3>
 
-        <div class="byline">
-          ${article.byline}
-        </div>
-
         <p>
-          ${article.body}
+          Download the application in APK format for Android.
         </p>
 
       </div>
 
     </div>
 
-  `;
 
+    <div class="feature">
 
-  loadAllAds();
-
-
-  document
-    .getElementById("nextBtn")
-    .addEventListener(
-      "click",
-      function(){
-
-        if(secondsLeft > 0)
-          return;
-
-        const nextPage =
-          Math.min(
-            page + 1,
-            TOTAL_PAGES
-          );
-
-        const nextUrl =
-          new URL(
-            window.location.href
-          );
-
-        nextUrl.searchParams.set(
-          "step",
-          String(nextPage)
-        );
-
-        window.location.href =
-          nextUrl.toString();
-
-      }
-    );
-
-
-  waitForAdClick(
-    updateStandardTimerUI
-  );
-}
-
-
-/* =========================================
-   FINAL PAGE
-========================================= */
-
-function renderFinalPage(){
-
-  col.innerHTML = `
-
-    <div class="card final-card">
-
-      <div class="eyebrow">
-        Step ${TOTAL_PAGES} of ${TOTAL_PAGES}
+      <div class="feature-icon">
+        ✓
       </div>
 
-      <h1>
-        Almost there!
-      </h1>
+      <div>
 
-      <p class="sub">
-        Thanks for your patience.
-      </p>
+        <h3>
+          Easy Installation
+        </h3>
 
-
-      <div
-        class="ad-box-small"
-        id="finalAd"
-      ></div>
-
-
-      <div
-        class="ad-hint pending"
-        id="adHint"
-        style="margin-top:10px;"
-      >
-        ⏳ Please wait 30 seconds to unlock your link
-      </div>
-
-
-      <button
-        class="get-link-btn"
-        id="getLinkBtn"
-      >
-        Get Link
-      </button>
-
-
-      <div style="margin-top:14px;">
-
-        <div
-          class="timer-wrap"
-          style="justify-content:center;"
-        >
-
-          <svg
-            class="ring"
-            viewBox="0 0 42 42"
-          >
-
-            <circle
-              class="bg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-            <circle
-              class="fg"
-              id="ringFg"
-              cx="21"
-              cy="21"
-              r="18"
-            ></circle>
-
-          </svg>
-
-          <div class="timer-text">
-
-            <b id="secText">
-              30s
-            </b>
-
-            <span id="timerLabel">
-              to start the timer
-            </span>
-
-            <a
-              class="fallback-link"
-              id="fallbackLink"
-            >
-              Already clicked? Continue
-            </a>
-
-          </div>
-
-        </div>
+        <p>
+          Follow the installation instructions provided below.
+        </p>
 
       </div>
-
-
-      <div class="sponsor-block">
-
-        <div class="lbl">
-          SPONSORED BY
-        </div>
-
-        <span class="sponsor-pill">
-
-          <span class="dot"></span>
-
-          show your brand like this
-
-        </span>
-
-      </div>
-
-
-      <div
-        class="native-ad-wrap"
-        style="margin-top:20px;"
-      >
-
-        <div class="native-ad">
-
-          <div
-            id="${NATIVE_AD_CONTAINER}"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-      <div id="finalLinkArea"></div>
 
     </div>
 
 
-    <div class="card">
+    <div class="feature">
 
-      <a
-        class="become-sponsor"
-        href="${TELEGRAM_CONTACT}"
-        target="_blank"
-        rel="noopener"
-      >
-        Become a Sponsor!
-      </a>
+      <div class="feature-icon">
+        ✓
+      </div>
+
+      <div>
+
+        <h3>
+          Direct Download
+        </h3>
+
+        <p>
+          The download button will become available after
+          the preparation timer finishes.
+        </p>
+
+      </div>
 
     </div>
 
-  `;
+  </div>
 
 
-  loadFinalAds();
+  <div class="ad">
+
+    <span class="ad-label">
+      Advertisement
+    </span>
+
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+
+  </div>
 
 
-  const getLinkBtn =
-    document.getElementById(
-      "getLinkBtn"
-    );
+  <button
+    class="scroll-btn"
+    onclick="scrollToPage('page3')">
+
+    ↓ Continue to installation
+
+  </button>
+
+</section>
 
 
-  getLinkBtn.addEventListener(
-    "click",
-    function(){
+<!-- ==================================================
+     PAGE 3 — INSTALLATION
+================================================== -->
 
-      if(
-        secondsLeft > 0 ||
-        linkRevealed
-      ){
-        return;
-      }
+<section class="page" id="page3">
 
-      linkRevealed = true;
-       recordMetric("link_reveal");
+  <div class="section-card">
+
+    <h2 class="section-title">
+      How To Install
+    </h2>
+
+    <p class="section-text">
+      Follow these steps after the APK has been downloaded.
+    </p>
 
 
-      document.getElementById(
-        "finalLinkArea"
-      ).innerHTML = `
+    <div class="step">
 
-        <div class="final-link-box">
+      <div class="step-number">
+        1
+      </div>
 
-          <span class="tag2">
-            Official destination
-          </span>
+      <div class="step-content">
 
-          <div class="link-row">
+        <h3>
+          Download the APK
+        </h3>
 
-            <div class="link-field">
-              ${OFFICIAL_LINK}
-            </div>
+        <p>
+          Use the download button on the final section
+          to obtain the APK file.
+        </p>
 
-            <button
-              class="copy-btn"
-              id="copyBtn"
-            >
-              Copy
-            </button>
+      </div>
 
-          </div>
+    </div>
 
-          <a
-            class="go-link"
-            href="${OFFICIAL_LINK}"
-            target="_blank"
-            rel="noopener"
-          >
-            Continue to link →
-          </a>
 
+    <div class="step">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <div class="step-content">
+
+        <h3>
+          Open the APK
+        </h3>
+
+        <p>
+          Locate the downloaded APK file on your Android
+          device and open it.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <div class="step-content">
+
+        <h3>
+          Allow Installation
+        </h3>
+
+        <p>
+          If Android asks for permission to install an APK
+          from your browser or file manager, allow it.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        4
+      </div>
+
+      <div class="step-content">
+
+        <h3>
+          Install
+        </h3>
+
+        <p>
+          Follow the Android installation screen until
+          the application has been installed.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-card">
+
+    <h2 class="section-title">
+      Before Installing
+    </h2>
+
+    <p class="section-text">
+
+      Make sure your device has enough available storage
+      and that the downloaded file is compatible with your
+      Android version.
+
+    </p>
+
+
+    <div class="notice">
+
+      Always download APK files from sources you trust and
+      review Android's security warnings before installing.
+
+    </div>
+
+  </div>
+
+
+  <div class="ad">
+
+    <span class="ad-label">
+      Advertisement
+    </span>
+
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+
+  </div>
+
+
+  <button
+    class="scroll-btn"
+    onclick="scrollToPage('page4')">
+
+    ↓ Go to download
+
+  </button>
+
+</section>
+
+
+<!-- ==================================================
+     PAGE 4 — DOWNLOAD
+================================================== -->
+
+<section class="page" id="page4">
+
+  <div class="section-card">
+
+    <h2 class="section-title">
+      Download AFTER MOTION Z
+    </h2>
+
+    <p class="section-text">
+
+      Your download link is being prepared.
+      Please wait for the countdown to finish.
+
+    </p>
+
+  </div>
+
+
+  <div class="ad">
+
+    <span class="ad-label">
+      Advertisement
+    </span>
+
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+
+  </div>
+
+
+  <div class="download-section">
+
+
+    <button
+      id="downloadBtn"
+      class="download-btn"
+      disabled>
+
+      Preparing link (30s)
+
+    </button>
+
+
+    <div class="progress-track">
+
+      <div
+        class="progress-fill"
+        id="progressFill">
+      </div>
+
+    </div>
+
+
+    <div
+      id="statusText"
+      class="status">
+
+      Please wait while your download link is generated…
+
+    </div>
+
+
+  </div>
+
+
+  <div class="ad">
+
+    <span class="ad-label">
+      Advertisement
+    </span>
+
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
+
+  </div>
+
+
+  <div class="section-card">
+
+    <h2 class="section-title">
+      Download Information
+    </h2>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+
+        <div class="info-label">
+          File
         </div>
 
-      `;
+        <div class="info-value">
+          APK
+        </div>
+
+      </div>
 
 
-      const copyBtn =
-        document.getElementById(
-          "copyBtn"
-        );
+      <div class="info-box">
+
+        <div class="info-label">
+          Size
+        </div>
+
+        <div class="info-value">
+          90 MB
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 
-      copyBtn.addEventListener(
-        "click",
-        function(){
+  <div class="ad">
 
-          navigator
-            .clipboard
-            .writeText(
-              OFFICIAL_LINK
-            )
-            .then(
-              function(){
+    <span class="ad-label">
+      Advertisement
+    </span>
 
-                copyBtn.textContent =
-                  "Copied";
+    <script>
+      atOptions = {
+        'key' : 'e7f9b2cd6e1e479d9a09f4a5c9ab7ee2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
 
-                setTimeout(
-                  function(){
+    <script src="https://www.highrevenueformat.com/e7f9b2cd6e1e479d9a09f4a5c9ab7ee2/invoke.js"></script>
 
-                    copyBtn.textContent =
-                      "Copy";
-
-                  },
-                  1400
-                );
-
-              }
-            );
-
-        }
-      );
-
-    }
-  );
+  </div>
 
 
-  waitForAdClick(
-    updateFinalTimerUI
-  );
+  <div class="footer">
+
+    ✓ Verified download page
+
+  </div>
+
+</section>
+
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+/* ==================================================
+   SETTINGS
+================================================== */
+
+const APP_NAME = "AFTER MOTION Z";
+
+const APP_VERSION = "-10-aug";
+
+const APP_SIZE = "90 MB";
+
+const APP_ICON_LETTER = "A";
+
+const DOWNLOAD_URL =
+"https://www.mediafire.com/file/6jebd6yyh2r5kqa/AMZP_ORI_10AUG_FIXED2.apk/file";
+
+const WAIT_SECONDS = 30;
+
+
+/* ==================================================
+   APP INFORMATION
+================================================== */
+
+document.getElementById("appName").textContent =
+APP_NAME;
+
+document.getElementById("version").textContent =
+APP_VERSION;
+
+document.getElementById("size").textContent =
+APP_SIZE;
+
+document.getElementById("appIcon").textContent =
+APP_ICON_LETTER;
+
+document.getElementById("infoName").textContent =
+APP_NAME;
+
+document.getElementById("infoVersion").textContent =
+APP_VERSION;
+
+document.getElementById("infoSize").textContent =
+APP_SIZE;
+
+
+/* ==================================================
+   CLOSE POPUP
+================================================== */
+
+function closePopupAd(){
+
+  document.getElementById("popupAd").style.display =
+  "none";
+
 }
 
 
-/* =========================================
-   RENDER
-========================================= */
+/* ==================================================
+   PAGE NAVIGATION
+================================================== */
 
-function renderPage(){
-  recordMetric("page_view");
+function scrollToPage(id){
 
-  renderProgress();
+  const page =
+  document.getElementById(id);
 
-  linkRevealed =
-    false;
+  if(!page) return;
 
-  if(
-    page === TOTAL_PAGES
-  ){
-
-    renderFinalPage();
-
-  }else{
-
-    renderStandardPage();
-
-  }
+  page.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 
 }
 
 
-/* =========================================
-   AD CLICK GATE
-========================================= */
-
-function waitForAdClick(updateFn){
-
-  clearInterval(timerId);
-
-  secondsLeft = WAIT_SECONDS;
-  adClicked = true;
-
-  const adHint = document.getElementById("adHint");
-  if(adHint){
-    adHint.classList.remove("pending");
-    adHint.textContent = "⏳ Your link is unlocking — please wait";
-  }
-
-  const fallback = document.getElementById("fallbackLink");
-  if(fallback){
-    fallback.style.display = "none";
-  }
-
-  const timerLabel = document.getElementById("timerLabel");
-  if(timerLabel){
-    timerLabel.textContent = "Please wait while the link unlocks";
-  }
-
-  startCountdown(updateFn);
-}
-
-
-/* =========================================
-   TRIGGER TIMER
-========================================= */
-
-function triggerAdClick(updateFn){
-  // Ads are never required to be clicked.
-  // Keep this function only for backward compatibility with older markup.
-  if(secondsLeft <= 0) return;
-}
-
-
-/* =========================================
-   PENDING STATE
-========================================= */
-
-function showPendingState(){
-
-  const secText = document.getElementById("secText");
-  const ringFg = document.getElementById("ringFg");
-  const segCurrent = document.getElementById("segCurrent");
-  const timerLabel = document.getElementById("timerLabel");
-
-  if(secText){
-    secText.textContent = WAIT_SECONDS + "s";
-  }
-
-  if(timerLabel){
-    timerLabel.textContent = "Please wait while the link unlocks";
-  }
-
-  if(ringFg){
-    ringFg.style.strokeDashoffset = "113";
-  }
-
-  if(segCurrent){
-    segCurrent.style.setProperty("--fill","0%");
-  }
-}
-
-
-/* =========================================
+/* ==================================================
    COUNTDOWN
-========================================= */
+================================================== */
 
-function startCountdown(updateFn){
+const btn =
+document.getElementById("downloadBtn");
 
-  clearInterval(timerId);
+const statusText =
+document.getElementById("statusText");
 
-  secondsLeft =
-    WAIT_SECONDS;
+const progressFill =
+document.getElementById("progressFill");
 
-  updateFn();
+let secondsLeft =
+WAIT_SECONDS;
 
 
-  timerId =
-    setInterval(
-      function(){
+/* ==================================================
+   UPDATE UI
+================================================== */
 
-        secondsLeft--;
+function updateUI(){
 
-        updateFn();
+  const elapsed =
+  WAIT_SECONDS - secondsLeft;
 
-
-        if(
-          secondsLeft <= 0
-        ){
-
-          clearInterval(
-            timerId
-          );
-
-        }
-
-      },
-      1000
-    );
-
-}
-
-
-/* =========================================
-   TIMER UI
-========================================= */
-
-function baseTimerUpdate(){
-
-  const clamped =
-    Math.max(
-      secondsLeft,
-      0
-    );
-
-
-  const secText =
-    document.getElementById(
-      "secText"
-    );
-
-  const ringFg =
-    document.getElementById(
-      "ringFg"
-    );
-
-  const segCurrent =
-    document.getElementById(
-      "segCurrent"
-    );
-
-
-  if(secText){
-
-    secText.textContent =
-      clamped > 0
-      ? clamped + "s"
-      : "ready";
-
-  }
-
-
-  const progressPct =
-    1 -
-    (
-      clamped /
-      WAIT_SECONDS
-    );
-
-
-  if(ringFg){
-
-    ringFg.style.strokeDashoffset =
-      (
-        113 -
-        113 * progressPct
-      ).toFixed(1);
-
-  }
-
-
-  if(segCurrent){
-
-    segCurrent.style.setProperty(
-      "--fill",
-      (
-        progressPct * 100
-      ).toFixed(0) +
-      "%"
-    );
-
-  }
-
-
-  return clamped;
-
-}
-
-
-function updateStandardTimerUI(){
-
-  const clamped =
-    baseTimerUpdate();
-
-
-  const nextBtn =
-    document.getElementById(
-      "nextBtn"
-    );
-
-
-  if(
-    clamped <= 0 &&
-    nextBtn
-  ){
-
-    nextBtn.classList.add(
-      "ready"
-    );
-
-  }
-
-}
-
-
-function updateFinalTimerUI(){
-
-  const clamped =
-    baseTimerUpdate();
-
-
-  const getLinkBtn =
-    document.getElementById(
-      "getLinkBtn"
-    );
-
-
-  if(
-    clamped <= 0 &&
-    getLinkBtn
-  ){
-
-    getLinkBtn.classList.add(
-      "ready"
-    );
-
-  }
-
-}
-
-
-/* =========================================
-   SHARE
-========================================= */
-
-function getShareUrl(){
-
-  const shareUrl =
-    new URL(
-      window.location.href
-    );
-
-  shareUrl.searchParams.set(
-    "step",
-    "1"
+  const percent =
+  Math.min(
+    100,
+    Math.round(
+      (elapsed / WAIT_SECONDS) * 100
+    )
   );
 
-  return shareUrl.toString();
+  progressFill.style.width =
+  percent + "%";
+
+
+  if(secondsLeft > 0){
+
+    btn.textContent =
+    `Preparing link (${secondsLeft}s)`;
+
+    statusText.textContent =
+    `Please wait ${secondsLeft} second${secondsLeft === 1 ? "" : "s"}…`;
+
+  }
+
+  else{
+
+    btn.disabled = false;
+
+    btn.classList.add("ready");
+
+    btn.textContent =
+    "Download APK";
+
+    statusText.textContent =
+    "Your download link is ready.";
+
+  }
 
 }
 
 
-const shareBtn =
-  document.getElementById(
-    "shareBtn"
-  );
+/* ==================================================
+   START COUNTDOWN
+================================================== */
+
+updateUI();
+
+const countdown =
+setInterval(() => {
+
+  secondsLeft--;
+
+  if(secondsLeft <= 0){
+
+    clearInterval(countdown);
+
+    secondsLeft = 0;
+
+  }
+
+  updateUI();
+
+},1000);
 
 
-if(shareBtn){
+/* ==================================================
+   DOWNLOAD ACTION
+================================================== */
 
-  shareBtn.addEventListener(
-    "click",
-    function(){
+btn.addEventListener("click",() => {
 
-      const shareUrl =
-        getShareUrl();
+  if(btn.disabled){
 
+    return;
 
-      if(navigator.share){
+  }
 
-        navigator.share({
+  window.location.href =
+  DOWNLOAD_URL;
 
-          title:
-            document.title,
-
-          url:
-            shareUrl
-
-        }).catch(
-          function(){}
-        );
-
-        return;
-
-      }
+});
 
 
-      navigator
-        .clipboard
-        .writeText(
-          shareUrl
-        )
-        .then(
-          function(){
-
-            const original =
-              shareBtn.textContent;
-
-            shareBtn.textContent =
-              "✅ Link copied";
-
-            shareBtn.classList.add(
-              "copied"
-            );
-
-
-            setTimeout(
-              function(){
-
-                shareBtn.textContent =
-                  original;
-
-                shareBtn.classList.remove(
-                  "copied"
-                );
-
-              },
-              1800
-            );
-
-          }
-        );
-
-    }
-  );
-
-}
-
-
-
-/* =========================================
-   LOCAL SESSION METRICS
-   ========================================= */
-function recordMetric(name){
-  try{
-    const key = "linkharbor_" + name;
-    sessionStorage.setItem(key, String((parseInt(sessionStorage.getItem(key) || "0",10) + 1)));
-  }catch(e){}
-}
-
-/* =========================================
-   START
-========================================= */
-
-renderPage();
-
-})();
 </script>
+
+
+<!-- ==================================================
+     BOTTOM 320x50 AD
+================================================== -->
+
+<script>
+
+atOptions = {
+  'key' : '911eb88520e336e8e1abf9ea2d0bfcbb',
+  'format' : 'iframe',
+  'height' : 50,
+  'width' : 320,
+  'params' : {}
+};
+
+</script>
+
+<script src="https://www.highrevenueformat.com/911eb88520e336e8e1abf9ea2d0bfcbb/invoke.js"></script>
+
 
 </body>
 </html>
